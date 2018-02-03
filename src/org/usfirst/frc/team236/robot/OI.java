@@ -7,5 +7,17 @@
 
 package org.usfirst.frc.team236.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
+
 public class OI {
+	public Joystick leftStick;
+	public Joystick rightStick;
+	public Joystick controller;
+	
+	public OI() {
+		leftStick = new Joystick(RobotMap.JoystickMap.LEFT_PORT);
+		rightStick = new Joystick(RobotMap.JoystickMap.RIGHT_PORT);
+		controller = new Joystick(RobotMap.JoystickMap.CONTROLLER_PORT);
+	}
+	
 }
