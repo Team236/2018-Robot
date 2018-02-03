@@ -14,22 +14,18 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 public class Robot extends TimedRobot {
-	
+
 	// Declare OI
 	public static OI oi;
-	
+
 	public static Drive drive = new Drive();
-	
-	// Declare subsystems
 
 	// Declare auto command
 	Command autoCommand;
-	
 	@Override
 	public void robotInit() {
 		oi = new OI();
-		
-		
+
 	}
 
 	@Override

@@ -19,5 +19,5 @@ public class OI {
 		rightStick = new Joystick(RobotMap.JoystickMap.RIGHT_PORT);
 		controller = new Joystick(RobotMap.JoystickMap.CONTROLLER_PORT);
 	}
-	
+
 }
