@@ -7,17 +7,60 @@
 
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.intake.Eject;
+import org.usfirst.frc.team236.robot.commands.intake.Feed;
+import org.usfirst.frc.team236.robot.commands.intake.Intake;
+import org.usfirst.frc.team236.robot.commands.intake.Lower;
+import org.usfirst.frc.team236.robot.commands.intake.Raise;
+
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import lib.oi.LogitechF310;
+import lib.oi.Thrustmaster;
 
 public class OI {
-	public Joystick leftStick;
-	public Joystick rightStick;
-	public Joystick controller;
-	
+	//Sam's classes (Thrustmaser and Logitech310), otherwise need Joystick Class
+	public Thrustmaster leftStick;
+	public Thrustmaster rightStick;
+	public LogitechF310 controller;
+
+	public JoystickButton raise;
+	public JoystickButton lower;
+	public JoystickButton intake;
+	public JoystickButton eject;
+	public JoystickButton feed;
+
 	public OI() {
-		leftStick = new Joystick(RobotMap.JoystickMap.LEFT_PORT);
-		rightStick = new Joystick(RobotMap.JoystickMap.RIGHT_PORT);
-		controller = new Joystick(RobotMap.JoystickMap.CONTROLLER_PORT);
+		/*
+		 * //Only need code below if using Joystick Class (not Sam's classes)
+		 * leftStick = new Joystick(RobotMap.JoystickMap.USB_LEFT); rightStick =
+		 * new Joystick(RobotMap.JoystickMap.USB_RIGHT); controller = new
+		 * Joystick(RobotMap.JoystickMap.USB_CONTROLLER);
+		 * 
+		 * raise = new JoystickButton(controller,
+		 * RobotMap.ControllerMap.RAISE_INTAKE); lower = new
+		 * JoystickButton(controller, RobotMap.ControllerMap.LOWER_INTAKE);
+		 * intake = new JoystickButton(controller,
+		 * RobotMap.ControllerMap.INTAKE_CUBE); eject = new
+		 * JoystickButton(controller, RobotMap.ControllerMap.EJECT_CUBE); feed =
+		 * new JoystickButton(controller, RobotMap.ControllerMap.FEED_CUBE);
+		 * 
+		 * 
+		 * raise.whenPressed(new RaiseIntake()); lower.whenPressed(new
+		 * LowerIntake()); intake.whileHeld(new IntakeCube());
+		 * eject.whileHeld(new EjectCube()); feed.whileHeld(new FeedCube());
+		 */
+
+		leftStick = new Thrustmaster(RobotMap.JoystickMap.USB_LEFT);
+		rightStick = new Thrustmaster(RobotMap.JoystickMap.USB_RIGHT);
+		controller = new LogitechF310(RobotMap.JoystickMap.USB_CONTROLLER);
+
+		controller.y.whenPressed(new Raise());
+		controller.a.whenPressed(new Lower());
+		controller.x.whileHeld(new Intake());
+		controller.b.whileHeld(new Eject());
+		controller.rb.whileHeld(new Feed());
+
 	}
 
 }

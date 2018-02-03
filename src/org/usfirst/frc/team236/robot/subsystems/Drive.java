@@ -1,7 +1,7 @@
 package org.usfirst.frc.team236.robot.subsystems;
 
 import org.usfirst.frc.team236.robot.RobotMap;
-import org.usfirst.frc.team236.robot.commands.DriveWithJoysticks;
+import org.usfirst.frc.team236.robot.commands.drive.DriveWithJoysticks;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -34,9 +34,6 @@ public class Drive extends Subsystem {
 		// set "true" if needed to make encoder reading positive when TalonSRX blinks green
 		leftFrontMaster.setSensorPhase(true);
 		rightFrontMaster.setSensorPhase(false);
-		
-		
-		
 	}
 	
 	public void setLeftSpeed(double speed) {
