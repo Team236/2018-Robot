@@ -33,7 +33,7 @@ public class RobotMap {
 	}
 
 	public static class IntakeMap {
-		public static final int DIO_SENSOR = 0;
+		public static final int DIO_SENSOR = 4;
 		// public static final int FEED_SENSOR_DIO = 1;
 		public static final int SOL_FWD = 0;
 		public static final int SOL_REV = 1;
@@ -41,7 +41,7 @@ public class RobotMap {
 		public static final int PWM_RIGHT_INTAKE = 1;
 		public static final double INTAKE_SPEED = 1;
 		public static final double EJECT_SPEED = -1;
-		public static final double FEED_SPEED = 0.5;
+		public static final double FEED_SPEED = 1;
 		public static final boolean INV_LEFT = false;
 		public static final boolean INV_RIGHT = false;
 
