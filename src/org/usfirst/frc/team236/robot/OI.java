@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.LaunchCycle;
+import org.usfirst.frc.team236.robot.commands.SpitCycle;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
@@ -29,6 +31,9 @@ public class OI {
 	public JoystickButton intake;
 	public JoystickButton eject;
 	public JoystickButton feed;
+	
+	public JoystickButton launch;
+	public JoystickButton spit;
 
 	public OI() {
 		/*
@@ -60,6 +65,9 @@ public class OI {
 		controller.x.whileHeld(new Intake());
 		controller.b.whileHeld(new Eject());
 		controller.rb.whileHeld(new Feed());
+		
+		controller.back.whenPressed(new SpitCycle());
+		controller.start.whenPressed(new LaunchCycle());
 
 	}
 

@@ -46,5 +46,18 @@ public class RobotMap {
 		public static final boolean INV_RIGHT = false;
 
 	}
+	
+	public static class LauncherMap {
+		public static final int SOL_FWD = 2;
+		public static final int SOL_REV = 3;
+		public static final int PWM_TOP_RIGHT = 2;
+		public static final int PWM_TOP_LEFT = 4;
+		public static final int PWM_BOTTOM_RIGHT = 3;
+		public static final int PWM_BOTTOM_LEFT = 5;
+		public static final int PWM_SPITTER = 6;
+		public static final double LAUNCH_SPEED = 1;
+		public static final double SPIT_SPEED = 0.3;
+		
+	}
 
 }
