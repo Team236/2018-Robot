@@ -7,21 +7,21 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class StartSpit extends Command {
+public class Shoot extends Command {
 
-	public StartSpit() {
-		requires(Robot.launcher);
+	public Shoot() {
+		// requires(Robot.launcher);
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+		Robot.launcher.extend();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.launcher.setSpitSpeed();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -31,12 +31,12 @@ public class StartSpit extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.launcher.stopSpit();
+		Robot.launcher.retract();
 	}
 
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		Robot.launcher.stopSpit();
+		Robot.launcher.retract();
 	}
 }

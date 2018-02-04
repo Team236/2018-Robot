@@ -7,8 +7,9 @@
 
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.LaunchCycle;
-import org.usfirst.frc.team236.robot.commands.SpitCycle;
+import org.usfirst.frc.team236.robot.commands.Shoot;
+import org.usfirst.frc.team236.robot.commands.StartLaunch;
+import org.usfirst.frc.team236.robot.commands.StartSpit;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
@@ -31,9 +32,13 @@ public class OI {
 	public JoystickButton intake;
 	public JoystickButton eject;
 	public JoystickButton feed;
-	
+
 	public JoystickButton launch;
 	public JoystickButton spit;
+
+	public JoystickButton startLaunch;
+	public JoystickButton leftPress;
+	public JoystickButton rightPress;
 
 	public OI() {
 		/*
@@ -65,9 +70,13 @@ public class OI {
 		controller.x.whileHeld(new Intake());
 		controller.b.whileHeld(new Eject());
 		controller.rb.whileHeld(new Feed());
-		
-		controller.back.whenPressed(new SpitCycle());
-		controller.start.whenPressed(new LaunchCycle());
+
+		controller.lb.whileHeld(new Shoot());
+
+		controller.start.whileHeld(new StartLaunch());
+		controller.back.whileHeld(new StartSpit());
+		// controller.rightPress.whenPressed(new Extend());
+		// controller.y.whenPressed(new Retract());
 
 	}
 
