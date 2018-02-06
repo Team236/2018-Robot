@@ -7,9 +7,9 @@
 
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.RaiseWinch;
 import org.usfirst.frc.team236.robot.commands.Shoot;
 import org.usfirst.frc.team236.robot.commands.StartLaunch;
-import org.usfirst.frc.team236.robot.commands.StartSpit;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
@@ -20,6 +20,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import lib.oi.LogitechF310;
 import lib.oi.Thrustmaster;
+import lib.oi.triggers.JoystickPOV;
+import lib.oi.triggers.JoystickPOV.Direction;
 
 public class OI {
 	//Sam's classes (Thrustmaser and Logitech310), otherwise need Joystick Class
@@ -65,18 +67,20 @@ public class OI {
 		rightStick = new Thrustmaster(RobotMap.JoystickMap.USB_RIGHT);
 		controller = new LogitechF310(RobotMap.JoystickMap.USB_CONTROLLER);
 
-		controller.y.whenPressed(new Raise());
-		controller.a.whenPressed(new Lower());
-		controller.x.whileHeld(new Intake());
-		controller.b.whileHeld(new Eject());
-		controller.rb.whileHeld(new Feed());
+		// raise/lower
+		JoystickPOV raise = new JoystickPOV(leftStick, Direction.UP);
+		JoystickPOV lower = new JoystickPOV(leftStick, Direction.DOWN);
+		leftStick.middle.whileHeld(new Intake());
+		rightStick.middle.whileHeld(new Eject());
+		controller.a.whileHeld(new Feed());
 
-		controller.lb.whileHeld(new Shoot());
+		leftStick.trigger.whileHeld(new Shoot());
+		rightStick.trigger.whileHeld(new Shoot());
 
-		controller.start.whileHeld(new StartLaunch());
-		controller.back.whileHeld(new StartSpit());
-		// controller.rightPress.whenPressed(new Extend());
-		// controller.y.whenPressed(new Retract());
+		controller.lb.whileHeld(new StartLaunch());
+		// controller.back.whileHeld(new StartSpit());
+		
+		controller.rb.whileHeld(new RaiseWinch());
 
 	}
 

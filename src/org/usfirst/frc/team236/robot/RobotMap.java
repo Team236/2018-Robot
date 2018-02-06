@@ -55,9 +55,17 @@ public class RobotMap {
 		public static final int PWM_BOTTOM_RIGHT = 3;
 		public static final int PWM_BOTTOM_LEFT = 5;
 		public static final int PWM_SPITTER = 6;
-		public static final double LAUNCH_SPEED = 0.25;
-		public static final double SPIT_SPEED = 0.3;
+		public static final double LAUNCH_SPEED = 1;
+		public static final double SPIT_SPEED = 0.6;
 
+	}
+	
+	public static class ClimberMap {
+		public static final int PWM_LEFT = 7;
+		public static final int PWM_RIGHT = 8;
+		public static final int PWM_SCISSORS = 9;
+		public static final int DIO_LEFT = 6;
+		public static final int DIO_RIGHT = 7;
 	}
 
 }

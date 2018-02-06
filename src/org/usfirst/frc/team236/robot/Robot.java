@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
 import org.usfirst.frc.team236.robot.subsystems.Intake;
 import org.usfirst.frc.team236.robot.subsystems.Launcher;
@@ -24,6 +25,7 @@ public class Robot extends TimedRobot {
 	public static Drive drive = new Drive();
 	public static Intake intake = new Intake();
 	public static Launcher launcher = new Launcher();
+	public static Climber climber = new Climber();
 
 	private Compressor compressor;
 
