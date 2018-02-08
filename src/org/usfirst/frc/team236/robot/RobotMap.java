@@ -7,6 +7,9 @@
 
 package org.usfirst.frc.team236.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.pid.PIDParameters;
+
 public class RobotMap {
 
 	public static class DriveMap {
@@ -14,6 +17,11 @@ public class RobotMap {
 		public static final int ID_RIGHT_FRONT = 7;
 		public static final int ID_LEFT_REAR = 5;
 		public static final int ID_RIGHT_REAR = 6;
+		
+		public static final double DIAMETER = 3.92; //wheel diameter in inches
+		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
+		public static final double PULSE_PER_ROTATION = 512;
+		public static final double DISTANCE_PER_PULSE = CIRCUMFERENCE / PULSE_PER_ROTATION;
 
 	}
 
@@ -61,11 +69,26 @@ public class RobotMap {
 	}
 	
 	public static class ClimberMap {
-		public static final int PWM_LEFT = 7;
-		public static final int PWM_RIGHT = 8;
-		public static final int PWM_SCISSORS = 9;
+		public static final int PWM_LEFT = 7; //port number for winch motor
+		public static final int PWM_RIGHT = 8; //port number for winch motor
+		public static final int PWM_SCISSORS = 9; //port number for climber motor
 		public static final int DIO_LEFT = 6;
 		public static final int DIO_RIGHT = 7;
+	}
+	
+	public static class AutoMap {
+		public static final double TURN_DEGREES = 90;
+		public static final double TURN_DEGREES2 = -90;
+		public static final double TURN_MARGIN = 5.0;
+		public static final double MTN_MAG_END_MARGIN = 6;
+		
+		public static final double P_TURN = SmartDashboard.getNumber("P", 0);
+		public static final double I_TURN = SmartDashboard.getNumber("I", 0);
+		public static final double D_TURN = SmartDashboard.getNumber("D", 0);
+		public static final PIDParameters TURN_PARAMS = new PIDParameters(P_TURN, I_TURN, D_TURN, 1 / 100.0);
+		
+		public static final int M_MAGIC_CV = 1280;
+		public static final int M_MAGIC_ACCL = 2560;
 	}
 
 }

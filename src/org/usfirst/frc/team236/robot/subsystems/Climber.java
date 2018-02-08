@@ -2,6 +2,7 @@ package org.usfirst.frc.team236.robot.subsystems;
 
 import org.usfirst.frc.team236.robot.Robot;
 import org.usfirst.frc.team236.robot.RobotMap;
+import org.usfirst.frc.team236.robot.commands.Scissors;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -36,15 +37,21 @@ public class Climber extends Subsystem {
 	}
 	
 	public void moveScissors() {
-		if (leftLimit.get() || rightLimit.get()) {
+		//may need to insert deadband into x-axis of controller
+		if (!leftLimit.get() || !rightLimit.get()) {
 			scissors.set(0);
 		} else {
 		scissors.set(Robot.oi.controller.getRightX());
 		}
 	}
 	
+	public void stopScissors() {
+		scissors.set(0);
+	}
+	
 
     public void initDefaultCommand() {
+    	setDefaultCommand(new Scissors());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
