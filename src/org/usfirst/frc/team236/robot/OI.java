@@ -38,23 +38,24 @@ public class OI {
 
 	public OI() {
 		/*
-		 * //Only need code below if using Joystick Class (not Sam's classes)
-		 * leftStick = new Joystick(RobotMap.JoystickMap.USB_LEFT); rightStick =
-		 * new Joystick(RobotMap.JoystickMap.USB_RIGHT); controller = new
-		 * Joystick(RobotMap.JoystickMap.USB_CONTROLLER);
-		 * 
-		 * raise = new JoystickButton(controller,
-		 * RobotMap.ControllerMap.RAISE_INTAKE); lower = new
-		 * JoystickButton(controller, RobotMap.ControllerMap.LOWER_INTAKE);
-		 * intake = new JoystickButton(controller,
-		 * RobotMap.ControllerMap.INTAKE_CUBE); eject = new
-		 * JoystickButton(controller, RobotMap.ControllerMap.EJECT_CUBE); feed =
-		 * new JoystickButton(controller, RobotMap.ControllerMap.FEED_CUBE);
-		 * 
-		 * 
-		 * raise.whenPressed(new RaiseIntake()); lower.whenPressed(new
-		 * LowerIntake()); intake.whileHeld(new IntakeCube());
-		 * eject.whileHeld(new EjectCube()); feed.whileHeld(new FeedCube());
+		@formatter:off
+		// Only need code below if using Joystick Class (not Sam's classes)
+		leftStick = new Joystick(RobotMap.JoystickMap.USB_LEFT);
+		rightStick = new Joystick(RobotMap.JoystickMap.USB_RIGHT);
+		controller = new Joystick(RobotMap.JoystickMap.USB_CONTROLLER);
+		
+		raise = new JoystickButton(controller, RobotMap.ControllerMap.RAISE_INTAKE);
+		lower = new JoystickButton(controller, RobotMap.ControllerMap.LOWER_INTAKE);
+		intake = new JoystickButton(controller,	RobotMap.ControllerMap.INTAKE_CUBE);
+		eject = new JoystickButton(controller, RobotMap.ControllerMap.EJECT_CUBE);
+		feed = new JoystickButton(controller, RobotMap.ControllerMap.FEED_CUBE);
+		
+		raise.whenPressed(new RaiseIntake()); 
+		lower.whenPressed(new lowerIntake());
+		intake.whileHeld(new IntakeCube());
+		eject.whileHeld(new EjectCube());
+		feed.whileHeld(new FeedCube());
+		@formatter:off
 		 */
 
 		leftStick = new Thrustmaster(RobotMap.JoystickMap.USB_LEFT);
