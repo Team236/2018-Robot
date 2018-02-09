@@ -49,7 +49,7 @@ public class RobotMap {
 		public static final int PWM_RIGHT_INTAKE = 1;
 		public static final double INTAKE_SPEED = 1;
 		public static final double EJECT_SPEED = -1;
-		public static final double FEED_SPEED = 1;
+		public static final double FEED_SPEED = 0.4;
 		public static final boolean INV_LEFT = false;
 		public static final boolean INV_RIGHT = false;
 
@@ -63,7 +63,7 @@ public class RobotMap {
 		public static final int PWM_BOTTOM_RIGHT = 3;
 		public static final int PWM_BOTTOM_LEFT = 5;
 		public static final int PWM_SPITTER = 6;
-		public static final double LAUNCH_SPEED = 1;
+		public static final double LAUNCH_SPEED = 0.9;
 		public static final double SPIT_SPEED = 0.6;
 
 	}
@@ -77,6 +77,9 @@ public class RobotMap {
 	}
 	
 	public static class AutoMap {
+		public static final double STRAIGHT_DISTANCE1 = 60;
+		public static final double STRAIGHT_DISTANCE2 = 60;
+		
 		public static final double TURN_DEGREES = 90;
 		public static final double TURN_DEGREES2 = -90;
 		public static final double TURN_MARGIN = 5.0;
