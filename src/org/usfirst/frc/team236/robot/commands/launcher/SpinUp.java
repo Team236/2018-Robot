@@ -1,18 +1,17 @@
 package org.usfirst.frc.team236.robot.commands.launcher;
 
 import org.usfirst.frc.team236.robot.Robot;
+import org.usfirst.frc.team236.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class StartLaunch extends Command {
+public class SpinUp extends Command {
 
-	public StartLaunch() {
+	public SpinUp() {
 		requires(Robot.launcher);
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
 	}
 
 	// Called just before this Command runs the first time
@@ -21,8 +20,8 @@ public class StartLaunch extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.launcher.setLaunchSpeed();
-		Robot.launcher.setSpitSpeed();
+		Robot.launcher.setLaunchSpeed(RobotMap.LauncherMap.LAUNCH_SPEED);
+		Robot.launcher.setSpitSpeed(RobotMap.LauncherMap.SPIT_SPEED);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -39,7 +38,6 @@ public class StartLaunch extends Command {
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-		Robot.launcher.stopLaunch();
-		Robot.launcher.stopSpit();
+		end();
 	}
 }

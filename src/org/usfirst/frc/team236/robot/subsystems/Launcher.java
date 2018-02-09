@@ -12,6 +12,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Launcher extends Subsystem {
+	/*
+	 * Make sure we wire these all to spin in the same direction because
+	 * there's no way we're running through 5 inversions. Positive shoots.
+	 */
 	public SpeedController topRight, topLeft, bottomRight, bottomLeft;
 	public SpeedController spit;
 	public DoubleSolenoid shoot;
@@ -23,7 +27,6 @@ public class Launcher extends Subsystem {
 		bottomLeft = new VictorSP(RobotMap.LauncherMap.PWM_BOTTOM_LEFT);
 		spit = new VictorSP(RobotMap.LauncherMap.PWM_SPITTER);
 		shoot = new DoubleSolenoid(RobotMap.LauncherMap.SOL_FWD, RobotMap.LauncherMap.SOL_REV);
-
 	}
 
 	public void extend() {
@@ -34,34 +37,25 @@ public class Launcher extends Subsystem {
 		shoot.set(Value.kReverse);
 	}
 
-	public void setLaunchSpeed() {
-		topRight.set(RobotMap.LauncherMap.LAUNCH_SPEED);
-		topLeft.set(RobotMap.LauncherMap.LAUNCH_SPEED);
-		bottomRight.set(RobotMap.LauncherMap.LAUNCH_SPEED);
-		bottomLeft.set(RobotMap.LauncherMap.LAUNCH_SPEED);
+	public void setLaunchSpeed(double speed) {
+		topRight.set(speed);
+		topLeft.set(speed);
+		bottomRight.set(speed);
+		bottomLeft.set(speed);
 	}
 
-	public void setSpitSpeed() {
-		spit.set(RobotMap.LauncherMap.SPIT_SPEED);
+	public void setSpitSpeed(double speed) {
+		spit.set(speed);
 	}
 
 	public void stopLaunch() {
-		topRight.set(0);
-		topLeft.set(0);
-		bottomRight.set(0);
-		bottomLeft.set(0);
+		setLaunchSpeed(0);
 	}
 
 	public void stopSpit() {
-		spit.set(0);
-		shoot.set(Value.kReverse);
+		setSpitSpeed(0);
 	}
 
-	// Put methods for controlling this subsystem
-	// here. Call these from Commands.
-
 	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		//setDefaultCommand(new MySpecialCommand());
 	}
 }

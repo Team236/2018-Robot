@@ -1,13 +1,14 @@
 package org.usfirst.frc.team236.robot;
 
 import org.usfirst.frc.team236.robot.commands.climber.RaiseWinch;
+import org.usfirst.frc.team236.robot.commands.climber.ScissorsWithThumbstick;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
 import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
-import org.usfirst.frc.team236.robot.commands.launcher.StartLaunch;
+import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -60,6 +61,7 @@ public class OI {
 		rightStick = new Thrustmaster(RobotMap.JoystickMap.USB_RIGHT);
 		controller = new LogitechF310(RobotMap.JoystickMap.USB_CONTROLLER);
 
+		// INTAKE
 		// raise/lower
 		JoystickPOV raise = new JoystickPOV(leftStick, Direction.UP);
 		JoystickPOV lower = new JoystickPOV(leftStick, Direction.DOWN);
@@ -70,13 +72,16 @@ public class OI {
 		rightStick.middle.whileHeld(new Eject());
 		controller.a.whileHeld(new Feed());
 
+		// SHOOTER
 		leftStick.trigger.whileHeld(new Shoot());
 		rightStick.trigger.whileHeld(new Shoot());
 
-		controller.lb.whileHeld(new StartLaunch());
+		controller.lb.whileHeld(new SpinUp());
 		// controller.back.whileHeld(new StartSpit());
 
+		// CLIMBER
 		controller.rb.whileHeld(new RaiseWinch());
+		controller.leftPress.whileHeld(new ScissorsWithThumbstick());
 
 	}
 
