@@ -24,15 +24,14 @@ public class Climber extends Subsystem {
 		leftLimit = new DigitalInput(RobotMap.ClimberMap.DIO_LEFT);
 		rightLimit = new DigitalInput(RobotMap.ClimberMap.DIO_RIGHT);
 	}
-	public void raiseWinch() {
-		leftWinch.set(1);
-		rightWinch.set(1);
 
+	public void setWinchSpeed(double speed) {
+		leftWinch.set(speed);
+		rightWinch.set(speed);
 	}
 
 	public void stopWinch() {
-		leftWinch.set(0);
-		rightWinch.set(0);
+		setWinchSpeed(0);
 	}
 
 	public void moveScissors() {

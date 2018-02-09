@@ -1,6 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.climber;
 
 import org.usfirst.frc.team236.robot.Robot;
+import org.usfirst.frc.team236.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -19,7 +20,7 @@ public class RaiseWinch extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.climber.setWinchSpeed();
+		Robot.climber.setWinchSpeed(RobotMap.ClimberMap.WINCH_SPEED);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

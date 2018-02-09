@@ -65,8 +65,11 @@ public class RobotMap {
 		public static final int PWM_LEFT = 7; // port number for winch motor
 		public static final int PWM_RIGHT = 8; // port number for winch motor
 		public static final int PWM_SCISSORS = 9; // port number for climber motor
+
 		public static final int DIO_LEFT = 6;
 		public static final int DIO_RIGHT = 7;
+		
+		public static final double WINCH_SPEED = 1.0;
 	}
 
 	public static class AutoMap {
