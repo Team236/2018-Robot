@@ -7,6 +7,8 @@ import org.usfirst.frc.team236.robot.subsystems.Intake;
 import org.usfirst.frc.team236.robot.subsystems.Launcher;
 
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -68,6 +70,8 @@ public class Robot extends TimedRobot {
 		// if (autonomousCommand != null) {
 		autonomousCommand.start();
 		// }
+		
+		postFieldLayout();
 	}
 
 	@Override
@@ -90,6 +94,8 @@ public class Robot extends TimedRobot {
 		drive.resetEncoders();
 		drive.navx.reset();
 		// }
+
+		postFieldLayout();
 	}
 
 	@Override
@@ -110,5 +116,46 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void testPeriodic() {
+	}
+	
+	public static void postFieldLayout() {
+		// Blue is true
+		boolean ourBool;
+		String gameData = DriverStation.getInstance().getGameSpecificMessage();
+		Alliance color = DriverStation.getInstance().getAlliance();
+		
+		// Set our boolean to correct alliance
+		if (color == Alliance.Blue) {
+			ourBool = true;
+		} else {
+			ourBool = false;
+		}
+
+		// Set near switch colors
+		if (gameData.charAt(0) == 'L') {
+			SmartDashboard.putBoolean("near switch left", ourBool);
+			SmartDashboard.putBoolean("near switch right", !ourBool);
+		} else if (gameData.charAt(1) == 'R') {
+			SmartDashboard.putBoolean("near switch left", !ourBool);
+			SmartDashboard.putBoolean("near switch right", ourBool);
+		}
+		
+		// Set scale colors
+		if (gameData.charAt(1) == 'L') {
+			SmartDashboard.putBoolean("scale left", ourBool);
+			SmartDashboard.putBoolean("scale right", !ourBool);
+		} else if (gameData.charAt(1) == 'R') {
+			SmartDashboard.putBoolean("scale left", !ourBool);
+			SmartDashboard.putBoolean("scale right", ourBool);
+		}
+	
+		// Set far switch colors
+		if (gameData.charAt(2) == 'L') {
+			SmartDashboard.putBoolean("far switch left", ourBool);
+			SmartDashboard.putBoolean("far switch right", !ourBool);
+		} else if (gameData.charAt(0) == 'R') {
+			SmartDashboard.putBoolean("far switch left", !ourBool);
+			SmartDashboard.putBoolean("far switch right", ourBool);
+		}
 	}
 }
