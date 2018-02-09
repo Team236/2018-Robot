@@ -67,6 +67,10 @@ public class RobotMap {
 		public static final int PWM_LEFT = 7; // port number for winch motor
 		public static final int PWM_RIGHT = 8; // port number for winch motor
 		public static final int PWM_SCISSORS = 9; // port number for climber motor
+		
+		public static final boolean INV_WINCH_LEFT = false; // Positive pulls strap in
+		public static final boolean INV_WINCH_RIGHT = false; // Positive pulls strap in
+		public static final boolean INV_SCISSORS = false; // Positive is to the right
 
 		public static final int DIO_LEFT = 6;
 		public static final int DIO_RIGHT = 7;
