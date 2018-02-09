@@ -34,17 +34,20 @@ public class Climber extends Subsystem {
 		setWinchSpeed(0);
 	}
 
-	public void moveScissors() {
-		// may need to insert deadband into x-axis of controller
-		if (!leftLimit.get() || !rightLimit.get()) {
-			scissors.set(0);
-		} else {
-			scissors.set(Robot.oi.controller.getRightX());
-		}
+	public void setScissorSpeed(double speed) {
+		scissors.set(speed);
 	}
 
 	public void stopScissors() {
-		scissors.set(0);
+		setScissorSpeed(0);
+	}
+	
+	public boolean isLeftLimit() {
+		return leftLimit.get();
+	}
+
+	public boolean isRightLimit() {
+		return rightLimit.get();
 	}
 
 	public void initDefaultCommand() {
