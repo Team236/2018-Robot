@@ -48,7 +48,6 @@ public class Climber extends Subsystem {
 		scissors.set(0);
 	}
 
-    public void initDefaultCommand() {
-    	setDefaultCommand(new Scissors());
-    }
+	public void initDefaultCommand() {
+	}
 }
