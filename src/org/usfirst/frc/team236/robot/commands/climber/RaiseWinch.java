@@ -1,18 +1,16 @@
-package org.usfirst.frc.team236.robot.commands.intake;
+package org.usfirst.frc.team236.robot.commands.climber;
 
 import org.usfirst.frc.team236.robot.Robot;
-import org.usfirst.frc.team236.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  */
-public class Intake extends Command {
+public class RaiseWinch extends Command {
 
-	public Intake() {
-		requires(Robot.intake);
+	public RaiseWinch() {
+		requires(Robot.climber);
 	}
 
 	// Called just before this Command runs the first time
@@ -21,20 +19,17 @@ public class Intake extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.intake.leftIntake.set(RobotMap.IntakeMap.INTAKE_SPEED);
-		Robot.intake.rightIntake.set(RobotMap.IntakeMap.INTAKE_SPEED);
-
-		SmartDashboard.putBoolean("Intake Sensor value ", Robot.intake.intakeSensor.get());
+		Robot.climber.setWinchSpeed();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Robot.intake.intakeSensor.get();
+		return false;
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.intake.stop();
+		Robot.climber.stopWinch();
 	}
 
 	// Called when another command which requires one or more of the same

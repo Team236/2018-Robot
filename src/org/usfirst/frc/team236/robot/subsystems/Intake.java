@@ -39,15 +39,15 @@ public class Intake extends Subsystem {
 		leftIntake.set(speed);
 		rightIntake.set(speed);
 	}
-	
+
 	public void stop() {
 		setSpeed(0);
 	}
-	
+
 	public void raise() {
 		intakeSolenoid.set(Value.kForward);
 	}
-	
+
 	public void lower() {
 		intakeSolenoid.set(Value.kReverse);
 	}

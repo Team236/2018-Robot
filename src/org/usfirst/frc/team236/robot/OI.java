@@ -7,14 +7,14 @@
 
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.RaiseWinch;
-import org.usfirst.frc.team236.robot.commands.Shoot;
-import org.usfirst.frc.team236.robot.commands.StartLaunch;
+import org.usfirst.frc.team236.robot.commands.climber.RaiseWinch;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
+import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
+import org.usfirst.frc.team236.robot.commands.launcher.StartLaunch;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -24,7 +24,7 @@ import lib.oi.triggers.JoystickPOV;
 import lib.oi.triggers.JoystickPOV.Direction;
 
 public class OI {
-	//Sam's classes (Thrustmaser and Logitech310), otherwise need Joystick Class
+	// Sam's classes (Thrustmaser and Logitech310), otherwise need Joystick Class
 	public Thrustmaster leftStick;
 	public Thrustmaster rightStick;
 	public LogitechF310 controller;
@@ -79,7 +79,7 @@ public class OI {
 
 		controller.lb.whileHeld(new StartLaunch());
 		// controller.back.whileHeld(new StartSpit());
-		
+
 		controller.rb.whileHeld(new RaiseWinch());
 
 	}
