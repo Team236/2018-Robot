@@ -63,6 +63,9 @@ public class OI {
 		// raise/lower
 		JoystickPOV raise = new JoystickPOV(leftStick, Direction.UP);
 		JoystickPOV lower = new JoystickPOV(leftStick, Direction.DOWN);
+		raise.whenPressed(new Raise());
+		lower.whenPressed(new Lower());
+
 		leftStick.middle.whileHeld(new Intake());
 		rightStick.middle.whileHeld(new Eject());
 		controller.a.whileHeld(new Feed());
