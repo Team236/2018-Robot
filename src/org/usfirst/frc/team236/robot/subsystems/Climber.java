@@ -26,8 +26,10 @@ public class Climber extends Subsystem {
 	}
 
 	public void setWinchSpeed(double speed) {
-		leftWinch.set(speed);
-		rightWinch.set(speed);
+		if (speed >= 0) {
+			leftWinch.set(speed);
+			rightWinch.set(speed);
+		}
 	}
 
 	public void stopWinch() {
