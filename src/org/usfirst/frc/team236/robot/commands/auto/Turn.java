@@ -6,6 +6,7 @@ import org.usfirst.frc.team236.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.pid.PID;
+import lib.pid.PIDParameters;
 
 /**
  *
@@ -16,6 +17,8 @@ public class Turn extends Command {
 	private double degrees;
 	private double margin;
 	private double angleError;
+	
+	public static PIDParameters TURN_PARAMS;
 
 	public Turn(double _degrees, double _margin) {
 
@@ -24,7 +27,8 @@ public class Turn extends Command {
 		requires(Robot.drive);
 		this.degrees = _degrees;
 		this.margin = _margin;
-		pid = new PID(Robot.drive, Robot.drive, RobotMap.AutoMap.TURN_PARAMS);
+		PIDParameters TURN_PARAMS = new PIDParameters(Robot.P_TURN, Robot.I_TURN, Robot.D_TURN, 1 / 100.0);
+		pid = new PID(Robot.drive, Robot.drive, TURN_PARAMS);
 
 	}
 

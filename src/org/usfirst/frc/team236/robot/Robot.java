@@ -1,7 +1,5 @@
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.auto.AutoMotnMagic;
-import org.usfirst.frc.team236.robot.commands.auto.DriveTurn2;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
@@ -15,6 +13,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.pid.PIDParameters;
 
 public class Robot extends TimedRobot {
 	Command autonomousCommand;
@@ -26,6 +25,10 @@ public class Robot extends TimedRobot {
 	public static Intake intake = new Intake();
 	public static Launcher launcher = new Launcher();
 	public static Climber climber = new Climber();
+	
+	public static double P_TURN;
+	public static double I_TURN;
+	public static double D_TURN;
 
 	private Compressor compressor;
 
@@ -56,20 +59,24 @@ public class Robot extends TimedRobot {
 	}
 
 	@Override
-	public void autonomousInit() {
+	public void autonomousInit() {	
 		drive.resetEncoders();
 		drive.navx.reset();
 
+		P_TURN = SmartDashboard.getNumber("P", 0);
+		I_TURN = SmartDashboard.getNumber("I", 0);
+		D_TURN = SmartDashboard.getNumber("D", 0);
+		
 		// autonomousCommand = chooser.getSelected();
-		autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1);
-		// autonomousCommand = new Turn(RobotMap.AutoMap.TURN_DEGREES,RobotMap.AutoMap.TURN_MARGIN);
+		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1);
+		autonomousCommand = new Turn(RobotMap.AutoMap.TURN_DEGREES,RobotMap.AutoMap.TURN_MARGIN);
 		// autonomousCommand = new DriveTurn2();
 
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {
 		autonomousCommand.start();
-		// }
 		
+		// }
 		postFieldLayout();
 	}
 

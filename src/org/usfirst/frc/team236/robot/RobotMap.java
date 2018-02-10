@@ -82,18 +82,19 @@ public class RobotMap {
 		public static final double STRAIGHT_DISTANCE1 = 60;
 		public static final double STRAIGHT_DISTANCE2 = 60;
 
-		public static final double TURN_DEGREES = 90;
+		public static final double TURN_DEGREES = 45;
 		public static final double TURN_DEGREES2 = -90;
 		public static final double TURN_MARGIN = 5.0;
-		public static final double MTN_MAG_END_MARGIN = 6;
 
-		//public static final double P_TURN = SmartDashboard.getNumber("P", 0);
+		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
 		// public static final double I_TURN = SmartDashboard.getNumber("I", 0);
 		// public static final double D_TURN = SmartDashboard.getNumber("D", 0);
 		// public static final PIDParameters TURN_PARAMS = new PIDParameters(P_TURN, I_TURN, D_TURN, 1 / 100.0);
-		public static final PIDParameters TURN_PARAMS = new PIDParameters(0.0147, 0.00, -0.001, 1 / 100.0);
+		// public static final PIDParameters TURN_PARAMS = new PIDParameters(0.0147, 0.00, -0.001, 1 / 100.0);
 		
 		// for motion magic F = 0.8, P = 0.09
+		public static final double MTN_MAG_END_MARGIN = 6;
+		
 		public static final double M_MAGIC_K_P = 0.09;
 		public static final double M_MAGIC_K_I = 0.0;
 		public static final double M_MAGIC_K_D = 0.0;
