@@ -44,11 +44,11 @@ public class AutoMotnMagic extends Command {
 	protected void execute() {
 		// double currentDistance = -Robot.drive.getLeftDistance() *
 		// RobotMap.DriveMap.DISTANCE_PER_PULSE;
-		double currentDistance = Robot.drive.getRightDistance() * RobotMap.DriveMap.DISTANCE_PER_PULSE;
+		double currentDistance = Robot.drive.getRightDistance();
 		error = Math.abs(distance - currentDistance);
 		SmartDashboard.putNumber("currentdistance ", currentDistance);
 		// SmartDashboard.putNumber("distance ", distance);
-		// SmartDashboard.putNumber("MM Error", error);
+		SmartDashboard.putNumber("MM Error", error);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

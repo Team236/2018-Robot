@@ -1,11 +1,16 @@
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.auto.AutoMotnMagic;
+import org.usfirst.frc.team236.robot.commands.auto.DriveTurn2;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
 import org.usfirst.frc.team236.robot.subsystems.Intake;
 import org.usfirst.frc.team236.robot.subsystems.Launcher;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.cscore.VideoMode;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
@@ -31,6 +36,8 @@ public class Robot extends TimedRobot {
 	public static double D_TURN;
 
 	private Compressor compressor;
+	
+	public UsbCamera camera;
 
 	// Declare auto command
 	Command autoCommand;
@@ -45,6 +52,17 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("P", 0);
 		SmartDashboard.putNumber("I", 0);
 		SmartDashboard.putNumber("D", 0);
+		
+		try {
+			camera = CameraServer.getInstance().startAutomaticCapture();
+			camera.setVideoMode(new VideoMode(VideoMode.PixelFormat.kYUYV, 320, 240, 30));
+		} catch (Exception e) {
+			System.out.println("Camera capture failed");
+			System.out.println(e.getStackTrace());
+			
+			SmartDashboard.putString("Camera capture failed", "failed");
+			
+		}
 
 	}
 
@@ -69,8 +87,8 @@ public class Robot extends TimedRobot {
 		
 		// autonomousCommand = chooser.getSelected();
 		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1);
-		autonomousCommand = new Turn(RobotMap.AutoMap.TURN_DEGREES,RobotMap.AutoMap.TURN_MARGIN);
-		// autonomousCommand = new DriveTurn2();
+		// autonomousCommand = new Turn(RobotMap.AutoMap.TURN_DEGREES,RobotMap.AutoMap.TURN_MARGIN);
+		autonomousCommand = new DriveTurn2();
 
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {
@@ -85,9 +103,9 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 
 		SmartDashboard.putNumber("left Encoder value: ",
-				drive.leftFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE);
+				drive.getLeftDistance());
 		SmartDashboard.putNumber("Right Encoder value: ",
-				drive.rightFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE);
+				drive.getRightDistance());
 		SmartDashboard.putNumber("Left speed: ", drive.leftFrontMaster.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Right speed: ", drive.rightFrontMaster.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("gyroangle", drive.navx.getAngle());

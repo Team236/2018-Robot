@@ -82,7 +82,7 @@ public class OI {
 
 		// CLIMBER
 		controller.rb.whileHeld(new RaiseWinch());
-		controller.leftPress.whileHeld(new ScissorsWithThumbstick());
+		controller.rightPress.whileHeld(new ScissorsWithThumbstick());
 
 	}
 

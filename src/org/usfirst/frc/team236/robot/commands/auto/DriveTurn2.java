@@ -14,9 +14,9 @@ public class DriveTurn2 extends CommandGroup {
     	
     	addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES, RobotMap.AutoMap.TURN_MARGIN));
     	
-    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE2));
+    	//addSequential(new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE2));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES2, RobotMap.AutoMap.TURN_MARGIN));
+    	//addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES2, RobotMap.AutoMap.TURN_MARGIN));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

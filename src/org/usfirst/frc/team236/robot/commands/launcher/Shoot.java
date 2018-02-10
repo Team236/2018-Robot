@@ -10,9 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Shoot extends Command {
 
 	public Shoot() {
+		// did not use requires because the wheels need to spin at the same time
 		// requires(Robot.launcher);
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
 	}
 
 	// Called just before this Command runs the first time

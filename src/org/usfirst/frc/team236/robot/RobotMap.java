@@ -11,7 +11,7 @@ public class RobotMap {
 		public static final int ID_LEFT_REAR = 5;
 		public static final int ID_RIGHT_REAR = 6;
 
-		public static final double DIAMETER = 3.92; // wheel diameter in inches
+		public static final double DIAMETER = 3.94; // wheel diameter in inches
 		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
 		public static final double PULSE_PER_ROTATION = 512;
 		public static final double DISTANCE_PER_PULSE = CIRCUMFERENCE / PULSE_PER_ROTATION;
@@ -36,10 +36,13 @@ public class RobotMap {
 	public static class IntakeMap {
 		public static final int DIO_SENSOR = 4;
 		public static final int FEED_SENSOR_DIO = 1;
+		
 		public static final int SOL_FWD = 0;
 		public static final int SOL_REV = 1;
+		
 		public static final int PWM_LEFT_INTAKE = 0;
 		public static final int PWM_RIGHT_INTAKE = 1;
+		
 		public static final double INTAKE_SPEED = 1;
 		public static final double EJECT_SPEED = -1;
 		public static final double FEED_SPEED = 0.4;
@@ -79,7 +82,7 @@ public class RobotMap {
 	}
 
 	public static class AutoMap {
-		public static final double STRAIGHT_DISTANCE1 = 60;
+		public static final double STRAIGHT_DISTANCE1 = 252.5;
 		public static final double STRAIGHT_DISTANCE2 = 60;
 
 		public static final double TURN_DEGREES = 45;
@@ -93,7 +96,7 @@ public class RobotMap {
 		// public static final PIDParameters TURN_PARAMS = new PIDParameters(0.0147, 0.00, -0.001, 1 / 100.0);
 		
 		// for motion magic F = 0.8, P = 0.09
-		public static final double MTN_MAG_END_MARGIN = 6;
+		public static final double MTN_MAG_END_MARGIN = 15;
 		
 		public static final double M_MAGIC_K_P = 0.09;
 		public static final double M_MAGIC_K_I = 0.0;
@@ -101,7 +104,7 @@ public class RobotMap {
 		public static final double M_MAGIC_K_F = 0.8;
 
 		public static final int M_MAGIC_CV = 1280;
-		public static final int M_MAGIC_ACCL = 2560;
+		public static final int M_MAGIC_ACCL = 1280;
 	}
 
 }

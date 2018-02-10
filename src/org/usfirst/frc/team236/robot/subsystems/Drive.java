@@ -105,8 +105,12 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		leftFrontMaster.set(ControlMode.MotionMagic, distance);
 	}
 
-	public int getRightDistance() {
-		return rightFrontMaster.getSensorCollection().getQuadraturePosition();
+	public double getRightDistance() {
+		return rightFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE;
+	}
+	
+	public double getLeftDistance() {
+		return leftFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE;
 	}
 
 	public double getRightSpeed() {
