@@ -1,6 +1,8 @@
 package org.usfirst.frc.team236.robot;
 
 import org.usfirst.frc.team236.robot.commands.auto.AutoMotnMagic;
+import org.usfirst.frc.team236.robot.commands.auto.DriveTurn2;
+import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
 import org.usfirst.frc.team236.robot.subsystems.Intake;
@@ -59,12 +61,9 @@ public class Robot extends TimedRobot {
 		drive.navx.reset();
 
 		// autonomousCommand = chooser.getSelected();
-		// autonomousCommand = new AutoDriveStraight(12);
 		autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1);
-		// autonomousCommand = new
-		// Turn(RobotMap.AutoMap.TURN_DEGREES,RobotMap.AutoMap.TURN_MARGIN);
-		// autonomousCommand = new AutoDriveTurn();
-		// autonomousCommand = new AutoDriveTurnDrive();
+		// autonomousCommand = new Turn(RobotMap.AutoMap.TURN_DEGREES,RobotMap.AutoMap.TURN_MARGIN);
+		// autonomousCommand = new DriveTurn2();
 
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {

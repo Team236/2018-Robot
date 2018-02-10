@@ -31,10 +31,10 @@ public class AutoMotnMagic extends Command {
 		Robot.drive.setMotnCV(RobotMap.AutoMap.M_MAGIC_CV);
 		Robot.drive.setMotnAccel(RobotMap.AutoMap.M_MAGIC_ACCL);
 
-		// Robot.drive.setkPMM(RobotMap.DriveMap.M_MAGIC_K_P);
-		// Robot.drive.setkIMM(RobotMap.DriveMap.M_MAGIC_K_I);
-		// Robot.drive.setkDMM(RobotMap.DriveMap.M_MAGIC_K_D);
-		// Robot.drive.setkFMM(RobotMap.DriveMap.M_MAGIC_K_F);
+		// Robot.drive.setkPMM(RobotMap.AutoMap.M_MAGIC_K_P);
+		// Robot.drive.setkIMM(RobotMap.AutoMap.M_MAGIC_K_I);
+		// Robot.drive.setkDMM(RobotMap.AutoMap.M_MAGIC_K_D);
+		// Robot.drive.setkFMM(RobotMap.AutoMap.M_MAGIC_K_F);
 
 		Robot.drive.setRightDistMotion(distance / RobotMap.DriveMap.DISTANCE_PER_PULSE);
 		Robot.drive.setLeftDistMotion(distance / RobotMap.DriveMap.DISTANCE_PER_PULSE);

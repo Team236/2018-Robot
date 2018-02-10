@@ -66,6 +66,26 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		leftFrontMaster.setSelectedSensorPosition(0, 0, 0);
 		rightFrontMaster.setSelectedSensorPosition(0, 0, 0);
 	}
+	
+	public void setkPMM(double MMkP) {
+		rightFrontMaster.config_kP(0, MMkP, 0);
+		leftFrontMaster.config_kP(0, MMkP, 0);
+	}
+	
+	public void setkIMM(double MMkI) {
+		rightFrontMaster.config_kP(0, MMkI, 0);
+		leftFrontMaster.config_kP(0, MMkI, 0);
+	}
+	
+	public void setkDMM(double MMkD) {
+		rightFrontMaster.config_kP(0, MMkD, 0);
+		leftFrontMaster.config_kP(0, MMkD, 0);
+	}
+	
+	public void setkFMM(double MMkF) {
+		rightFrontMaster.config_kP(0, MMkF, 0);
+		leftFrontMaster.config_kP(0, MMkF, 0);
+	}
 
 	public void setMotnCV(int vcruise) {
 		rightFrontMaster.configMotionCruiseVelocity(vcruise, 0);
