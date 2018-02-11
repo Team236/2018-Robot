@@ -68,9 +68,10 @@ public class OI {
 		JoystickPOV lower = new JoystickPOV(leftStick, Direction.DOWN);
 		raise.whenPressed(new Raise());
 		lower.whenPressed(new Lower());
-
-		leftStick.middle.whileHeld(new Intake());
-		rightStick.middle.whileHeld(new Eject());
+		
+		rightStick.middle.whileHeld(new Intake());
+		
+		leftStick.middle.whileHeld(new Eject());
 		controller.a.whileHeld(new Feed());
 
 		// SHOOTER

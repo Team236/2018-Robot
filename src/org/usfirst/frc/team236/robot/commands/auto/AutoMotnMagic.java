@@ -66,10 +66,6 @@ public class AutoMotnMagic extends Command {
 	protected void end() {
 		Robot.drive.stop();
 		System.out.println("Motn Magic Is Finished");
-		System.out.println(
-				"left encoder dist at end:  " + Robot.drive.getLeftEncoder() * RobotMap.DriveMap.DISTANCE_PER_PULSE);
-		System.out.println(
-				"right encoder dist at end:  " + Robot.drive.getRightEncoder() * RobotMap.DriveMap.DISTANCE_PER_PULSE);
 
 	}
 

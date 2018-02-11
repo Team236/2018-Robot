@@ -17,14 +17,22 @@ public class Intake extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+
+		SmartDashboard.putBoolean("Initial Intake Sensor value in Intake ", Robot.intake.intakeSensor.get());	
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.intake.leftIntake.set(RobotMap.IntakeMap.INTAKE_SPEED);
-		Robot.intake.rightIntake.set(RobotMap.IntakeMap.INTAKE_SPEED);
 
 		SmartDashboard.putBoolean("Intake Sensor value ", Robot.intake.intakeSensor.get());
+		System.out.print("intake sensor value ");
+		System.out.println(Robot.intake.intakeSensor.get());
+		
+		if (!Robot.intake.intakeSensor.get()) {
+		Robot.intake.leftIntake.set(RobotMap.IntakeMap.INTAKE_SPEED);
+		Robot.intake.rightIntake.set(RobotMap.IntakeMap.INTAKE_SPEED);
+		}
+
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

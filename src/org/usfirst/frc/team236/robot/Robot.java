@@ -81,9 +81,9 @@ public class Robot extends TimedRobot {
 		drive.resetEncoders();
 		drive.navx.reset();
 
-		P_TURN = SmartDashboard.getNumber("P", 0);
-		I_TURN = SmartDashboard.getNumber("I", 0);
-		D_TURN = SmartDashboard.getNumber("D", 0);
+		// P_TURN = SmartDashboard.getNumber("P", 0);
+		// I_TURN = SmartDashboard.getNumber("I", 0);
+		// D_TURN = SmartDashboard.getNumber("D", 0);
 		
 		// autonomousCommand = chooser.getSelected();
 		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1);
@@ -136,6 +136,8 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Left speed: ", drive.leftFrontMaster.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Right speed: ", drive.rightFrontMaster.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("gyroangle", drive.navx.getAngle());
+		SmartDashboard.putBoolean("Intake Sensor value in robot ", intake.intakeSensor.get());
+
 	}
 
 	@Override

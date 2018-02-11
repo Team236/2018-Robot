@@ -27,16 +27,18 @@ public class Turn extends Command {
 		requires(Robot.drive);
 		this.degrees = _degrees;
 		this.margin = _margin;
-		PIDParameters TURN_PARAMS = new PIDParameters(Robot.P_TURN, Robot.I_TURN, Robot.D_TURN, 1 / 100.0);
-		pid = new PID(Robot.drive, Robot.drive, TURN_PARAMS);
+		// PIDParameters TURN_PARAMS = new PIDParameters(Robot.P_TURN, Robot.I_TURN, Robot.D_TURN, 1 / 100.0);
+		pid = new PID(Robot.drive, Robot.drive, RobotMap.AutoMap.TURN_PARAMS);
 
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		SmartDashboard.putNumber("turn is initializing", 0);
+		System.out.println("Turn is Initializing");
+		// System.out.print("P before turn ");
+		// System.out.print(Robot.P_TURN);
 		pid.setSetpoint(degrees);
-		System.out.println("Hi there, my name is Billy.");
+
 		Robot.drive.navx.reset();
 		pid.enable();
 
@@ -50,6 +52,8 @@ public class Turn extends Command {
 		SmartDashboard.putNumber("angle error = ", angleError);
 		SmartDashboard.putNumber("angle Margin", margin);
 		SmartDashboard.putNumber("navxrate = ", Robot.drive.navx.getRate());
+		// System.out.print("P during turn");
+		// System.out.print(Robot.P_TURN);
 
 	}
 
