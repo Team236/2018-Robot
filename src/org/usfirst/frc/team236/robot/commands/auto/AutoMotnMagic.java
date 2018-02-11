@@ -12,12 +12,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class AutoMotnMagic extends Command {
 
 	private double distance;
+	private double margin;
 	private double error;
 
-	public AutoMotnMagic(double _distance) {
+	public AutoMotnMagic(double _distance, double _margin) {
 		requires(Robot.drive);
 
 		this.distance = _distance;
+		this.margin = _margin;
 
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
@@ -55,7 +57,7 @@ public class AutoMotnMagic extends Command {
 	protected boolean isFinished() {
 
 		boolean inSpeedMargin = Robot.drive.getRightSpeed() < 1.0;
-		boolean inDistMargin = error < RobotMap.AutoMap.MTN_MAG_END_MARGIN;
+		boolean inDistMargin = error < margin;
 
 		// SmartDashboard.putNumber("Speed", Robot.drive.getRightSpeed());
 		// SmartDashboard.putNumber("MM error = ", error);

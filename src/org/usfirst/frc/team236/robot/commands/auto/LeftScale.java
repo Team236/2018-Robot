@@ -7,16 +7,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class DriveTurn2 extends CommandGroup {
+public class LeftScale extends CommandGroup {
 
-    public DriveTurn2() {
-    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1, RobotMap.AutoMap.MM_END_MARGIN1));
+    public LeftScale() {
+    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SCALE_DIST, RobotMap.AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES, RobotMap.AutoMap.TURN_MARGIN));
-    	
-    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE2, RobotMap.AutoMap.MM_END_MARGIN2));
-    	
-    	//addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES2, RobotMap.AutoMap.TURN_MARGIN));
+    	addSequential(new Turn(RobotMap.AutoMap.SCALE_TURN2, RobotMap.AutoMap.TURN_MARGIN));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());

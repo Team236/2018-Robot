@@ -21,6 +21,8 @@ public class DriveWithJoysticks extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
+		// Robot.drive.setLeftSpeed(Math.pow(-Robot.oi.leftStick.getY(), 3));
+		// Robot.drive.setRightSpeed(Math.pow(-Robot.oi.rightStick.getY(), 3));
 		Robot.drive.setLeftSpeed(-Robot.oi.leftStick.getY());
 		Robot.drive.setRightSpeed(-Robot.oi.rightStick.getY());
 	}

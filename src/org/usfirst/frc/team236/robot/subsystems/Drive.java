@@ -32,6 +32,14 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		rightRearSlave = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_REAR);
 		// leftMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_LEFT_MIDDLE);
 		// rightMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_MIDDLE);
+		
+		//leftFrontMaster.configContinuousCurrentLimit(80, 10);
+		//leftFrontMaster.enableCurrentLimit(true);
+		//leftFrontMaster.configPeakCurrentLimit(0, 10);
+		
+		//rightFrontMaster.configContinuousCurrentLimit(80, 10);
+		//rightFrontMaster.enableCurrentLimit(true);
+		//rightFrontMaster.configPeakCurrentLimit(0, 10);
 
 		leftRearSlave.set(ControlMode.Follower, leftFrontMaster.getDeviceID());
 		rightRearSlave.set(ControlMode.Follower, rightFrontMaster.getDeviceID());

@@ -82,31 +82,40 @@ public class RobotMap {
 	}
 
 	public static class AutoMap {
-		public static final double STRAIGHT_DISTANCE1 = 101;
-		// 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
-		// CV = 1280, ACCEL = 1280 Margin = 20
-		public static final double STRAIGHT_DISTANCE2 = 6;
-
-		public static final double TURN_DEGREES = 30;
-		// 2/10- on carpet for 45 deg, P = 0.019, I = 0, D = 0, fresh battery 57 deg
-		// 2/10- on carpet for -45 deg, P = 0.06, needs more tuning short by a few degrees
-		public static final double TURN_DEGREES2 = -90;
-		public static final double TURN_MARGIN = 8.0;
+		public static final double TURN_DEGREES = -90;
+		public static final double TURN_DEGREES2 = 90;
+		public static final double SWITCH_TURN = 30;
+		public static final double SCALE_TURN1 = 45;
+		public static final double SCALE_TURN2 = -45;
+		
+		public static final double TURN_MARGIN = 10.0;
 
 		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
 		// public static final double I_TURN = SmartDashboard.getNumber("I", 0);
 		// public static final double D_TURN = SmartDashboard.getNumber("D", 0);
 		// public static final PIDParameters TURN_PARAMS = new PIDParameters(P_TURN, I_TURN, D_TURN, 1 / 100.0);
-		public static final PIDParameters TURN_PARAMS = new PIDParameters(0.019, 0.00, 0.0, 1 / 100.0);
+		public static final PIDParameters TURN_PARAMS = new PIDParameters(0.019, 0.00, -0.0001, 1 / 100.0);
+		// TESTBED 2/10- on carpet for 45 and 30 deg, P = 0.019, I = 0, D = -0.0001, fresh battery 57 deg
+		// TESTBED2/10- on carpet for -45 deg, P = 0.06, needs more tuning short by a few degrees
+		// TESTBED 2/10 on carpet for +/-90 deg, P = 0.0147, D = -0.003
 		
+		public static final double STRAIGHT_DISTANCE1 = 48;
+		public static final double STRAIGHT_DISTANCE2 = 108;
+		public static final double STRAIGHT_DISTANCE3 = 32;
+		public static final double SWITCH_DIST1 = 101;
+		public static final double SWITCH_DIST2 = 12;
+		public static final double SCALE_DIST = 252.5;
 		
-		// for motion magic F = 0.8, P = 0.09
-		public static final double MTN_MAG_END_MARGIN = 20;
+		public static final double MM_END_MARGIN1 = 10;
+		public static final double MM_END_MARGIN2 = 20;
+		public static final double MM_END_MARGIN3 = 6;
 		
 		public static final double M_MAGIC_K_P = 0.09;
 		public static final double M_MAGIC_K_I = 0.0;
 		public static final double M_MAGIC_K_D = 0.0;
 		public static final double M_MAGIC_K_F = 0.8;
+		// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
+		// TESTBED CV = 1280, ACCEL = 1280 Margin = 20
 
 		public static final int M_MAGIC_CV = 1280;
 		public static final int M_MAGIC_ACCL = 1280;

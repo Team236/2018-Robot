@@ -25,8 +25,8 @@ public class Intake extends Command {
 	protected void execute() {
 
 		SmartDashboard.putBoolean("Intake Sensor value ", Robot.intake.intakeSensor.get());
-		System.out.print("intake sensor value ");
-		System.out.println(Robot.intake.intakeSensor.get());
+		// System.out.print("intake sensor value ");
+		// System.out.println(Robot.intake.intakeSensor.get());
 		
 		if (!Robot.intake.intakeSensor.get()) {
 		Robot.intake.leftIntake.set(RobotMap.IntakeMap.INTAKE_SPEED);

@@ -2,6 +2,8 @@ package org.usfirst.frc.team236.robot;
 
 import org.usfirst.frc.team236.robot.commands.auto.AutoMotnMagic;
 import org.usfirst.frc.team236.robot.commands.auto.DriveTurn2;
+import org.usfirst.frc.team236.robot.commands.auto.LeftSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.OppositeSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
@@ -86,9 +88,12 @@ public class Robot extends TimedRobot {
 		// D_TURN = SmartDashboard.getNumber("D", 0);
 		
 		// autonomousCommand = chooser.getSelected();
-		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1);
+		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1, RobotMap.AutoMap.MM_END_MARGIN1);
 		// autonomousCommand = new Turn(RobotMap.AutoMap.TURN_DEGREES,RobotMap.AutoMap.TURN_MARGIN);
-		autonomousCommand = new DriveTurn2();
+		// autonomousCommand = new DriveTurn2();
+		// autonomousCommand = new OppositeSwitch();
+		// autonomousCommand = new RightSwitch();
+		autonomousCommand = new LeftSwitch();
 
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {
