@@ -117,8 +117,8 @@ public class RobotMap {
 		// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
 		// TESTBED CV = 1280, ACCEL = 1280 Margin = 20
 
-		public static final int M_MAGIC_CV = 1280;
-		public static final int M_MAGIC_ACCL = 1280;
+		public static final int M_MAGIC_CV = 900;
+		public static final int M_MAGIC_ACCL = 900;
 	}
 
 }
