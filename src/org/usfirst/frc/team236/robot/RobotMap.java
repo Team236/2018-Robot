@@ -88,15 +88,17 @@ public class RobotMap {
 		public static final double SCALE_TURN1 = 45;
 		public static final double SCALE_TURN2 = -45;
 		
-		public static final double TURN_MARGIN = 10.0;
+		public static final double TURN_MARGIN = 20.0;
 
 		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
 		// public static final double I_TURN = SmartDashboard.getNumber("I", 0);
 		// public static final double D_TURN = SmartDashboard.getNumber("D", 0);
 		// public static final PIDParameters TURN_PARAMS = new PIDParameters(P_TURN, I_TURN, D_TURN, 1 / 100.0);
-		public static final PIDParameters TURN_PARAMS = new PIDParameters(0.019, 0.00, -0.0001, 1 / 100.0);
+		public static final PIDParameters TURN_PARAMS45 = new PIDParameters(0.019, 0.00, -0.0001, 1 / 100.0);
+		public static final PIDParameters TURN_PARAMS_45 = new PIDParameters(0.06, 0.00, 0.000, 1 / 100.0);
+		public static final PIDParameters TURN_PARAMS90 = new PIDParameters(0.0147, 0.00, -0.003, 1 / 100.0);
 		// TESTBED 2/10- on carpet for 45 and 30 deg, P = 0.019, I = 0, D = -0.0001, fresh battery 57 deg
-		// TESTBED2/10- on carpet for -45 deg, P = 0.06, needs more tuning short by a few degrees
+		// TESTBED 2/10- on carpet for -45 deg, P = 0.06, needs more tuning short by a few degrees
 		// TESTBED 2/10 on carpet for +/-90 deg, P = 0.0147, D = -0.003
 		
 		public static final double STRAIGHT_DISTANCE1 = 48;
@@ -106,9 +108,9 @@ public class RobotMap {
 		public static final double SWITCH_DIST2 = 12;
 		public static final double SCALE_DIST = 252.5;
 		
-		public static final double MM_END_MARGIN1 = 10;
-		public static final double MM_END_MARGIN2 = 20;
-		public static final double MM_END_MARGIN3 = 6;
+		public static final double MM_END_MARGIN1 = 30; //10
+		public static final double MM_END_MARGIN2 = 20; //20
+		public static final double MM_END_MARGIN3 = 10; //6
 		
 		public static final double M_MAGIC_K_P = 0.09;
 		public static final double M_MAGIC_K_I = 0.0;

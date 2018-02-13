@@ -12,11 +12,11 @@ public class OppositeSwitch extends CommandGroup {
     public OppositeSwitch() {
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1, RobotMap.AutoMap.MM_END_MARGIN1));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES, RobotMap.AutoMap.TURN_MARGIN));
+    	addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS90));
     	
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE2, RobotMap.AutoMap.MM_END_MARGIN2));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES2, RobotMap.AutoMap.TURN_MARGIN));
+    	addSequential(new Turn(RobotMap.AutoMap.TURN_DEGREES2, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS90));
     	
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE3, RobotMap.AutoMap.MM_END_MARGIN3));
     	

@@ -20,15 +20,16 @@ public class Turn extends Command {
 	
 	public static PIDParameters TURN_PARAMS;
 
-	public Turn(double _degrees, double _margin) {
+	public Turn(double _degrees, double _margin, PIDParameters _pid) {
 
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(Robot.drive);
 		this.degrees = _degrees;
 		this.margin = _margin;
+		
 		// PIDParameters TURN_PARAMS = new PIDParameters(Robot.P_TURN, Robot.I_TURN, Robot.D_TURN, 1 / 100.0);
-		pid = new PID(Robot.drive, Robot.drive, RobotMap.AutoMap.TURN_PARAMS);
+		pid = new PID(Robot.drive, Robot.drive, _pid);
 
 	}
 

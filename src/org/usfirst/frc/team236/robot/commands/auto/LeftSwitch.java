@@ -12,7 +12,7 @@ public class LeftSwitch extends CommandGroup {
     public LeftSwitch() {
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_DIST1, RobotMap.AutoMap.MM_END_MARGIN1));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.SWITCH_TURN, RobotMap.AutoMap.TURN_MARGIN));
+    	addSequential(new Turn(RobotMap.AutoMap.SWITCH_TURN, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS45));
     	
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_DIST2, RobotMap.AutoMap.MM_END_MARGIN1));
         // Add Commands here:

@@ -12,7 +12,7 @@ public class LeftScale extends CommandGroup {
     public LeftScale() {
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SCALE_DIST, RobotMap.AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.SCALE_TURN2, RobotMap.AutoMap.TURN_MARGIN));
+    	addSequential(new Turn(RobotMap.AutoMap.SCALE_TURN2, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS45));
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
