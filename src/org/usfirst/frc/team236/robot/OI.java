@@ -10,7 +10,6 @@ import org.usfirst.frc.team236.robot.commands.intake.Raise;
 import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import lib.oi.LogitechF310;
 import lib.oi.Thrustmaster;

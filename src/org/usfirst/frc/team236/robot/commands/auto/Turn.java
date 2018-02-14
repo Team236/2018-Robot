@@ -1,8 +1,6 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.Robot;
-import org.usfirst.frc.team236.robot.RobotMap;
-
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.pid.PID;
@@ -21,23 +19,18 @@ public class Turn extends Command {
 	public static PIDParameters TURN_PARAMS;
 
 	public Turn(double _degrees, double _margin, PIDParameters _pid) {
-
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
 		requires(Robot.drive);
 		this.degrees = _degrees;
 		this.margin = _margin;
 		
-		// PIDParameters TURN_PARAMS = new PIDParameters(Robot.P_TURN, Robot.I_TURN, Robot.D_TURN, 1 / 100.0);
 		pid = new PID(Robot.drive, Robot.drive, _pid);
 
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		System.out.println("Turn is Initializing");
-		// System.out.print("P before turn ");
-		// System.out.print(Robot.P_TURN);
+		// System.out.println("Turn is initializing");
+
 		pid.setSetpoint(degrees);
 
 		Robot.drive.navx.reset();
@@ -53,8 +46,6 @@ public class Turn extends Command {
 		SmartDashboard.putNumber("angle error = ", angleError);
 		SmartDashboard.putNumber("angle Margin", margin);
 		SmartDashboard.putNumber("navxrate = ", Robot.drive.navx.getRate());
-		// System.out.print("P during turn");
-		// System.out.print(Robot.P_TURN);
 
 	}
 
@@ -67,7 +58,7 @@ public class Turn extends Command {
 	protected void end() {
 		pid.disable();
 		Robot.drive.stop();
-		System.out.println("Turn Finished");
+		// System.out.println("Turn Finished");
 	}
 
 	// Called when another command which requires one or more of the same

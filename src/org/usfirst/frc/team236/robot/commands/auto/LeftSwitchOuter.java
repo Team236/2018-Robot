@@ -9,12 +9,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class LeftScale extends CommandGroup {
+public class LeftSwitchOuter extends CommandGroup {
 
-    public LeftScale() {
-    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SCALE_DIST, RobotMap.AutoMap.MM_END_MARGIN3));
+    public LeftSwitchOuter() {
+    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_DIST3, RobotMap.AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_45_CCW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS45));
+    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS90));
+    	
+    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_DIST4, RobotMap.AutoMap.MM_END_MARGIN1));
     	
     	addSequential(new SpinUp());
     	

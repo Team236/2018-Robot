@@ -1,9 +1,14 @@
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.auto.AutoLineOnly;
 import org.usfirst.frc.team236.robot.commands.auto.AutoMotnMagic;
-import org.usfirst.frc.team236.robot.commands.auto.LeftSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.OppositeSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.LeftScale;
+import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchInner;
+import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchOuter;
 import org.usfirst.frc.team236.robot.commands.auto.RightScale;
+import org.usfirst.frc.team236.robot.commands.auto.RightSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.ScaleCrossLtoR;
+import org.usfirst.frc.team236.robot.commands.auto.SwitchCrossRtoL;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
@@ -17,6 +22,7 @@ import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -40,6 +46,8 @@ public class Robot extends TimedRobot {
 	private Compressor compressor;
 	
 	public UsbCamera camera;
+	
+	public static Timer timer;
 
 	// Declare auto command
 	Command autoCommand;
@@ -50,10 +58,6 @@ public class Robot extends TimedRobot {
 
 		compressor = new Compressor();
 		compressor.start();
-
-		SmartDashboard.putNumber("P", 0);
-		SmartDashboard.putNumber("I", 0);
-		SmartDashboard.putNumber("D", 0);
 		
 		try {
 			camera = CameraServer.getInstance().startAutomaticCapture();
@@ -82,19 +86,17 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {	
 		drive.resetEncoders();
 		drive.navx.reset();
-
-		// P_TURN = SmartDashboard.getNumber("P", 0);
-		// I_TURN = SmartDashboard.getNumber("I", 0);
-		// D_TURN = SmartDashboard.getNumber("D", 0);
 		
-		// autonomousCommand = chooser.getSelected();
 		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1, RobotMap.AutoMap.MM_END_MARGIN1);
 		// autonomousCommand = new Turn(RobotMap.AutoMap.SCALE_TURN2,RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS_45);
-		// autonomousCommand = new OppositeSwitch();
+		autonomousCommand = new SwitchCrossRtoL();
 		// autonomousCommand = new RightSwitch();
-		// autonomousCommand = new LeftSwitch();
+		// autonomousCommand = new LeftSwitchInner();
+		// autonomousCommand = new LeftSwitchOuter();
 		// autonomousCommand = new RightScale();
 		// autonomousCommand = new LeftScale();
+		// autonomousCommand = new AutoLineOnly();
+		// autonomousCommand = new ScaleCrossLtoR();
 
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {
@@ -115,6 +117,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Left speed: ", drive.leftFrontMaster.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Right speed: ", drive.rightFrontMaster.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("gyroangle", drive.navx.getAngle());
+		SmartDashboard.putNumber("Auto Match Time", timer.getMatchTime());
 	}
 
 	@Override
@@ -143,6 +146,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Right speed: ", drive.rightFrontMaster.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("gyroangle", drive.navx.getAngle());
 		SmartDashboard.putBoolean("Intake Sensor value in robot ", intake.intakeSensor.get());
+		SmartDashboard.putNumber("Match Time", timer.getMatchTime());
 
 	}
 

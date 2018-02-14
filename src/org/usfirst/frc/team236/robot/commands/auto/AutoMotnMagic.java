@@ -61,7 +61,7 @@ public class AutoMotnMagic extends Command {
 
 		// SmartDashboard.putNumber("Speed", Robot.drive.getRightSpeed());
 		// SmartDashboard.putNumber("MM error = ", error);
-		return (inSpeedMargin) && (inDistMargin);
+		return (((inSpeedMargin) && (inDistMargin)) || Robot.timer.getMatchTime() < 2);
 	}
 
 	// Called once after isFinished returns true
