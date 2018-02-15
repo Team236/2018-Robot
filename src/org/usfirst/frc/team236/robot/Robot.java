@@ -1,15 +1,6 @@
 package org.usfirst.frc.team236.robot;
 
 import org.usfirst.frc.team236.robot.commands.auto.AutoLineOnly;
-import org.usfirst.frc.team236.robot.commands.auto.AutoMotnMagic;
-import org.usfirst.frc.team236.robot.commands.auto.LeftScale;
-import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchInner;
-import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchOuter;
-import org.usfirst.frc.team236.robot.commands.auto.RightScale;
-import org.usfirst.frc.team236.robot.commands.auto.RightSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.ScaleCrossLtoR;
-import org.usfirst.frc.team236.robot.commands.auto.SwitchCrossRtoL;
-import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
 import org.usfirst.frc.team236.robot.subsystems.Intake;
@@ -26,7 +17,6 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import lib.pid.PIDParameters;
 
 public class Robot extends TimedRobot {
 	Command autonomousCommand;
