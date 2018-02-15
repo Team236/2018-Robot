@@ -5,10 +5,12 @@ import lib.pid.PIDParameters;
 public class RobotMap {
 
 	public static class DriveMap {
-		public static final int ID_LEFT_FRONT = 8;
-		public static final int ID_RIGHT_FRONT = 7;
-		public static final int ID_LEFT_REAR = 5;
-		public static final int ID_RIGHT_REAR = 6;
+		public static final int ID_LEFT_FRONT = 8; //2
+		public static final int ID_RIGHT_FRONT = 7; //1
+		// public static final int ID_LEFT_MIDDLE = 4
+		// public static final int ID_RIGHT_MIDDLE = 3
+		public static final int ID_LEFT_REAR = 5; //10
+		public static final int ID_RIGHT_REAR = 6; //9
 
 		public static final double DIAMETER = 3.94; // wheel diameter in inches
 		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
@@ -84,6 +86,7 @@ public class RobotMap {
 		public static final double TURN_90_CCW = -90;
 		public static final double TURN_90_CW = 90;
 		public static final double TURN_30_CW = 30;
+		public static final double TURN_30_CCW = -30;
 		public static final double TURN_45_CW = 45;
 		public static final double TURN_45_CCW = -45;
 		
@@ -101,22 +104,22 @@ public class RobotMap {
 		// TESTBED 2/10- on carpet for -45 deg, P = 0.06, needs more tuning short by a few degrees
 		// TESTBED 2/10 on carpet for +/-90 deg, P = 0.0147, D = -0.003
 		
-		public static final double SWITCH_CROSS1 = 48;
-		public static final double SWITCH_CROSS2 = 108;
-		public static final double SWITCH_CROSS3 = 32;
+		public static final double SWITCH_CROSS1 = -48;
+		public static final double SWITCH_CROSS2 = -108;
+		public static final double SWITCH_CROSS3 = -32;
 		
-		public static final double SWITCH_DIST1 = 105;
-		public static final double SWITCH_DIST2 = 12;
-		public static final double SWITCH_DIST3 = 168;
-		public static final double SWITCH_DIST4 = 30;
+		public static final double SWITCH_DIST1 = -105;
+		public static final double SWITCH_DIST2 = -12;
+		public static final double SWITCH_DIST3 = -168;
+		public static final double SWITCH_DIST4 = -30;
 		
-		public static final double SCALE_DIST = 252.5;
+		public static final double SCALE_DIST = -252.5;
 		
-		public static final double SCALE_CROSS1 = 209.5;
-		public static final double SCALE_CROSS2 = 186;
-		public static final double SCALE_CROSS3 = 37;
+		public static final double SCALE_CROSS1 = -209.5;
+		public static final double SCALE_CROSS2 = -186;
+		public static final double SCALE_CROSS3 = -37;
 		
-		public static final double STRAIGHT_DIST = 150;
+		public static final double STRAIGHT_DIST = -150;
 		
 		public static final double MM_END_MARGIN1 = 15;
 		public static final double MM_END_MARGIN2 = 40;

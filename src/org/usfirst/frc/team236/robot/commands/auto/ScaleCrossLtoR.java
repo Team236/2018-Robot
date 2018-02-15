@@ -14,11 +14,11 @@ public class ScaleCrossLtoR extends CommandGroup {
     public ScaleCrossLtoR() {
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SCALE_CROSS1, RobotMap.AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS90));
+    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CCW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS90));
     	
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SCALE_CROSS2, RobotMap.AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CCW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS_90));
+    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS_90));
     	
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SCALE_CROSS3, RobotMap.AutoMap.MM_END_MARGIN1));
     	
