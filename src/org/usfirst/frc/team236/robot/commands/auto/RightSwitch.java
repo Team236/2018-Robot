@@ -13,7 +13,7 @@ public class RightSwitch extends CommandGroup {
 
     public RightSwitch() {
     	//"4" below is a timeout for this command - it means the command will end after those many seconds at most
-    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_DIST1, RobotMap.AutoMap.MM_END_MARGIN2), 4);
+    	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_DIST1, RobotMap.AutoMap.MM_END_MARGIN1), 4);
     	
     	addSequential(new SpinUp());
     	

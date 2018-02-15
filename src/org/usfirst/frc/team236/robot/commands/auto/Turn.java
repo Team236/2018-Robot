@@ -58,7 +58,7 @@ public class Turn extends Command {
 	protected void end() {
 		pid.disable();
 		Robot.drive.stop();
-		// System.out.println("Turn Finished");
+		System.out.println("Turn Finished");
 	}
 
 	// Called when another command which requires one or more of the same

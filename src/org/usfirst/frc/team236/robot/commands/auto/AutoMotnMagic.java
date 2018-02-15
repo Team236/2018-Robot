@@ -37,6 +37,8 @@ public class AutoMotnMagic extends Command {
 		Robot.drive.setkIMM(RobotMap.AutoMap.M_MAGIC_K_I);
 		Robot.drive.setkDMM(RobotMap.AutoMap.M_MAGIC_K_D);
 		Robot.drive.setkFMM(RobotMap.AutoMap.M_MAGIC_K_F);
+		
+		System.out.print("Initializing Motion Magic");
 
 		Robot.drive.setRightDistMotion(distance / RobotMap.DriveMap.DISTANCE_PER_PULSE);
 		Robot.drive.setLeftDistMotion(distance / RobotMap.DriveMap.DISTANCE_PER_PULSE);
@@ -61,7 +63,7 @@ public class AutoMotnMagic extends Command {
 
 		// SmartDashboard.putNumber("Speed", Robot.drive.getRightSpeed());
 		// SmartDashboard.putNumber("MM error = ", error);
-		return (((inSpeedMargin) && (inDistMargin)) || Robot.timer.getMatchTime() < 2);
+		return ((inSpeedMargin) && (inDistMargin));
 	}
 
 	// Called once after isFinished returns true

@@ -109,21 +109,21 @@ public class RobotMap {
 		public static final double SWITCH_CROSS3 = -32;
 		
 		public static final double SWITCH_DIST1 = -105;
-		public static final double SWITCH_DIST2 = -12;
+		public static final double SWITCH_DIST2 = -30;
 		public static final double SWITCH_DIST3 = -168;
 		public static final double SWITCH_DIST4 = -30;
 		
 		public static final double SCALE_DIST = -252.5;
 		
 		public static final double SCALE_CROSS1 = -209.5;
-		public static final double SCALE_CROSS2 = -186;
+		public static final double SCALE_CROSS2 = -120; //-186 w/bump
 		public static final double SCALE_CROSS3 = -37;
 		
 		public static final double STRAIGHT_DIST = -150;
 		
 		public static final double MM_END_MARGIN1 = 15;
-		public static final double MM_END_MARGIN2 = 40;
-		public static final double MM_END_MARGIN3 = 60;
+		public static final double MM_END_MARGIN2 = 20; //40
+		public static final double MM_END_MARGIN3 = 40; //60
 		
 		public static final double M_MAGIC_K_P = 0.09;
 		public static final double M_MAGIC_K_I = 0.0;
@@ -132,8 +132,8 @@ public class RobotMap {
 		// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
 		// TESTBED CV = 1280, ACCEL = 1280 Margin = 20
 
-		public static final int M_MAGIC_CV = 900;
-		public static final int M_MAGIC_ACCL = 900;
+		public static final int M_MAGIC_CV = 500;
+		public static final int M_MAGIC_ACCL = 500;
 	}
 
 }

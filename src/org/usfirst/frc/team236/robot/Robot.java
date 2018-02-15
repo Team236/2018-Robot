@@ -89,14 +89,14 @@ public class Robot extends TimedRobot {
 		
 		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1, RobotMap.AutoMap.MM_END_MARGIN1);
 		// autonomousCommand = new Turn(RobotMap.AutoMap.SCALE_TURN2,RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS_45);
-		autonomousCommand = new SwitchCrossRtoL();
+		// autonomousCommand = new SwitchCrossRtoL();
 		// autonomousCommand = new RightSwitch();
 		// autonomousCommand = new LeftSwitchInner();
 		// autonomousCommand = new LeftSwitchOuter();
 		// autonomousCommand = new RightScale();
 		// autonomousCommand = new LeftScale();
 		// autonomousCommand = new AutoLineOnly();
-		// autonomousCommand = new ScaleCrossLtoR();
+		autonomousCommand = new ScaleCrossLtoR();
 
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {

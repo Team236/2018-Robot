@@ -14,11 +14,11 @@ public class SwitchCrossRtoL extends CommandGroup {
     public SwitchCrossRtoL() {
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_CROSS1, RobotMap.AutoMap.MM_END_MARGIN1));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS_90));
+    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CCW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS_90));
     	
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_CROSS2, RobotMap.AutoMap.MM_END_MARGIN2));
     	
-    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CCW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS90));
+    	addSequential(new Turn(RobotMap.AutoMap.TURN_90_CW, RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS90));
    
     	//"3" below is a timeout for this command - it means the command will end after those many seconds at most
     	addSequential(new AutoMotnMagic(RobotMap.AutoMap.SWITCH_CROSS3, RobotMap.AutoMap.MM_END_MARGIN1), 3);
