@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class LeftScale extends CommandGroup {
 
     public LeftScale() {
-    	addSequential(new AutoMotnMagic(AutoMap.SCALE_DIST, AutoMap.MM_END_MARGIN3));
+    	addSequential(new MotionMagic(AutoMap.SCALE_DIST, AutoMap.MM_END_MARGIN3));
     	
     	addSequential(new Turn(AutoMap.TURN_45_CW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45));
     	

@@ -10,6 +10,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoLineOnly extends CommandGroup {
 
     public AutoLineOnly() {
-    	addSequential(new AutoMotnMagic(AutoMap.STRAIGHT_DIST, AutoMap.MM_END_MARGIN3));
+    	addSequential(new MotionMagic(AutoMap.STRAIGHT_DIST, AutoMap.MM_END_MARGIN3));
     }
 }

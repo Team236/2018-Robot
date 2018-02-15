@@ -12,15 +12,15 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class ScaleCrossLtoR extends CommandGroup {
 
     public ScaleCrossLtoR() {
-    	addSequential(new AutoMotnMagic(AutoMap.SCALE_CROSS1, AutoMap.MM_END_MARGIN3));
+    	addSequential(new MotionMagic(AutoMap.SCALE_CROSS1, AutoMap.MM_END_MARGIN3));
     	
     	addSequential(new Turn(AutoMap.TURN_90_CW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS90));
     	
-    	addSequential(new AutoMotnMagic(AutoMap.SCALE_CROSS2, AutoMap.MM_END_MARGIN2));
+    	addSequential(new MotionMagic(AutoMap.SCALE_CROSS2, AutoMap.MM_END_MARGIN2));
     	
     	addSequential(new Turn(AutoMap.TURN_90_CCW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
     	
-    	addSequential(new AutoMotnMagic(AutoMap.SCALE_CROSS3, AutoMap.MM_END_MARGIN1));
+    	addSequential(new MotionMagic(AutoMap.SCALE_CROSS3, AutoMap.MM_END_MARGIN1));
     	
     	addSequential(new Turn(AutoMap.TURN_45_CCW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45));
     	

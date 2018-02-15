@@ -10,13 +10,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class AutoMotnMagic extends Command {
+public class MotionMagic extends Command {
 
 	private double distance;
 	private double margin;
 	private double error;
 
-	public AutoMotnMagic(double _distance, double _margin) {
+	public MotionMagic(double _distance, double _margin) {
 		requires(Robot.drive);
 
 		this.distance = _distance;

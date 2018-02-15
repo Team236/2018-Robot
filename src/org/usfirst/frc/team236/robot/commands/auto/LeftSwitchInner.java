@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class LeftSwitchInner extends CommandGroup {
 
     public LeftSwitchInner() {
-    	addSequential(new AutoMotnMagic(AutoMap.SWITCH_DIST1, AutoMap.MM_END_MARGIN2));
+    	addSequential(new MotionMagic(AutoMap.SWITCH_DIST1, AutoMap.MM_END_MARGIN2));
     	
     	addSequential(new Wait(2));
     	
@@ -21,7 +21,7 @@ public class LeftSwitchInner extends CommandGroup {
     	addSequential(new Wait(2));
     	
     	//"4" below is a timeout for this command - it means the command will end after those many seconds at most
-    	addSequential(new AutoMotnMagic(AutoMap.SWITCH_DIST2, AutoMap.MM_END_MARGIN1), 4);
+    	addSequential(new MotionMagic(AutoMap.SWITCH_DIST2, AutoMap.MM_END_MARGIN1), 4);
     	
     	addSequential(new SpinUp());
     	

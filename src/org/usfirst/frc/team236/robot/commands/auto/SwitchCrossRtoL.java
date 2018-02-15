@@ -12,16 +12,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class SwitchCrossRtoL extends CommandGroup {
 
     public SwitchCrossRtoL() {
-    	addSequential(new AutoMotnMagic(AutoMap.SWITCH_CROSS1, AutoMap.MM_END_MARGIN1));
+    	addSequential(new MotionMagic(AutoMap.SWITCH_CROSS1, AutoMap.MM_END_MARGIN1));
     	
     	addSequential(new Turn(AutoMap.TURN_90_CCW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
     	
-    	addSequential(new AutoMotnMagic(AutoMap.SWITCH_CROSS2, AutoMap.MM_END_MARGIN2));
+    	addSequential(new MotionMagic(AutoMap.SWITCH_CROSS2, AutoMap.MM_END_MARGIN2));
     	
     	addSequential(new Turn(AutoMap.TURN_90_CW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS90));
    
     	//"3" below is a timeout for this command - it means the command will end after those many seconds at most
-    	addSequential(new AutoMotnMagic(AutoMap.SWITCH_CROSS3, AutoMap.MM_END_MARGIN1), 3);
+    	addSequential(new MotionMagic(AutoMap.SWITCH_CROSS3, AutoMap.MM_END_MARGIN1), 3);
     	
     	addSequential(new SpinUp());
     	
