@@ -95,8 +95,8 @@ public class Robot extends TimedRobot {
 		// autonomousCommand = new LeftSwitchOuter();
 		// autonomousCommand = new RightScale();
 		// autonomousCommand = new LeftScale();
-		// autonomousCommand = new AutoLineOnly();
-		autonomousCommand = new ScaleCrossLtoR();
+		autonomousCommand = new AutoLineOnly();
+		// autonomousCommand = new ScaleCrossLtoR();
 
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {
