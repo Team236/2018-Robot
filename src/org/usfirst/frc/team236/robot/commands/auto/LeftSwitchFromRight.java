@@ -9,9 +9,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class SwitchCrossRtoL extends CommandGroup {
-
-    public SwitchCrossRtoL() {
+public class LeftSwitchFromRight extends CommandGroup {
+	/**
+	 * Start from right side of field, aligned with the alliance wall partition.
+	 * 
+	 * Drive straight forward, turn left, drive to left switch plate, turn
+	 * right, and drive forward while delivering cube to switch plate.
+	 */
+    public LeftSwitchFromRight() {
     	addSequential(new MotionMagic(AutoMap.SWITCH_CROSS1, AutoMap.MM_END_MARGIN1));
     	
     	addSequential(new Turn(AutoMap.TURN_90_CCW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
@@ -20,7 +25,7 @@ public class SwitchCrossRtoL extends CommandGroup {
     	
     	addSequential(new Turn(AutoMap.TURN_90_CW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS90));
    
-    	//"3" below is a timeout for this command - it means the command will end after those many seconds at most
+    	// "3" below is a timeout for this command - it means the command will end after those many seconds at most
     	addSequential(new MotionMagic(AutoMap.SWITCH_CROSS3, AutoMap.MM_END_MARGIN1), 3);
     	
     	addSequential(new SpinUp());

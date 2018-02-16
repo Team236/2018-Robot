@@ -10,7 +10,11 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class LeftSwitchOuter extends CommandGroup {
-
+	/**
+	 * Start aligned with the left switch plate.
+	 * 
+	 * Drive forward to fence and deliver cube to left switch plate.
+	 */
     public LeftSwitchOuter() {
     	addSequential(new MotionMagic(AutoMap.SWITCH_DIST3, AutoMap.MM_END_MARGIN3));
     	

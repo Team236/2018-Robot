@@ -1,6 +1,6 @@
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.auto.AutoLineOnly;
+import org.usfirst.frc.team236.robot.commands.auto.Cross;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
 import org.usfirst.frc.team236.robot.subsystems.Intake;
@@ -85,7 +85,7 @@ public class Robot extends TimedRobot {
 		// autonomousCommand = new LeftSwitchOuter();
 		// autonomousCommand = new RightScale();
 		// autonomousCommand = new LeftScale();
-		autonomousCommand = new AutoLineOnly();
+		autonomousCommand = new Cross();
 		// autonomousCommand = new ScaleCrossLtoR();
 
 		// schedule the autonomous command (example)

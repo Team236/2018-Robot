@@ -10,7 +10,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class RightScale extends CommandGroup {
-
+	/**
+	 * Start all the way to the right portal.
+	 * 
+	 * Drive straight forward to null territory, turn 45 degrees, and deliver
+	 * cube onto right scale plate.
+	 */
     public RightScale() {
     	addSequential(new MotionMagic(AutoMap.SCALE_DIST, AutoMap.MM_END_MARGIN3));
     	

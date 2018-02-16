@@ -4,12 +4,11 @@ import org.usfirst.frc.team236.robot.AutoMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-/**
- *
- */
-public class AutoLineOnly extends CommandGroup {
-
-    public AutoLineOnly() {
+public class Cross extends CommandGroup {
+	/**
+	 * Cross the auto line
+	 */
+    public Cross() {
     	addSequential(new MotionMagic(AutoMap.STRAIGHT_DIST, AutoMap.MM_END_MARGIN3));
     }
 }

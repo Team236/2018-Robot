@@ -9,9 +9,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class ScaleCrossLtoR extends CommandGroup {
-
-    public ScaleCrossLtoR() {
+public class LeftLongScale extends CommandGroup {
+	/**
+	 * Start from left side of the field, cross field to deliver into right
+	 * plate of the scale.
+	 */
+    public LeftLongScale() {
     	addSequential(new MotionMagic(AutoMap.SCALE_CROSS1, AutoMap.MM_END_MARGIN3));
     	
     	addSequential(new Turn(AutoMap.TURN_90_CW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS90));

@@ -10,7 +10,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class LeftSwitchInner extends CommandGroup {
-
+	/**
+	 * Start all the way to the left portal.
+	 * 
+	 * Drive forward past auto line, turn right, and drive forward and deliver
+	 * cube onto left switch plate.
+	 */
     public LeftSwitchInner() {
     	addSequential(new MotionMagic(AutoMap.SWITCH_DIST1, AutoMap.MM_END_MARGIN2));
     	

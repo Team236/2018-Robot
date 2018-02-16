@@ -10,6 +10,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class LeftScale extends CommandGroup {
+	/**
+	 * Start all the way to the left portal.
+	 * 
+	 * Drive straight forward to null territory, turn 45 degrees right, and
+	 * deliver cube onto left scale plate.
+	 */
 
     public LeftScale() {
     	addSequential(new MotionMagic(AutoMap.SCALE_DIST, AutoMap.MM_END_MARGIN3));
