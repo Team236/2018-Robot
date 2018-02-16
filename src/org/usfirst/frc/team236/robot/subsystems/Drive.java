@@ -90,9 +90,12 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		leftFrontMaster.config_kD(0, MMkD, 0);
 	}
 	
-	public void setkFMM(double MMkF) {
-		rightFrontMaster.config_kF(0, MMkF, 0);
-		leftFrontMaster.config_kF(0, MMkF, 0);
+	public void setkFMM_L(double MMkFL) {
+		leftFrontMaster.config_kF(0, MMkFL, 0);
+	}
+	
+	public void setkFMM_R(double MMkFR) {
+		rightFrontMaster.config_kF(0, MMkFR, 0);
 	}
 
 	public void setMotnCV(int vcruise) {
