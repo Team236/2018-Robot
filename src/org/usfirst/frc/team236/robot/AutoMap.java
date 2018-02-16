@@ -3,13 +3,6 @@ package org.usfirst.frc.team236.robot;
 import lib.pid.PIDParameters;
 
 public class AutoMap {
-	public static final double TURN_90_CCW = -90;
-	public static final double TURN_90_CW = 90;
-	public static final double TURN_30_CW = 30;
-	public static final double TURN_30_CCW = -30;
-	public static final double TURN_45_CW = 45;
-	public static final double TURN_45_CCW = -45;
-	
 	public static final double TURN_MARGIN = 20.0;
 
 	// public static final double P_TURN = SmartDashboard.getNumber("P", 0);

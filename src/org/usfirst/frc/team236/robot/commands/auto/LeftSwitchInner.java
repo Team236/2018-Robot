@@ -21,7 +21,7 @@ public class LeftSwitchInner extends CommandGroup {
     	
     	addSequential(new Wait(2));
     	
-    	addSequential(new Turn(AutoMap.TURN_30_CW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45));
+    	addSequential(new Turn(30, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45));
     	
     	addSequential(new Wait(2));
     	

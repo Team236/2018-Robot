@@ -17,15 +17,15 @@ public class LeftLongScale extends CommandGroup {
     public LeftLongScale() {
     	addSequential(new MotionMagic(AutoMap.SCALE_CROSS1, AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(AutoMap.TURN_90_CW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS90));
+    	addSequential(new Turn(90, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS90));
     	
     	addSequential(new MotionMagic(AutoMap.SCALE_CROSS2, AutoMap.MM_END_MARGIN2));
     	
-    	addSequential(new Turn(AutoMap.TURN_90_CCW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
+    	addSequential(new Turn(-90, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
     	
     	addSequential(new MotionMagic(AutoMap.SCALE_CROSS3, AutoMap.MM_END_MARGIN1));
     	
-    	addSequential(new Turn(AutoMap.TURN_45_CCW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45));
+    	addSequential(new Turn(-45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45));
     	
     	addSequential(new SpinUp());
     	

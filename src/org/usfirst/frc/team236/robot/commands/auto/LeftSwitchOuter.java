@@ -18,7 +18,7 @@ public class LeftSwitchOuter extends CommandGroup {
     public LeftSwitchOuter() {
     	addSequential(new MotionMagic(AutoMap.SWITCH_DIST3, AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(AutoMap.TURN_90_CW, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS90));
+    	addSequential(new Turn(90, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS90));
     	
     	//"4" below is a timeout for this command - it means the command will end after those many seconds at most
     	addSequential(new MotionMagic(AutoMap.SWITCH_DIST4, AutoMap.MM_END_MARGIN1), 4);
