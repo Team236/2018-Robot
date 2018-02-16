@@ -38,13 +38,14 @@ public class AutoMap {
 	public static final double MM_END_MARGIN2 = 20; //40
 	public static final double MM_END_MARGIN3 = 40; //60
 	
-	public static final double M_MAGIC_K_P = 0.01;
+	public static final double M_MAGIC_K_P = 0.08;
 	public static final double M_MAGIC_K_I = 0.0;
 	public static final double M_MAGIC_K_D = 0.0;
-	public static final double M_MAGIC_K_F = 1.5;
+	public static final double M_MAGIC_K_F_L = 1.2;
+	public static final double M_MAGIC_K_F_R = 1.2;
 	// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
 	// TESTBED CV = 1280, ACCEL = 1280 Margin = 20
 
-	public static final int M_MAGIC_CV = 1280;
-	public static final int M_MAGIC_ACCL = 1280;
+	public static final int M_MAGIC_CV = 200;
+	public static final int M_MAGIC_ACCL = 200;
 }
