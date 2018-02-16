@@ -18,7 +18,7 @@ public class LeftScale extends CommandGroup {
 	 */
 
     public LeftScale() {
-    	addSequential(new MotionMagic(AutoMap.SCALE_DIST, AutoMap.MM_END_MARGIN3));
+    	addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN3));
     	
     	addSequential(new Turn(45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45));
     	

@@ -21,18 +21,18 @@ public class AutoMap {
 	public static final double SWITCH_CROSS2 = -108;
 	public static final double SWITCH_CROSS3 = -32;
 	
-	public static final double SWITCH_DIST1 = -105;
-	public static final double SWITCH_DIST2 = -30;
-	public static final double SWITCH_DIST3 = -168;
-	public static final double SWITCH_DIST4 = -30;
+	public static final double DIST_FENCE = -105;
+	public static final double DIST_FENCE_ALIGNMENT = -30;
+	public static final double DIST_PAST_SWITCH = -168;
+	public static final double DIST_SIDE_FENCE = -30;
 	
-	public static final double SCALE_DIST = -252.5;
+	public static final double DIST_NULL_TERRITORY = -252.5;
 	
-	public static final double SCALE_CROSS1 = -209.5;
-	public static final double SCALE_CROSS2 = -186; //with bump
-	public static final double SCALE_CROSS3 = -37;
+	public static final double DIST_PLATFORM_ZONE = -209.5;
+	public static final double DIST_CROSS_FIELD = -186; //with bump
+	public static final double DIST_PLATFORM_ZONE_TO_NULL_TERRITORY = -37;
 	
-	public static final double STRAIGHT_DIST = -150;
+	public static final double DIST_AUTO_LINE = -150;
 	
 	public static final double MM_END_MARGIN1 = 15;
 	public static final double MM_END_MARGIN2 = 20; //40
