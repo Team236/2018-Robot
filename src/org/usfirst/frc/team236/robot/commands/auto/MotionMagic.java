@@ -37,7 +37,7 @@ public class MotionMagic extends Command {
 		Robot.drive.setkPMM(AutoMap.M_MAGIC_K_P);
 		Robot.drive.setkIMM(AutoMap.M_MAGIC_K_I);
 		Robot.drive.setkDMM(AutoMap.M_MAGIC_K_D);
-		Robot.drive.setkFMM_L(AutoMap.M_MAGIC_K_F_R);
+		Robot.drive.setkFMM_L(AutoMap.M_MAGIC_K_F_L);
 		Robot.drive.setkFMM_R(AutoMap.M_MAGIC_K_F_R);
 		
 		System.out.print("Initializing Motion Magic");
@@ -60,8 +60,8 @@ public class MotionMagic extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 
-		boolean inSpeedMargin = Robot.drive.getRightSpeed() < 1.0;
-		boolean inDistMargin = error < margin;
+		boolean inSpeedMargin = Math.abs(Robot.drive.getRightSpeed()) < 1.0;
+		boolean inDistMargin = Math.abs(error) < margin;
 
 		// SmartDashboard.putNumber("Speed", Robot.drive.getRightSpeed());
 		// SmartDashboard.putNumber("MM error = ", error);
