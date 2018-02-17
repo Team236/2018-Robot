@@ -3,14 +3,14 @@ package org.usfirst.frc.team236.robot;
 public class RobotMap {
 
 	public static class DriveMap {
-		public static final int ID_LEFT_FRONT = 8; //2
-		public static final int ID_RIGHT_FRONT = 7; //1
-		// public static final int ID_LEFT_MIDDLE = 4
-		// public static final int ID_RIGHT_MIDDLE = 3
-		public static final int ID_LEFT_REAR = 5; //10
-		public static final int ID_RIGHT_REAR = 6; //9
+		public static final int ID_LEFT_FRONT = 8; //2, testbed: 8
+		public static final int ID_RIGHT_FRONT = 7; //1, testbed: 7
+		//public static final int ID_LEFT_MIDDLE = 4;
+		//public static final int ID_RIGHT_MIDDLE = 3;
+		public static final int ID_LEFT_REAR = 5; //10, testbed: 5
+		public static final int ID_RIGHT_REAR = 6; //9, testbed: 6
 
-		public static final double DIAMETER = 3.94; // wheel diameter in inches
+		public static final double DIAMETER = 3.96; // wheel diameter in inches
 		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
 		public static final double PULSE_PER_ROTATION = 512;
 		public static final double DISTANCE_PER_PULSE = CIRCUMFERENCE / PULSE_PER_ROTATION;
