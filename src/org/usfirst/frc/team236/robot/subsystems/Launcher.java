@@ -30,11 +30,11 @@ public class Launcher extends Subsystem {
 	}
 
 	public void extend() {
-		shoot.set(Value.kForward);
+		shoot.set(Value.kReverse);
 	}
 
 	public void retract() {
-		shoot.set(Value.kReverse);
+		shoot.set(Value.kForward);
 	}
 
 	public void setLaunchSpeed(double speed) {
