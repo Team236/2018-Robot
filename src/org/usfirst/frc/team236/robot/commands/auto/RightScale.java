@@ -19,13 +19,13 @@ public class RightScale extends CommandGroup {
     public RightScale() {
     	addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(-45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45));
+    	addSequential(new Turn(-45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_45));
     	
-    	addSequential(new SpinUp());
+    	addSequential(new SpinUp(), 1);
     	
     	addSequential(new Wait(2));
     	
-    	addSequential(new Shoot());
+    	addSequential(new Shoot(), 1);
        
     }
 }

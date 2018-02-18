@@ -20,7 +20,9 @@ public class LeftScale extends CommandGroup {
     public LeftScale() {
     	addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN3));
     	
-    	addSequential(new Turn(45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS45)); // could angle robot and turn 60
+    	addSequential(new Wait(1));
+    	
+    	addSequential(new Turn(60, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_45)); // could angle robot and turn 60
     	
     	addSequential(new SpinUp(), 1);
     	

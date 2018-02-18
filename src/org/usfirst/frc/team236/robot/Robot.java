@@ -1,6 +1,6 @@
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.auto.Cross;
+import org.usfirst.frc.team236.robot.commands.auto.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
 import org.usfirst.frc.team236.robot.subsystems.Intake;
@@ -78,15 +78,17 @@ public class Robot extends TimedRobot {
 		drive.navx.reset();
 		
 		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1, RobotMap.AutoMap.MM_END_MARGIN1);
-		// autonomousCommand = new Turn(RobotMap.AutoMap.SCALE_TURN2,RobotMap.AutoMap.TURN_MARGIN, RobotMap.AutoMap.TURN_PARAMS_45);
-		// autonomousCommand = new SwitchCrossRtoL();
+		// autonomousCommand = new Turn(-45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90);
+		// autonomousCommand = new LeftSwitchFromRight();
 		// autonomousCommand = new RightSwitch();
 		// autonomousCommand = new LeftSwitchInner();
 		// autonomousCommand = new LeftSwitchOuter();
 		// autonomousCommand = new RightScale();
-		// autonomousCommand = new LeftScale();
-		autonomousCommand = new Cross();
+		// autonomousCommand = new LeftScale(); 
+		// autonomousCommand = new Cross();
 		// autonomousCommand = new ScaleCrossLtoR();
+		autonomousCommand = new LeftScale2Cube();
+		// autonomousCommand = new RightScale2Cube();
 
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {
@@ -137,7 +139,6 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("gyroangle", drive.navx.getAngle());
 		SmartDashboard.putBoolean("Intake Sensor value in robot ", intake.intakeSensor.get());
 		SmartDashboard.putNumber("Match Time", timer.getMatchTime());
-
 	}
 
 	@Override

@@ -3,12 +3,12 @@ package org.usfirst.frc.team236.robot;
 public class RobotMap {
 
 	public static class DriveMap {
-		public static final int ID_LEFT_FRONT = 8; //2, testbed: 8
-		public static final int ID_RIGHT_FRONT = 7; //1, testbed: 7
-		//public static final int ID_LEFT_MIDDLE = 4;
-		//public static final int ID_RIGHT_MIDDLE = 3;
-		public static final int ID_LEFT_REAR = 5; //10, testbed: 5
-		public static final int ID_RIGHT_REAR = 6; //9, testbed: 6
+		public static final int ID_LEFT_FRONT = 2; //2, testbed: 8
+		public static final int ID_RIGHT_FRONT = 1; //1, testbed: 7
+		public static final int ID_LEFT_MIDDLE = 4;
+		public static final int ID_RIGHT_MIDDLE = 3;
+		public static final int ID_LEFT_REAR = 10; //10, testbed: 5
+		public static final int ID_RIGHT_REAR = 9; //9, testbed: 6
 
 		public static final double DIAMETER = 3.96; // wheel diameter in inches
 		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
@@ -45,7 +45,7 @@ public class RobotMap {
 		public static final double INTAKE_SPEED = 1;
 		public static final double EJECT_SPEED = -1;
 		public static final double FEED_SPEED = 0.4;
-		public static final boolean INV_LEFT = false;
+		public static final boolean INV_LEFT = true;
 		public static final boolean INV_RIGHT = false;
 
 	}
@@ -77,7 +77,7 @@ public class RobotMap {
 		public static final int DIO_LEFT = 6;
 		public static final int DIO_RIGHT = 7;
 		
-		public static final double WINCH_SPEED = 1.0;
+		public static final double WINCH_SPEED = 0.5;
 	}
 
 }
