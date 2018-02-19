@@ -24,13 +24,10 @@ public class Turn extends Command {
 		this.margin = _margin;
 		
 		pid = new PID(Robot.drive, Robot.drive, _pid);
-
 	}
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
-		// System.out.println("Turn is initializing");
-
 		pid.setSetpoint(degrees);
 
 		Robot.drive.navx.reset();
@@ -42,11 +39,7 @@ public class Turn extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		angleError = pid.getError();
-		SmartDashboard.putNumber("ANGLE: ", Robot.drive.navx.getAngle());
-		SmartDashboard.putNumber("angle error = ", angleError);
-		SmartDashboard.putNumber("angle Margin", margin);
-		SmartDashboard.putNumber("navxrate = ", Robot.drive.navx.getRate());
-
+		SmartDashboard.putNumber("Angle Error", angleError);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -58,7 +51,6 @@ public class Turn extends Command {
 	protected void end() {
 		pid.disable();
 		Robot.drive.stop();
-		System.out.println("Turn Finished");
 	}
 
 	// Called when another command which requires one or more of the same

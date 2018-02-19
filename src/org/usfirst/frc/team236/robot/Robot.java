@@ -108,13 +108,12 @@ public class Robot extends TimedRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 
-		SmartDashboard.putNumber("left Encoder value: ",
+		SmartDashboard.putNumber("Left Encoder value",
 				drive.getLeftDistance());
-		SmartDashboard.putNumber("Right Encoder value: ",
+		SmartDashboard.putNumber("Right Encoder value",
 				drive.getRightDistance());
-		SmartDashboard.putNumber("Left speed: ", drive.leftFrontMaster.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Right speed: ", drive.rightFrontMaster.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("gyroangle", drive.navx.getAngle());
+		SmartDashboard.putNumber("Left speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
+		SmartDashboard.putNumber("Right speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
 		SmartDashboard.putNumber("Auto Match Time", timer.getMatchTime());
 	}
 
