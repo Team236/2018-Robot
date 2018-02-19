@@ -150,7 +150,7 @@ public class Robot extends TimedRobot {
 
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 
-		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage());
+		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage() * (110.0/2.75));
 
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 		
