@@ -8,6 +8,7 @@ import org.usfirst.frc.team236.robot.subsystems.Launcher;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.VideoMode;
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DriverStation;
@@ -41,6 +42,10 @@ public class Robot extends TimedRobot {
 
 	// Declare auto command
 	Command autoCommand;
+	
+	public AnalogInput pressureSensor;
+	
+	private static final boolean isDebug = true;
 
 	@Override
 	public void robotInit() {
@@ -48,6 +53,8 @@ public class Robot extends TimedRobot {
 
 		compressor = new Compressor();
 		compressor.start();
+		
+		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
 		
 		try {
 			camera = CameraServer.getInstance().startAutomaticCapture();
@@ -57,7 +64,6 @@ public class Robot extends TimedRobot {
 			System.out.println(e.getStackTrace());
 			
 			SmartDashboard.putString("Camera capture failed", "failed");
-			
 		}
 
 	}
@@ -127,18 +133,23 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 
-		SmartDashboard.putBoolean("left limit ", Robot.climber.leftLimit.get());
-		SmartDashboard.putBoolean("right limit ", Robot.climber.rightLimit.get());
-
-		SmartDashboard.putNumber("left Encoder value: ",
+		if (isDebug) {
+		SmartDashboard.putNumber("Left Encoder value",
 				drive.leftFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE);
-		SmartDashboard.putNumber("Right Encoder value: ",
+		SmartDashboard.putNumber("Right Encoder value",
 				drive.rightFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE);
-		SmartDashboard.putNumber("Left speed: ", drive.leftFrontMaster.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Right speed: ", drive.rightFrontMaster.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("gyroangle", drive.navx.getAngle());
-		SmartDashboard.putBoolean("Intake Sensor value in robot ", intake.intakeSensor.get());
-		SmartDashboard.putNumber("Match Time", timer.getMatchTime());
+		
+		SmartDashboard.putNumber("Left speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
+		SmartDashboard.putNumber("Right speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
+		
+		SmartDashboard.putNumber("Gyro Angle", drive.navx.getAngle());
+		
+		}
+		SmartDashboard.putBoolean("Intake cube", intake.isCube());
+		
+		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
+		
+		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage());
 	}
 
 	@Override
