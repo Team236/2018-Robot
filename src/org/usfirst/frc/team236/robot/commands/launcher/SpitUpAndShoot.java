@@ -9,8 +9,8 @@ import lib.commands.WaitCommand;
 public class SpitUpAndShoot extends CommandGroup {
 
     public SpitUpAndShoot() {
-    	addParallel(new WaitCommand(1.5, new Shoot(), 1));
+    	addParallel(new WaitCommand(.25, new Shoot(), 1));
     	
-    	addSequential(new SpitUp(), 2.5);
+    	addSequential(new SpitUp(), 1.25);
     }
 }
