@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
@@ -36,6 +37,7 @@ public class Robot extends TimedRobot {
 
 	private Compressor compressor;
 
+	public PowerDistributionPanel pdp;
 	public UsbCamera camera;
 
 	public static Timer timer;
@@ -46,6 +48,7 @@ public class Robot extends TimedRobot {
 	public AnalogInput pressureSensor;
 
 	private static final boolean isDebug = true;
+	private static final boolean isPowerDebug = true;
 
 	@Override
 	public void robotInit() {
@@ -53,6 +56,8 @@ public class Robot extends TimedRobot {
 
 		compressor = new Compressor();
 		compressor.start();
+
+		pdp = new PowerDistributionPanel();
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
 
@@ -153,6 +158,13 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage());
 
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
+		
+		if (isPowerDebug) {
+			SmartDashboard.putNumber("Battery Voltage", pdp.getVoltage());
+			SmartDashboard.putNumber("Battery Current", pdp.getTotalCurrent());
+			SmartDashboard.putNumber("Battery Power", pdp.getTotalPower());
+			SmartDashboard.putNumber("Battery Energy", pdp.getTotalEnergy());
+		}
 	}
 
 	@Override
