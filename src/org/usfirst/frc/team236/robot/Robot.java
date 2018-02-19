@@ -75,6 +75,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		postFieldLayout();
 	}
 
 	@Override
@@ -180,29 +181,29 @@ public class Robot extends TimedRobot {
 
 		// Set near switch colors
 		if (gameData.charAt(0) == 'L') {
-			SmartDashboard.putBoolean("near switch left", ourBool);
-			SmartDashboard.putBoolean("near switch right", !ourBool);
-		} else if (gameData.charAt(0) == 'R') {
-			SmartDashboard.putBoolean("near switch left", !ourBool);
-			SmartDashboard.putBoolean("near switch right", ourBool);
+			SmartDashboard.putBoolean("NSL", ourBool);
+			SmartDashboard.putBoolean("NSR", !ourBool);
+		} else if (gameData.charAt(1) == 'R') {
+			SmartDashboard.putBoolean("NSL", !ourBool);
+			SmartDashboard.putBoolean("NSR", ourBool);
 		}
 
 		// Set scale colors
 		if (gameData.charAt(1) == 'L') {
-			SmartDashboard.putBoolean("scale left", ourBool);
-			SmartDashboard.putBoolean("scale right", !ourBool);
+			SmartDashboard.putBoolean("SL", ourBool);
+			SmartDashboard.putBoolean("SR", !ourBool);
 		} else if (gameData.charAt(1) == 'R') {
-			SmartDashboard.putBoolean("scale left", !ourBool);
-			SmartDashboard.putBoolean("scale right", ourBool);
+			SmartDashboard.putBoolean("SL", !ourBool);
+			SmartDashboard.putBoolean("SR", ourBool);
 		}
 
 		// Set far switch colors
 		if (gameData.charAt(2) == 'L') {
-			SmartDashboard.putBoolean("far switch left", ourBool);
-			SmartDashboard.putBoolean("far switch right", !ourBool);
-		} else if (gameData.charAt(2) == 'R') {
-			SmartDashboard.putBoolean("far switch left", !ourBool);
-			SmartDashboard.putBoolean("far switch right", ourBool);
+			SmartDashboard.putBoolean("FSL", ourBool);
+			SmartDashboard.putBoolean("FSR", !ourBool);
+		} else if (gameData.charAt(0) == 'R') {
+			SmartDashboard.putBoolean("FSL", !ourBool);
+			SmartDashboard.putBoolean("FSR", ourBool);
 		}
 	}
 }

@@ -33,13 +33,13 @@ public class MotionMagic extends Command {
 
 		Robot.drive.setMotnCV(AutoMap.M_MAGIC_CV);
 		Robot.drive.setMotnAccel(AutoMap.M_MAGIC_ACCL);
-
+		/*
 		Robot.drive.setkPMM(AutoMap.M_MAGIC_K_P);
 		Robot.drive.setkIMM(AutoMap.M_MAGIC_K_I);
 		Robot.drive.setkDMM(AutoMap.M_MAGIC_K_D);
 		Robot.drive.setkFMM_L(AutoMap.M_MAGIC_K_F_L);
 		Robot.drive.setkFMM_R(AutoMap.M_MAGIC_K_F_R);
-		
+		*/
 		System.out.print("Initializing Motion Magic");
 
 		Robot.drive.setRightDistMotion(distance / RobotMap.DriveMap.DISTANCE_PER_PULSE);
