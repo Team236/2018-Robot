@@ -65,8 +65,8 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 	}
 
 	public void pidSet(double speed) {
-		setLeftSpeed(-speed);
-		setRightSpeed(speed);
+		setLeftSpeed(speed);
+		setRightSpeed(-speed);
 	}
 
 	// autonomous
