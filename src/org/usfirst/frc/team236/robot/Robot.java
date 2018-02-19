@@ -58,7 +58,7 @@ public class Robot extends TimedRobot {
 
 		try {
 			camera = CameraServer.getInstance().startAutomaticCapture();
-			camera.setVideoMode(new VideoMode(VideoMode.PixelFormat.kYUYV, 320, 240, 30));
+			camera.setVideoMode(new VideoMode(VideoMode.PixelFormat.kMJPEG, 320, 240, 30));
 		} catch (Exception e) {
 			System.out.println("Camera capture failed");
 			System.out.println(e.getStackTrace());
@@ -150,7 +150,7 @@ public class Robot extends TimedRobot {
 
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 
-		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage() * (110.0/2.75));
+		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage() * (110.0 / 2.75));
 
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 		
@@ -178,6 +178,8 @@ public class Robot extends TimedRobot {
 		} else {
 			ourBool = false;
 		}
+		
+		ourBool = true;
 
 		// Set near switch colors
 		if (gameData.charAt(0) == 'L') {
