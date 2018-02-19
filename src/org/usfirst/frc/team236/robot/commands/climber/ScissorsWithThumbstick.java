@@ -25,13 +25,14 @@ public class ScissorsWithThumbstick extends Command {
 		double speed = Robot.oi.controller.getLeftX() * SCALE_FACTOR;
 		boolean isLeft = Robot.climber.isLeftLimit();
 		boolean isRight = Robot.climber.isRightLimit();
-		
 		// Trim out illegal inputs based on limit switches
+		/*
 		if (isLeft && speed < 0) {
 			speed = 0;
 		} else if (isRight && speed > 0) {
 			speed = 0;
 		}
+		*/
 
 		Robot.climber.setScissorSpeed(speed);
 	}
