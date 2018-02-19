@@ -172,7 +172,7 @@ public class Robot extends TimedRobot {
 		if (gameData.charAt(0) == 'L') {
 			SmartDashboard.putBoolean("near switch left", ourBool);
 			SmartDashboard.putBoolean("near switch right", !ourBool);
-		} else if (gameData.charAt(1) == 'R') {
+		} else if (gameData.charAt(0) == 'R') {
 			SmartDashboard.putBoolean("near switch left", !ourBool);
 			SmartDashboard.putBoolean("near switch right", ourBool);
 		}
@@ -190,7 +190,7 @@ public class Robot extends TimedRobot {
 		if (gameData.charAt(2) == 'L') {
 			SmartDashboard.putBoolean("far switch left", ourBool);
 			SmartDashboard.putBoolean("far switch right", !ourBool);
-		} else if (gameData.charAt(0) == 'R') {
+		} else if (gameData.charAt(2) == 'R') {
 			SmartDashboard.putBoolean("far switch left", !ourBool);
 			SmartDashboard.putBoolean("far switch right", ourBool);
 		}
