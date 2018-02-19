@@ -63,7 +63,7 @@ public class RobotMap {
 		public static final int PWM_SPITTER = 6;
 
 		public static final double LAUNCH_SPEED = .85;
-		public static final double SPIT_SPEED = 0.6;
+		public static final double SPIT_SPEED = 0.4;
 
 	}
 
