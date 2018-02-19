@@ -63,11 +63,11 @@ public class Climber extends Subsystem {
 	}
 
 	public boolean isLeftLimit() {
-		return leftLimit.get();
+		return false;
 	}
 
 	public boolean isRightLimit() {
-		return rightLimit.get();
+		return false;
 	}
 
 	public void initDefaultCommand() {
