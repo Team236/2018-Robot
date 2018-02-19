@@ -72,7 +72,11 @@ public class OI {
 		rightStick.middle.whileHeld(new Intake());
 		
 		leftStick.middle.whileHeld(new Eject());
-		controller.a.whileHeld(new Feed());
+		
+		controller.a.whileHeld(new Intake());
+		controller.y.whileHeld(new Eject());
+		controller.x.whileHeld(new Feed());
+		controller.b.whileHeld(new RaiseAndLower());
 
 		// SHOOTER
 		leftStick.trigger.whileHeld(new Shoot());
