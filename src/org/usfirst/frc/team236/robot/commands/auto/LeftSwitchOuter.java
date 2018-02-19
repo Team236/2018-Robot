@@ -2,8 +2,7 @@ package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
-import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
-import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
+import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -25,11 +24,6 @@ public class LeftSwitchOuter extends CommandGroup {
     	//"4" below is a timeout for this command - it means the command will end after those many seconds at most
     	addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN1), 4);
     	
-    	addSequential(new SpinUp());
-    	
-    	addSequential(new Wait(2));
-    	
-    	addSequential(new Shoot());
-       
+    	addSequential(new SpitUpAndShoot());
     }
 }

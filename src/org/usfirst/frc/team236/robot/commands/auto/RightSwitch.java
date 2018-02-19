@@ -2,8 +2,7 @@ package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
-import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
-import org.usfirst.frc.team236.robot.commands.launcher.WaitAndShoot;
+import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -22,7 +21,6 @@ public class RightSwitch extends CommandGroup {
     	addParallel(new Lower());
     	addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN2), 4);
     	
-    	addParallel(new WaitAndShoot());
-    	addSequential(new SpinUp(), 3);
+    	addSequential(new SpitUpAndShoot());
     }
 }

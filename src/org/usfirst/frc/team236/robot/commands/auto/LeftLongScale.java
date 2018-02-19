@@ -2,8 +2,7 @@ package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
-import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
-import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
+import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -29,10 +28,6 @@ public class LeftLongScale extends CommandGroup {
     	
     	addSequential(new Turn(-45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_45));
     	
-    	addSequential(new SpinUp());
-    	
-    	addSequential(new Wait(2));
-    	
-    	addSequential(new Shoot());
+    	addSequential(new SpinUpAndShoot());
     }
 }

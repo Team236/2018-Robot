@@ -1,9 +1,9 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.commands.intake.IntakeAndFeed;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
-import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
-import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
+import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -16,26 +16,16 @@ public class LeftScale2Cube extends CommandGroup {
 		addParallel(new Lower());
 		addSequential(new LeftScale());
 
-		addSequential(new Wait(2));
-
 		addSequential(new Turn(-90, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
 
+		addParallel(new IntakeAndFeed());
 		addSequential(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, AutoMap.MM_END_MARGIN2));
 
-		// addParallel(new Intake());
-
-		addSequential(new Wait(1));
-
+		addParallel(new IntakeAndFeed());
 		addSequential(new MotionMagic(-AutoMap.DIST_SCALE_TO_CUBE, AutoMap.MM_END_MARGIN2), 2);
-
-		addSequential(new Wait(1));
 
 		addSequential(new Turn(90, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
 
-		addSequential(new SpinUp());
-
-		addSequential(new Wait(2));
-
-		addSequential(new Shoot());
+		addSequential(new SpinUpAndShoot());
 	}
 }
