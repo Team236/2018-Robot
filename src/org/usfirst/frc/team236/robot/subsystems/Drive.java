@@ -19,7 +19,7 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 
 	public TalonSRX leftFrontMaster, leftRearSlave;
 	public TalonSRX rightFrontMaster, rightRearSlave;
-	// public TalonSRX leftMiddleSlave, rightMiddleSlave;
+	public TalonSRX leftMiddleSlave, rightMiddleSlave;
 
 	public AHRS navx;
 
@@ -30,8 +30,8 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		rightFrontMaster = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_FRONT);
 		leftRearSlave = new TalonSRX(RobotMap.DriveMap.ID_LEFT_REAR);
 		rightRearSlave = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_REAR);
-		// leftMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_LEFT_MIDDLE);
-		// rightMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_MIDDLE);
+		leftMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_LEFT_MIDDLE);
+		rightMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_MIDDLE);
 		
 		//leftFrontMaster.configContinuousCurrentLimit(80, 10);
 		//leftFrontMaster.enableCurrentLimit(true);
@@ -43,8 +43,8 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 
 		leftRearSlave.set(ControlMode.Follower, leftFrontMaster.getDeviceID());
 		rightRearSlave.set(ControlMode.Follower, rightFrontMaster.getDeviceID());
-		// leftMiddleSlave.set(ControlMode.Follower, leftFrontMaster.getDeviceID());
-		// rightMiddleSlave.set(ControlMode.Follower, rightFrontMaster.getDeviceID());
+		leftMiddleSlave.set(ControlMode.Follower, leftFrontMaster.getDeviceID());
+		rightMiddleSlave.set(ControlMode.Follower, rightFrontMaster.getDeviceID());
 
 		// set "true" if needed to make encoder reading positive when TalonSRX blinks
 		// green
