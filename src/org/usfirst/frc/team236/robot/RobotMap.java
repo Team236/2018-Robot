@@ -1,6 +1,8 @@
 package org.usfirst.frc.team236.robot;
 
 public class RobotMap {
+	
+	public static final int ANALOG_PRESSURE_SENSOR = 0;
 
 	public static class DriveMap {
 		public static final int ID_LEFT_FRONT = 2; //2, testbed: 8
