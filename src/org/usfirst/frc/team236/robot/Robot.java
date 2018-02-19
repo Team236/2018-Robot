@@ -29,22 +29,22 @@ public class Robot extends TimedRobot {
 	public static Intake intake = new Intake();
 	public static Launcher launcher = new Launcher();
 	public static Climber climber = new Climber();
-	
+
 	public static double P_TURN;
 	public static double I_TURN;
 	public static double D_TURN;
 
 	private Compressor compressor;
-	
+
 	public UsbCamera camera;
-	
+
 	public static Timer timer;
 
 	// Declare auto command
 	Command autoCommand;
-	
+
 	public AnalogInput pressureSensor;
-	
+
 	private static final boolean isDebug = true;
 
 	@Override
@@ -53,16 +53,16 @@ public class Robot extends TimedRobot {
 
 		compressor = new Compressor();
 		compressor.start();
-		
+
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
-		
+
 		try {
 			camera = CameraServer.getInstance().startAutomaticCapture();
 			camera.setVideoMode(new VideoMode(VideoMode.PixelFormat.kYUYV, 320, 240, 30));
 		} catch (Exception e) {
 			System.out.println("Camera capture failed");
 			System.out.println(e.getStackTrace());
-			
+
 			SmartDashboard.putString("Camera capture failed", "failed");
 		}
 
@@ -79,7 +79,7 @@ public class Robot extends TimedRobot {
 	}
 
 	@Override
-	public void autonomousInit() {	
+	public void autonomousInit() {
 		drive.resetEncoders();
 		drive.navx.reset();
 		
@@ -90,7 +90,7 @@ public class Robot extends TimedRobot {
 		// autonomousCommand = new LeftSwitchInner();
 		// autonomousCommand = new LeftSwitchOuter();
 		// autonomousCommand = new RightScale();
-		// autonomousCommand = new LeftScale(); 
+		// autonomousCommand = new LeftScale();
 		// autonomousCommand = new Cross();
 		// autonomousCommand = new ScaleCrossLtoR();
 		autonomousCommand = new LeftScale2Cube();
@@ -99,7 +99,7 @@ public class Robot extends TimedRobot {
 		// schedule the autonomous command (example)
 		// if (autonomousCommand != null) {
 		autonomousCommand.start();
-		
+
 		// }
 		postFieldLayout();
 	}
@@ -176,7 +176,7 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putBoolean("near switch left", !ourBool);
 			SmartDashboard.putBoolean("near switch right", ourBool);
 		}
-		
+
 		// Set scale colors
 		if (gameData.charAt(1) == 'L') {
 			SmartDashboard.putBoolean("scale left", ourBool);
@@ -185,7 +185,7 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putBoolean("scale left", !ourBool);
 			SmartDashboard.putBoolean("scale right", ourBool);
 		}
-	
+
 		// Set far switch colors
 		if (gameData.charAt(2) == 'L') {
 			SmartDashboard.putBoolean("far switch left", ourBool);

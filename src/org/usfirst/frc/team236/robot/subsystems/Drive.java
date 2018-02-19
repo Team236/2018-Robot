@@ -32,14 +32,14 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		rightRearSlave = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_REAR);
 		leftMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_LEFT_MIDDLE);
 		rightMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_MIDDLE);
-		
-		//leftFrontMaster.configContinuousCurrentLimit(80, 10);
-		//leftFrontMaster.enableCurrentLimit(true);
-		//leftFrontMaster.configPeakCurrentLimit(0, 10);
-		
-		//rightFrontMaster.configContinuousCurrentLimit(80, 10);
-		//rightFrontMaster.enableCurrentLimit(true);
-		//rightFrontMaster.configPeakCurrentLimit(0, 10);
+
+		// leftFrontMaster.configContinuousCurrentLimit(80, 10);
+		// leftFrontMaster.enableCurrentLimit(true);
+		// leftFrontMaster.configPeakCurrentLimit(0, 10);
+
+		// rightFrontMaster.configContinuousCurrentLimit(80, 10);
+		// rightFrontMaster.enableCurrentLimit(true);
+		// rightFrontMaster.configPeakCurrentLimit(0, 10);
 
 		leftRearSlave.set(ControlMode.Follower, leftFrontMaster.getDeviceID());
 		rightRearSlave.set(ControlMode.Follower, rightFrontMaster.getDeviceID());
@@ -74,26 +74,26 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		leftFrontMaster.setSelectedSensorPosition(0, 0, 0);
 		rightFrontMaster.setSelectedSensorPosition(0, 0, 0);
 	}
-	
+
 	public void setkPMM(double MMkP) {
 		rightFrontMaster.config_kP(0, MMkP, 0);
 		leftFrontMaster.config_kP(0, MMkP, 0);
 	}
-	
+
 	public void setkIMM(double MMkI) {
 		rightFrontMaster.config_kI(0, MMkI, 0);
 		leftFrontMaster.config_kI(0, MMkI, 0);
 	}
-	
+
 	public void setkDMM(double MMkD) {
 		rightFrontMaster.config_kD(0, MMkD, 0);
 		leftFrontMaster.config_kD(0, MMkD, 0);
 	}
-	
+
 	public void setkFMM_L(double MMkFL) {
 		leftFrontMaster.config_kF(0, MMkFL, 0);
 	}
-	
+
 	public void setkFMM_R(double MMkFR) {
 		rightFrontMaster.config_kF(0, MMkFR, 0);
 	}
@@ -119,7 +119,7 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 	public double getRightDistance() {
 		return rightFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE;
 	}
-	
+
 	public double getLeftDistance() {
 		return leftFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE;
 	}

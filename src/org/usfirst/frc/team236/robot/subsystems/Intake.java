@@ -51,7 +51,7 @@ public class Intake extends Subsystem {
 	public void lower() {
 		intakeSolenoid.set(Value.kReverse);
 	}
-	
+
 	public boolean isCube() {
 		return intakeSensor.get();
 	}
