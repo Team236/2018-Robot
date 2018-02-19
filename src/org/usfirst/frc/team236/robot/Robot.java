@@ -82,9 +82,11 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		drive.resetEncoders();
 		drive.navx.reset();
-		
-		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1, RobotMap.AutoMap.MM_END_MARGIN1);
-		// autonomousCommand = new Turn(-45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90);
+
+		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1,
+		// RobotMap.AutoMap.MM_END_MARGIN1);
+		// autonomousCommand = new Turn(-45, AutoMap.TURN_MARGIN,
+		// AutoMap.TURN_PARAMS_90);
 		// autonomousCommand = new LeftSwitchFromRight();
 		// autonomousCommand = new RightSwitch();
 		// autonomousCommand = new LeftSwitchInner();
@@ -108,22 +110,24 @@ public class Robot extends TimedRobot {
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
 
-		SmartDashboard.putNumber("Left Encoder value",
-				drive.getLeftDistance());
-		SmartDashboard.putNumber("Right Encoder value",
-				drive.getRightDistance());
-		SmartDashboard.putNumber("Left speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Right speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Auto Match Time", timer.getMatchTime());
+		if (isDebug) {
+			SmartDashboard.putNumber("Left Distance", drive.getLeftDistance());
+			SmartDashboard.putNumber("Right Distance", drive.getRightDistance());
+
+			SmartDashboard.putNumber("Left Speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
+			SmartDashboard.putNumber("Right Speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
+		}
+		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 	}
 
 	@Override
 	public void teleopInit() {
-		// if (autoCommand != null) {
-		// autoCommand.cancel();
+		if (autoCommand != null) {
+			autoCommand.cancel();
+		}
+
 		drive.resetEncoders();
 		drive.navx.reset();
-		// }
 
 		postFieldLayout();
 	}
@@ -133,34 +137,34 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 
 		if (isDebug) {
-		SmartDashboard.putNumber("Left Encoder value",
-				drive.leftFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE);
-		SmartDashboard.putNumber("Right Encoder value",
-				drive.rightFrontMaster.getSelectedSensorPosition(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE);
-		
-		SmartDashboard.putNumber("Left speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
-		SmartDashboard.putNumber("Right speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
-		
-		SmartDashboard.putNumber("Gyro Angle", drive.navx.getAngle());
-		
+			SmartDashboard.putNumber("Left Distance", drive.getLeftDistance());
+			SmartDashboard.putNumber("Right Distance", drive.getRightDistance());
+
+			SmartDashboard.putNumber("Left Speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
+			SmartDashboard.putNumber("Right Speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
+
+			SmartDashboard.putNumber("Gyro Angle", drive.navx.getAngle());
 		}
+
 		SmartDashboard.putBoolean("Intake cube", intake.isCube());
-		
+
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
-		
+
 		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage());
+
+		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 	}
 
 	@Override
 	public void testPeriodic() {
 	}
-	
+
 	public static void postFieldLayout() {
 		// Blue is true
 		boolean ourBool;
 		String gameData = DriverStation.getInstance().getGameSpecificMessage();
 		Alliance color = DriverStation.getInstance().getAlliance();
-		
+
 		// Set our boolean to correct alliance
 		if (color == Alliance.Blue) {
 			ourBool = true;
