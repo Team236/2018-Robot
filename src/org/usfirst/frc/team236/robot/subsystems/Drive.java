@@ -48,8 +48,8 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 
 		// set "true" if needed to make encoder reading positive when TalonSRX blinks
 		// green
-		leftFrontMaster.setSensorPhase(true);
-		rightFrontMaster.setSensorPhase(false);
+		leftFrontMaster.setSensorPhase(false);
+		rightFrontMaster.setSensorPhase(true);
 	}
 
 	public void setLeftSpeed(double speed) {
