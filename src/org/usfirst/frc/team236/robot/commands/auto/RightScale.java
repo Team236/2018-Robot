@@ -1,6 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 
@@ -18,6 +19,7 @@ public class RightScale extends CommandGroup {
 	 */
     public RightScale() {
     	addParallel(new Lower());
+    	addParallel(new Feed(), .5);
     	addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN3));
     	
     	addSequential(new Turn(-45, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_45));

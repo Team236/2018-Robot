@@ -1,6 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
@@ -18,6 +19,7 @@ public class LeftSwitchFromRight extends CommandGroup {
 	 */
     public LeftSwitchFromRight() {
     	addParallel(new Lower());
+    	addParallel(new Feed(), .5);
     	addSequential(new MotionMagic(AutoMap.SWITCH_CROSS1, AutoMap.MM_END_MARGIN1));
     	
     	addSequential(new Turn(-90, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));

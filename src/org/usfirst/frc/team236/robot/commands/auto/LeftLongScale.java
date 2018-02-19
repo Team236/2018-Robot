@@ -1,6 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 
@@ -16,6 +17,7 @@ public class LeftLongScale extends CommandGroup {
 	 */
     public LeftLongScale() {
     	addParallel(new Lower());
+    	addParallel(new Feed(), .5);
     	addSequential(new MotionMagic(AutoMap.DIST_PLATFORM_ZONE, AutoMap.MM_END_MARGIN3));
     	
     	addSequential(new Turn(90, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
