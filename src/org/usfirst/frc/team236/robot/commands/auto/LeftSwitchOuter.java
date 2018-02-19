@@ -27,5 +27,11 @@ public class LeftSwitchOuter extends CommandGroup {
     	addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN1), 2);
     	
     	addSequential(new SpitUpAndShoot());
+    	
+    	addSequential(new MotionMagic(-AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN1), 2);
+    	
+    	addSequential(new Turn(-90, 20, AutoMap.TURN_PARAMS_90));
+    	
+    	addSequential(new MotionMagic(-72, 10), 4);
     }
 }
