@@ -42,8 +42,8 @@ public class Robot extends TimedRobot {
 	// Declare auto command
 	Command autoCommand;
 
-	private static final boolean isDebug = true;
-	private static final boolean isPowerDebug = true;
+	private static final boolean isDebug = false;
+	private static final boolean isPowerDebug = false;
 
 	@Override
 	public void robotInit() {
@@ -52,7 +52,9 @@ public class Robot extends TimedRobot {
 		compressor = new Compressor();
 		compressor.start();
 
-		pdp = new PowerDistributionPanel();
+		if (isPowerDebug) {
+			pdp = new PowerDistributionPanel();
+		}
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
 
