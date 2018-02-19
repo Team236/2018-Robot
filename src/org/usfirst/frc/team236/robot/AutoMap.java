@@ -22,7 +22,7 @@ public class AutoMap {
 
 	public static final double DIST_FENCE = -102; // 102
 	public static final double DIST_FENCE_ALIGNMENT = -30;
-	public static final double DIST_PAST_SWITCH = -168; // 168
+	public static final double DIST_PAST_SWITCH = -140; // 168
 	public static final double DIST_SIDE_FENCE = -21; // 21+
 
 	public static final double DIST_NULL_TERRITORY = -252.5; // desired distance is 252.5
