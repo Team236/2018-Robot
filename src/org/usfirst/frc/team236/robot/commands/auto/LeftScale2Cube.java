@@ -2,6 +2,7 @@ package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
+import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
 
@@ -13,6 +14,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class LeftScale2Cube extends CommandGroup {
 
     public LeftScale2Cube() {
+    	addParallel(new Lower());
     	addSequential(new LeftScale());
     	
     	addSequential(new Wait(2));

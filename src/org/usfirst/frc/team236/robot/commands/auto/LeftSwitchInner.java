@@ -1,6 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
 
@@ -17,6 +18,7 @@ public class LeftSwitchInner extends CommandGroup {
 	 * cube onto left switch plate.
 	 */
     public LeftSwitchInner() {
+    	addParallel(new Lower());
     	addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN2));
     	    	
     	addSequential(new Turn(30, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_45));
