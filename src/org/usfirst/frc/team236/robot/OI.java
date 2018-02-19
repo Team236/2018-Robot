@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.climber.LowerWinch;
 import org.usfirst.frc.team236.robot.commands.climber.RaiseWinch;
 import org.usfirst.frc.team236.robot.commands.climber.ScissorsWithThumbstick;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
@@ -8,8 +9,10 @@ import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
+import org.usfirst.frc.team236.robot.commands.intake.RaiseAndLower;
 import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
+import org.usfirst.frc.team236.robot.commands.launcher.SpitUp;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import lib.oi.LogitechF310;
@@ -70,7 +73,6 @@ public class OI {
 		lower.whenPressed(new Lower());
 		
 		rightStick.middle.whileHeld(new Intake());
-		
 		leftStick.middle.whileHeld(new Eject());
 		
 		controller.a.whileHeld(new Intake());
@@ -79,14 +81,14 @@ public class OI {
 		controller.b.whileHeld(new RaiseAndLower());
 
 		// SHOOTER
-		leftStick.trigger.whileHeld(new Shoot());
 		rightStick.trigger.whileHeld(new Shoot());
 
+		controller.back.whileHeld(new SpitUp());
 		controller.lb.whileHeld(new SpinUp());
-		// controller.back.whileHeld(new StartSpit());
 
 		// CLIMBER
 		controller.rb.whileHeld(new RaiseWinch());
+		controller.start.whileHeld(new LowerWinch());
 		controller.leftPress.whileHeld(new ScissorsWithThumbstick());
 
 	}
