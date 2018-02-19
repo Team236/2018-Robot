@@ -3,7 +3,7 @@ package org.usfirst.frc.team236.robot;
 import lib.pid.PIDParameters;
 
 public class AutoMap {
-	public static final double TURN_MARGIN = 6.0;
+	public static final double TURN_MARGIN = 3.0;
 
 	// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
 	// public static final double I_TURN = SmartDashboard.getNumber("I", 0);
@@ -35,7 +35,7 @@ public class AutoMap {
 	
 	public static final double DIST_SCALE_TO_CUBE = 80; //70
 	
-	public static final double MM_END_MARGIN1 = 8; // SW cross 3 - margin 1 > 24
+	public static final double MM_END_MARGIN1 = 2; // SW cross 3 - margin 1 > 24
 	public static final double MM_END_MARGIN2 = 5;
 	public static final double MM_END_MARGIN3 = 10;
 	
