@@ -15,7 +15,6 @@ import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -36,16 +35,12 @@ public class Robot extends TimedRobot {
 	public static double D_TURN;
 
 	private Compressor compressor;
-
 	public PowerDistributionPanel pdp;
+	public AnalogInput pressureSensor;
 	public UsbCamera camera;
-
-	public static Timer timer;
 
 	// Declare auto command
 	Command autoCommand;
-
-	public AnalogInput pressureSensor;
 
 	private static final boolean isDebug = true;
 	private static final boolean isPowerDebug = true;
@@ -70,7 +65,6 @@ public class Robot extends TimedRobot {
 
 			SmartDashboard.putString("Camera capture failed", "failed");
 		}
-
 	}
 
 	@Override
