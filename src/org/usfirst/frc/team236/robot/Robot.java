@@ -1,6 +1,13 @@
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.auto.LeftScale2Cube;
+import org.usfirst.frc.team236.robot.commands.auto.LeftScale;
+import org.usfirst.frc.team236.robot.commands.auto.LeftScaleAndSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchFromRight;
+import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchOuter;
+import org.usfirst.frc.team236.robot.commands.auto.RightScale;
+import org.usfirst.frc.team236.robot.commands.auto.RightScaleAndSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.RightSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.RightSwitchOuter;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
 import org.usfirst.frc.team236.robot.subsystems.Intake;
@@ -11,6 +18,7 @@ import edu.wpi.cscore.VideoMode;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
@@ -18,6 +26,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import lib.commands.DoNothing;
 
 public class Robot extends TimedRobot {
 	Command autonomousCommand;
@@ -42,9 +51,12 @@ public class Robot extends TimedRobot {
 	// Declare auto command
 	Command autoCommand;
 
-	private static final boolean isDebug = false;
+	private static final boolean isDebug = true;
 	private static final boolean isPowerDebug = false;
-
+	
+	private static DigitalInput leftSide, rightSide;
+	private static DigitalInput sw1, sw2, sw3;
+	
 	@Override
 	public void robotInit() {
 		oi = new OI();
@@ -55,6 +67,13 @@ public class Robot extends TimedRobot {
 		if (isPowerDebug) {
 			pdp = new PowerDistributionPanel();
 		}
+		
+		// Create auto switches
+		leftSide = new DigitalInput(0);
+		rightSide = new DigitalInput(1);
+		sw1 = new DigitalInput(2);
+		sw2 = new DigitalInput(3);
+		sw3 = new DigitalInput(5);
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
 
@@ -99,12 +118,13 @@ public class Robot extends TimedRobot {
 		// autonomousCommand = new ScaleCrossLtoR();
 		autonomousCommand = new LeftScale2Cube();
 		// autonomousCommand = new RightScale2Cube();
+		
+		autonomousCommand = getAutoFromSwitches();
 
 		// schedule the autonomous command (example)
-		// if (autonomousCommand != null) {
-		autonomousCommand.start();
-
-		// }
+		if (autonomousCommand != null) {
+			autonomousCommand.start();
+		}
 		postFieldLayout();
 	}
 
@@ -216,5 +236,42 @@ public class Robot extends TimedRobot {
 			System.out.println(e.getMessage());
 			System.out.println("String machine broke");
 		}
+	}
+	
+	public static Command getAutoFromSwitches() {
+		String gameData = DriverStation.getInstance().getGameSpecificMessage();
+		
+		if(!leftSide.get() && !rightSide.get()) {
+			if (gameData.charAt(0) == 'R') {
+				return new RightSwitch();
+			} else if (gameData.charAt(0) == 'L') {
+				return new LeftSwitchFromRight();
+			}
+		}
+		
+		if (leftSide.get()) {
+			if (gameData.charAt(1) == 'L') {
+				if (gameData.charAt(0) == 'L') {
+					return new LeftScaleAndSwitch();
+				} else if (gameData.charAt(0) == 'R') {
+					return new LeftScale();
+				}
+			} else if (gameData.charAt(1) == 'R') {
+				return new LeftSwitchOuter();
+			}
+		}
+		
+		if (rightSide.get()) {
+			if (gameData.charAt(1) == 'R') {
+				if (gameData.charAt(0) == 'R') {
+					return new RightScaleAndSwitch();
+				} else if (gameData.charAt(0) == 'L') {
+					return new RightScale();
+				}
+			} else if (gameData.charAt(1) == 'L') {
+				return new RightSwitchOuter();
+			}
+		}
+		return new DoNothing();
 	}
 }
