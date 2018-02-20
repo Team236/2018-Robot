@@ -171,43 +171,49 @@ public class Robot extends TimedRobot {
 	public static void postFieldLayout() {
 		// Blue is true
 		boolean ourBool;
-		String gameData = DriverStation.getInstance().getGameSpecificMessage();
-		Alliance color = DriverStation.getInstance().getAlliance();
-
-		// Set our boolean to correct alliance
-		if (color == Alliance.Blue) {
-			ourBool = true;
-		} else {
-			ourBool = false;
-		}
+		String gameData;
+		try {
+			gameData = DriverStation.getInstance().getGameSpecificMessage();
 		
-		ourBool = true;
-
-		// Set near switch colors
-		if (gameData.charAt(0) == 'L') {
-			SmartDashboard.putBoolean("NSL", ourBool);
-			SmartDashboard.putBoolean("NSR", !ourBool);
-		} else if (gameData.charAt(1) == 'R') {
-			SmartDashboard.putBoolean("NSL", !ourBool);
-			SmartDashboard.putBoolean("NSR", ourBool);
-		}
-
-		// Set scale colors
-		if (gameData.charAt(1) == 'L') {
-			SmartDashboard.putBoolean("SL", ourBool);
-			SmartDashboard.putBoolean("SR", !ourBool);
-		} else if (gameData.charAt(1) == 'R') {
-			SmartDashboard.putBoolean("SL", !ourBool);
-			SmartDashboard.putBoolean("SR", ourBool);
-		}
-
-		// Set far switch colors
-		if (gameData.charAt(2) == 'L') {
-			SmartDashboard.putBoolean("FSL", ourBool);
-			SmartDashboard.putBoolean("FSR", !ourBool);
-		} else if (gameData.charAt(0) == 'R') {
-			SmartDashboard.putBoolean("FSL", !ourBool);
-			SmartDashboard.putBoolean("FSR", ourBool);
+			Alliance color = DriverStation.getInstance().getAlliance();
+	
+			// Set our boolean to correct alliance
+			if (color == Alliance.Blue) {
+				ourBool = true;
+			} else {
+				ourBool = false;
+			}
+			
+			ourBool = true;
+	
+			// Set near switch colors
+			if (gameData.charAt(0) == 'L') {
+				SmartDashboard.putBoolean("NSL", ourBool);
+				SmartDashboard.putBoolean("NSR", !ourBool);
+			} else if (gameData.charAt(1) == 'R') {
+				SmartDashboard.putBoolean("NSL", !ourBool);
+				SmartDashboard.putBoolean("NSR", ourBool);
+			}
+	
+			// Set scale colors
+			if (gameData.charAt(1) == 'L') {
+				SmartDashboard.putBoolean("SL", ourBool);
+				SmartDashboard.putBoolean("SR", !ourBool);
+			} else if (gameData.charAt(1) == 'R') {
+				SmartDashboard.putBoolean("SL", !ourBool);
+				SmartDashboard.putBoolean("SR", ourBool);
+			}
+	
+			// Set far switch colors
+			if (gameData.charAt(2) == 'L') {
+				SmartDashboard.putBoolean("FSL", ourBool);
+				SmartDashboard.putBoolean("FSR", !ourBool);
+			} else if (gameData.charAt(0) == 'R') {
+				SmartDashboard.putBoolean("FSL", !ourBool);
+				SmartDashboard.putBoolean("FSR", ourBool);
+			}
+		} catch (Exception e) {
+			System.out.println("String machine broke");
 		}
 	}
 }
