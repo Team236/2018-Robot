@@ -10,7 +10,7 @@ public class AutoMap {
 	// public static final double D_TURN = SmartDashboard.getNumber("D", 0);
 	// public static final PIDParameters TURN_PARAMS = new PIDParameters(P_TURN, I_TURN, D_TURN, 1 / 100.0);
 	public static final PIDParameters TURN_PARAMS_45 = new PIDParameters(0.06, 0.00, -0.003, 1 / 100.0);
-	public static final PIDParameters TURN_PARAMS_90 = new PIDParameters(0.0085, 0.0005, -0.000, 1 / 100.0); //P = .028
+	public static final PIDParameters TURN_PARAMS_90 = new PIDParameters(0.01, 0.0005, -0.000, 1 / 100.0); //P = .028
 	// public static final PIDParameters TURN_PARAMS_60 = new PIDParameters(0.0, 0.00, 0.0, 1 / 100.0);
 	// TESTBED 2/10- on carpet for 45 and 30 deg, P = 0.019, I = 0, D = -0.0001, fresh battery 57 deg
 	// TESTBED 2/10- on carpet for -45 deg, P = 0.06, needs more tuning short by a few degrees
@@ -20,12 +20,12 @@ public class AutoMap {
 	public static final double SWITCH_CROSS2 = -108; // 108
 	public static final double SWITCH_CROSS3 = -24; // 24+
 
-	public static final double DIST_FENCE = -102; // 102
+	public static final double DIST_FENCE = -100; // 102
 	public static final double DIST_FENCE_ALIGNMENT = -30;
 	public static final double DIST_PAST_SWITCH = -140; // 168
-	public static final double DIST_SIDE_FENCE = -21; // 21+
+	public static final double DIST_SIDE_FENCE = -30; // 21+
 
-	public static final double DIST_NULL_TERRITORY = -252.5; // desired distance is 252.5
+	public static final double DIST_NULL_TERRITORY = -256; // desired distance is 252.5
 
 	public static final double DIST_PLATFORM_ZONE = -209.5;
 	public static final double DIST_CROSS_FIELD = -186; // 186 with bump, try 210
@@ -47,6 +47,6 @@ public class AutoMap {
 	// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
 	// TESTBED CV = 1280, ACCEL = 1280 Margin = 20
 
-	public static final int M_MAGIC_CV = 200;
-	public static final int M_MAGIC_ACCL = 200;
+	public static final int M_MAGIC_CV = 500;
+	public static final int M_MAGIC_ACCL = 1000;
 }
