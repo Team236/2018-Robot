@@ -26,6 +26,7 @@ public class AutoMap {
 	public static final double DIST_SIDE_FENCE = -30; // 21+
 
 	public static final double DIST_NULL_TERRITORY = -256; // desired distance is 252.5
+	public static final double TURN_NULL_TO_CUBE = 90;
 
 	public static final double DIST_PLATFORM_ZONE = -209.5;
 	public static final double DIST_CROSS_FIELD = -186; // 186 with bump, try 210
