@@ -14,7 +14,7 @@ public class LeftScale2Cube extends CommandGroup {
 	public LeftScale2Cube() {
 		addSequential(new LeftScale());
 
-		addSequential(new Turn(-90, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
+		addSequential(new Turn(-AutoMap.TURN_NULL_TO_CUBE, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
 
 		addParallel(new IntakeAndFeed());
 		addSequential(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, AutoMap.MM_END_MARGIN2));
