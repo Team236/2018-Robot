@@ -190,7 +190,7 @@ public class Robot extends TimedRobot {
 			if (gameData.charAt(0) == 'L') {
 				SmartDashboard.putBoolean("NSL", ourBool);
 				SmartDashboard.putBoolean("NSR", !ourBool);
-			} else if (gameData.charAt(1) == 'R') {
+			} else if (gameData.charAt(0) == 'R') {
 				SmartDashboard.putBoolean("NSL", !ourBool);
 				SmartDashboard.putBoolean("NSR", ourBool);
 			}
@@ -208,11 +208,12 @@ public class Robot extends TimedRobot {
 			if (gameData.charAt(2) == 'L') {
 				SmartDashboard.putBoolean("FSL", ourBool);
 				SmartDashboard.putBoolean("FSR", !ourBool);
-			} else if (gameData.charAt(0) == 'R') {
+			} else if (gameData.charAt(2) == 'R') {
 				SmartDashboard.putBoolean("FSL", !ourBool);
 				SmartDashboard.putBoolean("FSR", ourBool);
 			}
 		} catch (Exception e) {
+			System.out.println(e.getMessage());
 			System.out.println("String machine broke");
 		}
 	}
