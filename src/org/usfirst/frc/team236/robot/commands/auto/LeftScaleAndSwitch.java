@@ -14,10 +14,10 @@ public class LeftScaleAndSwitch extends CommandGroup {
 
     public LeftScaleAndSwitch() {
         addSequential(new LeftScale());
-        addSequential(new Turn(AutoMap.TURN_NULL_TO_CUBE, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90));
+        addSequential(new Turn(-AutoMap.TURN_NULL_TO_CUBE, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_90), 1);
         
-        addParallel(new IntakeAndFeed());
-        addSequential(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, 3));
+        addParallel(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, 3));
+        addSequential(new IntakeAndFeed());
         
         addSequential(new Raise(), .5);
         addSequential(new Eject(), .5);
