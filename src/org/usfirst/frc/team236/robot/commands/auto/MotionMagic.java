@@ -21,9 +21,12 @@ public class MotionMagic extends Command {
 
 		this.distance = _distance;
 		this.margin = _margin;
-
-		// Use requires() here to declare subsystem dependencies
-		// eg. requires(chassis);
+	}
+	
+	public MotionMagic(double _distance, double _margin, int _cv, int _accel) {
+		this(_distance, _margin);
+		Robot.drive.setMotnCV(_cv);
+		Robot.drive.setMotnAccel(_accel);
 	}
 
 	// Called just before this Command runs the first time
