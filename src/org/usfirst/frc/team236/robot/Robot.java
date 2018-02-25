@@ -69,11 +69,11 @@ public class Robot extends TimedRobot {
 		}
 		
 		// Create auto switches
-		leftSide = new DigitalInput(0);
-		rightSide = new DigitalInput(1);
-		sw1 = new DigitalInput(2);
-		sw2 = new DigitalInput(3);
-		sw3 = new DigitalInput(5);
+		leftSide = new DigitalInput(3);
+		rightSide = new DigitalInput(5);
+		sw1 = new DigitalInput(0);
+		sw2 = new DigitalInput(1);
+		sw3 = new DigitalInput(2);
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
 
