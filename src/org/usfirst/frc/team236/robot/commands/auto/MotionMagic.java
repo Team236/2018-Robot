@@ -15,18 +15,20 @@ public class MotionMagic extends Command {
 	private double distance;
 	private double margin;
 	private double error;
+	private int cv, accel;
 
 	public MotionMagic(double _distance, double _margin) {
+		this(_distance, _margin, AutoMap.M_MAGIC_CV, AutoMap.M_MAGIC_ACCL);
+	}
+	
+	public MotionMagic(double _distance, double _margin, int _cv, int _accel) {
 		requires(Robot.drive);
 
 		this.distance = _distance;
 		this.margin = _margin;
-	}
-	
-	public MotionMagic(double _distance, double _margin, int _cv, int _accel) {
-		this(_distance, _margin);
-		Robot.drive.setMotnCV(_cv);
-		Robot.drive.setMotnAccel(_accel);
+
+		this.cv = _cv;
+		this.accel = _accel;
 	}
 
 	// Called just before this Command runs the first time
@@ -34,8 +36,8 @@ public class MotionMagic extends Command {
 
 		Robot.drive.resetEncoders();
 
-		Robot.drive.setMotnCV(AutoMap.M_MAGIC_CV);
-		Robot.drive.setMotnAccel(AutoMap.M_MAGIC_ACCL);
+		Robot.drive.setMotnCV(cv);
+		Robot.drive.setMotnAccel(accel);
 		/*
 		Robot.drive.setkPMM(AutoMap.M_MAGIC_K_P);
 		Robot.drive.setkIMM(AutoMap.M_MAGIC_K_I);
