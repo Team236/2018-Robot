@@ -74,28 +74,32 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		leftFrontMaster.setSelectedSensorPosition(0, 0, 0);
 		rightFrontMaster.setSelectedSensorPosition(0, 0, 0);
 	}
-
-	public void setkPMM(double MMkP) {
-		rightFrontMaster.config_kP(0, MMkP, 0);
-		leftFrontMaster.config_kP(0, MMkP, 0);
+	
+	public void setMotionParams(double _kP, double _kI, double _kD, double _kF_L, double _kF_R) {
+		setkP(_kP);
+		setkI(_kI);
+		setkD(_kD);
+		setkF(_kF_L, _kF_R);
 	}
 
-	public void setkIMM(double MMkI) {
-		rightFrontMaster.config_kI(0, MMkI, 0);
-		leftFrontMaster.config_kI(0, MMkI, 0);
+	public void setkP(double _kP) {
+		rightFrontMaster.config_kP(0, _kP, 0);
+		leftFrontMaster.config_kP(0, _kP, 0);
 	}
 
-	public void setkDMM(double MMkD) {
-		rightFrontMaster.config_kD(0, MMkD, 0);
-		leftFrontMaster.config_kD(0, MMkD, 0);
+	public void setkI(double _kI) {
+		rightFrontMaster.config_kI(0, _kI, 0);
+		leftFrontMaster.config_kI(0, _kI, 0);
 	}
 
-	public void setkFMM_L(double MMkFL) {
-		leftFrontMaster.config_kF(0, MMkFL, 0);
+	public void setkD(double _kD) {
+		rightFrontMaster.config_kD(0, _kD, 0);
+		leftFrontMaster.config_kD(0, _kD, 0);
 	}
 
-	public void setkFMM_R(double MMkFR) {
-		rightFrontMaster.config_kF(0, MMkFR, 0);
+	public void setkF(double _kF_L, double kF_R) {
+		leftFrontMaster.config_kF(0, _kF_L, 0);
+		rightFrontMaster.config_kF(0, kF_R, 0);
 	}
 
 	public void setMotnCV(int vcruise) {
