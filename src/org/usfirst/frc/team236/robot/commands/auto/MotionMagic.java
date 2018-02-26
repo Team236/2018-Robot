@@ -1,8 +1,8 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
-import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.Robot;
 import org.usfirst.frc.team236.robot.RobotMap;
+import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -20,7 +20,7 @@ public class MotionMagic extends Command {
 	private final boolean isDiagnostic = true;
 
 	public MotionMagic(double _distance, double _margin) {
-		this(_distance, _margin, AutoMap.M_MAGIC_CV, AutoMap.M_MAGIC_ACCL);
+		this(_distance, _margin, DriveMap.M_MAGIC_CV, DriveMap.M_MAGIC_ACCL);
 	}
 	
 	public MotionMagic(double _distance, double _margin, int _cv, int _accel) {

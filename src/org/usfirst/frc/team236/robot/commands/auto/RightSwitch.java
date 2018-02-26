@@ -18,7 +18,7 @@ public class RightSwitch extends CommandGroup {
     public RightSwitch() {
     	//"4" below is a timeout for this command - it means the command will end after those many seconds at most
     	addParallel(new PreAuto());
-    	addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN2, 100, 100), 4);
+    	addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN, 100, 100), 4);
     	
     	addSequential(new SpitUpAndShoot());
     }

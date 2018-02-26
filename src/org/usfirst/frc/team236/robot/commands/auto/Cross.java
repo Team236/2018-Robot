@@ -9,6 +9,6 @@ public class Cross extends CommandGroup {
 	 * Cross the auto line
 	 */
     public Cross() {
-    	addSequential(new MotionMagic(AutoMap.DIST_AUTO_LINE, AutoMap.MM_END_MARGIN3));
+    	addSequential(new MotionMagic(AutoMap.DIST_AUTO_LINE, AutoMap.MM_END_MARGIN));
     }
 }

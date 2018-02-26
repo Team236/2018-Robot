@@ -1,6 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -18,9 +19,9 @@ public class LeftScale extends CommandGroup {
 
     public LeftScale() {
     	addParallel(new PreAuto());
-    	addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN3));
+    	addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN));
     	
-    	addSequential(new Turn(60, AutoMap.TURN_MARGIN, AutoMap.TURN_PARAMS_45)); // could angle robot and turn 60
+    	addSequential(new Turn(60, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_45)); // could angle robot and turn 60
     	
     	addSequential(new SpinUpAndShoot());
     }
