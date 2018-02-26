@@ -17,6 +17,8 @@ public class MotionMagic extends Command {
 	private double error;
 	private int cv, accel;
 
+	private final boolean isDiagnostic = true;
+
 	public MotionMagic(double _distance, double _margin) {
 		this(_distance, _margin, AutoMap.M_MAGIC_CV, AutoMap.M_MAGIC_ACCL);
 	}
@@ -57,9 +59,11 @@ public class MotionMagic extends Command {
 		// RobotMap.DriveMap.DISTANCE_PER_PULSE;
 		double currentDistance = Robot.drive.getRightDistance();
 		error = Math.abs(distance - currentDistance);
-		SmartDashboard.putNumber("currentdistance ", currentDistance);
-		// SmartDashboard.putNumber("distance ", distance);
-		SmartDashboard.putNumber("MM Error", error);
+
+		if (isDiagnostic) {
+			SmartDashboard.putNumber("MM Distance", currentDistance);
+			SmartDashboard.putNumber("MM Error", error);
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
