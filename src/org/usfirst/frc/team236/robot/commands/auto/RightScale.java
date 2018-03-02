@@ -24,4 +24,9 @@ public class RightScale extends CommandGroup {
     	
     	addSequential(new SpinUpAndShoot());
     }
+    
+    @Override
+    public String toString() {
+    	return "Right scale";
+    }
 }

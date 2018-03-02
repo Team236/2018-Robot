@@ -22,4 +22,9 @@ public class RightSwitch extends CommandGroup {
     	
     	addSequential(new SpitUpAndShoot());
     }
+
+    @Override
+    public String toString() {
+    	return "Right switch: straight ahead";
+    }
 }

@@ -32,4 +32,9 @@ public class RightSwitchOuter extends CommandGroup {
     	
     	addSequential(new MotionMagic(-72, 10), 4);
     }
+
+    @Override
+    public String toString() {
+    	return "Right switch: outer";
+    }
 }

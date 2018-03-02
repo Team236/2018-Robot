@@ -23,4 +23,9 @@ public class RightScaleAndSwitch extends CommandGroup {
         addSequential(new Raise(), .5);
         addSequential(new Eject(), .5);
     }
+
+    @Override
+    public String toString() {
+    	return "Right scale and switch";
+    }
 }

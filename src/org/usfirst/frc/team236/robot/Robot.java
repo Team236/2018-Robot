@@ -117,7 +117,7 @@ public class Robot extends TimedRobot {
 		// autonomousCommand = new LeftScale();
 		// autonomousCommand = new Cross();
 		// autonomousCommand = new ScaleCrossLtoR();
-		autonomousCommand = new LeftScale2Cube();
+		// autonomousCommand = new LeftScale2Cube();
 		// autonomousCommand = new RightScale2Cube();
 		
 		autonomousCommand = getAutoFromSwitches();

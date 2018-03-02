@@ -11,4 +11,9 @@ public class Cross extends CommandGroup {
     public Cross() {
     	addSequential(new MotionMagic(AutoMap.DIST_AUTO_LINE, AutoMap.MM_END_MARGIN));
     }
+    
+    @Override
+    public String toString() {
+    	return "Cross";
+    }
 }

@@ -30,4 +30,9 @@ public class LeftSwitchInner extends CommandGroup {
     	
     	addSequential(new SpitUpAndShoot());
     }
+
+    @Override
+    public String toString() {
+    	return "Left switch: inner";
+    }
 }

@@ -28,4 +28,9 @@ public class RightScale2Cube extends CommandGroup {
     	
     	addSequential(new SpinUpAndShoot());
     }
+
+    @Override
+    public String toString() {
+    	return "Right scale: 2 cubes";
+    }
 }

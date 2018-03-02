@@ -34,4 +34,10 @@ public class LeftSwitchFromRight extends CommandGroup {
     	
     	addSequential(new SpitUpAndShoot());
     }
+    
+
+    @Override
+    public String toString() {
+    	return "Right to left switch";
+    }
 }

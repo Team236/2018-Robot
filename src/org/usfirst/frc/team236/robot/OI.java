@@ -21,7 +21,7 @@ import lib.oi.triggers.JoystickPOV;
 import lib.oi.triggers.JoystickPOV.Direction;
 
 public class OI {
-	// Sam's classes (Thrustmaser and Logitech310), otherwise need Joystick Class
+	// Sam's classes (Thrustmaster and Logitech310), otherwise need Joystick Class
 	public Thrustmaster leftStick;
 	public Thrustmaster rightStick;
 	public LogitechF310 controller;

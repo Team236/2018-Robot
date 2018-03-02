@@ -33,4 +33,9 @@ public class LeftLongScale extends CommandGroup {
     	
     	addSequential(new SpinUpAndShoot());
     }
+    
+    @Override
+    public String toString() {
+    	return "Left long scale";
+    }
 }
