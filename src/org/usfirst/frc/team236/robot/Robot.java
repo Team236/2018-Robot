@@ -4,12 +4,12 @@ import org.usfirst.frc.team236.robot.commands.auto.Cross;
 import org.usfirst.frc.team236.robot.commands.auto.LeftLongScale;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScaleAndSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchFromRight;
+import org.usfirst.frc.team236.robot.commands.auto.CenterLeftSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchOuter;
 import org.usfirst.frc.team236.robot.commands.auto.RightLongScale;
 import org.usfirst.frc.team236.robot.commands.auto.RightScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.RightScaleAndSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.RightSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.CenterStraightSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.RightSwitchOuter;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
@@ -74,7 +74,7 @@ public class Robot extends TimedRobot {
 		// Create auto switches
 		leftSide = new DigitalInput(3);
 		rightSide = new DigitalInput(5);
-		noSwitch= new DigitalInput(0);
+		noSwitch = new DigitalInput(0);
 		noScale = new DigitalInput(1);
 		sw3 = new DigitalInput(2);
 
@@ -245,7 +245,8 @@ public class Robot extends TimedRobot {
 
 	public static Command getAutoFromSwitches() {
 		String gameData = DriverStation.getInstance().getGameSpecificMessage();
-		//String gameData = gameData.substring(0, 3); // First two characters of game data
+		// String gameData = gameData.substring(0, 3); // First two characters of game
+		// data
 		// Test bed is reading True when toggles switches are "off"
 		// Test bed 3-way toggle reads "True" on both Left and Right when in the middle
 		// Test bed 3-way Left toggle reads "False" and Right reads "True", when
@@ -256,9 +257,9 @@ public class Robot extends TimedRobot {
 		if (leftSide.get() && rightSide.get()) {
 			// Toggle switch in center
 			if (gameData.equals("RRR") || gameData.equals("RLR")) {
-				return new RightSwitch();
+				return new CenterStraightSwitch();
 			} else if (gameData.equals("LRL") || gameData.equals("LLL")) {
-				return new LeftSwitchFromRight();
+				return new CenterLeftSwitch();
 			}
 		}
 

@@ -11,14 +11,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class LeftSwitchFromRight extends CommandGroup {
+public class CenterLeftSwitch extends CommandGroup {
 	/**
 	 * Start from right side of field, aligned with the alliance wall partition.
 	 * 
 	 * Drive straight forward, turn left, drive to left switch plate, turn right,
 	 * and drive forward while delivering cube to switch plate.
 	 */
-	public LeftSwitchFromRight() {
+	public CenterLeftSwitch() {
 		addParallel(new Lower());
 		addParallel(new Feed(), .5);
 		addSequential(new MotionMagic(AutoMap.SWITCH_CROSS1, AutoMap.MM_END_MARGIN));
