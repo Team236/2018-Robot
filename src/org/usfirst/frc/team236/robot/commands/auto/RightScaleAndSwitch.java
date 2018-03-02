@@ -13,19 +13,19 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class RightScaleAndSwitch extends CommandGroup {
 
-    public RightScaleAndSwitch() {
-        addSequential(new RightScale());
-        addSequential(new Turn(-AutoMap.TURN_NULL_TO_CUBE, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
-        
-        addParallel(new IntakeAndFeed());
-        addSequential(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, 3));
-        
-        addSequential(new Raise(), .5);
-        addSequential(new Eject(), .5);
-    }
+	public RightScaleAndSwitch() {
+		addSequential(new RightScale());
+		addSequential(new Turn(-AutoMap.TURN_NULL_TO_CUBE, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
 
-    @Override
-    public String toString() {
-    	return "Right scale and switch";
-    }
+		addParallel(new IntakeAndFeed());
+		addSequential(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, 3));
+
+		addSequential(new Raise(), .5);
+		addSequential(new Eject(), .5);
+	}
+
+	@Override
+	public String toString() {
+		return "Right scale and switch";
+	}
 }

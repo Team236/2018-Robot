@@ -15,14 +15,14 @@ public class Turn extends Command {
 	private double degrees;
 	private double margin;
 	private double angleError;
-	
+
 	public static PIDParameters TURN_PARAMS;
 
 	public Turn(double _degrees, double _margin, PIDParameters _pid) {
 		requires(Robot.drive);
 		this.degrees = _degrees;
 		this.margin = _margin;
-		
+
 		pid = new PID(Robot.drive, Robot.drive, _pid);
 	}
 

@@ -22,7 +22,7 @@ public class MotionMagic extends Command {
 	public MotionMagic(double _distance, double _margin) {
 		this(_distance, _margin, DriveMap.M_MAGIC_CV, DriveMap.M_MAGIC_ACCL);
 	}
-	
+
 	public MotionMagic(double _distance, double _margin, int _cv, int _accel) {
 		requires(Robot.drive);
 

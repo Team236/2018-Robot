@@ -15,26 +15,27 @@ public class LeftSwitchOuter extends CommandGroup {
 	 * 
 	 * Drive forward to fence and deliver cube to left switch plate.
 	 */
-    public LeftSwitchOuter() {
-    	addParallel(new PreAuto());
-    	addSequential(new MotionMagic(AutoMap.DIST_PAST_SWITCH, AutoMap.MM_END_MARGIN));
-    	
-    	addSequential(new Turn(90, 15, DriveMap.TURN_PARAMS_90));
-    	
-    	//"4" below is a timeout for this command - it means the command will end after those many seconds at most
-    	addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
-    	
-    	addSequential(new SpitUpAndShoot());
-    	
-    	addSequential(new MotionMagic(-AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
-    	
-    	addSequential(new Turn(-90, 20, DriveMap.TURN_PARAMS_90));
-    	
-    	addSequential(new MotionMagic(-72, 10), 4);
-    }
-    
-    @Override
-    public String toString() {
-    	return "Left switch: outer";
-    }
+	public LeftSwitchOuter() {
+		addParallel(new PreAuto());
+		addSequential(new MotionMagic(AutoMap.DIST_PAST_SWITCH, AutoMap.MM_END_MARGIN));
+
+		addSequential(new Turn(90, 15, DriveMap.TURN_PARAMS_90));
+
+		// "4" below is a timeout for this command - it means the command will end after
+		// those many seconds at most
+		addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
+
+		addSequential(new SpitUpAndShoot());
+
+		addSequential(new MotionMagic(-AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
+
+		addSequential(new Turn(-90, 20, DriveMap.TURN_PARAMS_90));
+
+		addSequential(new MotionMagic(-72, 10), 4);
+	}
+
+	@Override
+	public String toString() {
+		return "Left switch: outer";
+	}
 }

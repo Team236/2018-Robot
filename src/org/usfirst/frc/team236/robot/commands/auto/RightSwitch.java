@@ -15,16 +15,17 @@ public class RightSwitch extends CommandGroup {
 	 * Drive straight forward and shoot cube.
 	 */
 
-    public RightSwitch() {
-    	//"4" below is a timeout for this command - it means the command will end after those many seconds at most
-    	addParallel(new PreAuto());
-    	addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN, 100, 100), 4);
-    	
-    	addSequential(new SpitUpAndShoot());
-    }
+	public RightSwitch() {
+		// "4" below is a timeout for this command - it means the command will end after
+		// those many seconds at most
+		addParallel(new PreAuto());
+		addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN, 100, 100), 4);
 
-    @Override
-    public String toString() {
-    	return "Right switch: straight ahead";
-    }
+		addSequential(new SpitUpAndShoot());
+	}
+
+	@Override
+	public String toString() {
+		return "Right switch: straight ahead";
+	}
 }

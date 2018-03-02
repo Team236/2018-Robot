@@ -11,26 +11,26 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class RightScale2Cube extends CommandGroup {
 
-    public RightScale2Cube() {
-    	addSequential(new RightScale());
-    	
-    	addSequential(new Turn(70, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
-    	
-    	addSequential(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, AutoMap.MM_END_MARGIN));
-    	
-    	// addParallel(new Intake());
-    	
-    	addSequential(new Wait(1));
-    	
-    	addSequential(new MotionMagic(-AutoMap.DIST_SCALE_TO_CUBE, AutoMap.MM_END_MARGIN));
-    	
-    	addSequential(new Turn(-70, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
-    	
-    	addSequential(new SpinUpAndShoot());
-    }
+	public RightScale2Cube() {
+		addSequential(new RightScale());
 
-    @Override
-    public String toString() {
-    	return "Right scale: 2 cubes";
-    }
+		addSequential(new Turn(70, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
+
+		addSequential(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, AutoMap.MM_END_MARGIN));
+
+		// addParallel(new Intake());
+
+		addSequential(new Wait(1));
+
+		addSequential(new MotionMagic(-AutoMap.DIST_SCALE_TO_CUBE, AutoMap.MM_END_MARGIN));
+
+		addSequential(new Turn(-70, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
+
+		addSequential(new SpinUpAndShoot());
+	}
+
+	@Override
+	public String toString() {
+		return "Right scale: 2 cubes";
+	}
 }

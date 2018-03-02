@@ -27,9 +27,9 @@ public class LeftScale2Cube extends CommandGroup {
 
 		addSequential(new SpinUpAndShoot());
 	}
-	
-    @Override
-    public String toString() {
-    	return "Left scale: 2 cube";
-    }
+
+	@Override
+	public String toString() {
+		return "Left scale: 2 cube";
+	}
 }

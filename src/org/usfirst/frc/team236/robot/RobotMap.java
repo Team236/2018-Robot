@@ -19,7 +19,7 @@ public class RobotMap {
 		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
 		public static final double PULSE_PER_ROTATION = 512;
 		public static final double DISTANCE_PER_PULSE = CIRCUMFERENCE / PULSE_PER_ROTATION;
-	
+
 		// Default cruise velocity and acceleration
 		// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
 		// TESTBED CV = 1280, ACCEL = 1280 Margin = 20
@@ -37,12 +37,16 @@ public class RobotMap {
 		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
 		// public static final double I_TURN = SmartDashboard.getNumber("I", 0);
 		// public static final double D_TURN = SmartDashboard.getNumber("D", 0);
-		// public static final PIDParameters TURN_PARAMS = new PIDParameters(P_TURN, I_TURN, D_TURN, 1 / 100.0);
+		// public static final PIDParameters TURN_PARAMS = new PIDParameters(P_TURN,
+		// I_TURN, D_TURN, 1 / 100.0);
 		public static final PIDParameters TURN_PARAMS_45 = new PIDParameters(0.06, 0.00, -0.003, 1 / 100.0);
-		public static final PIDParameters TURN_PARAMS_90 = new PIDParameters(0.01, 0.001, -0.000, 1 / 100.0); //P = .028
+		public static final PIDParameters TURN_PARAMS_90 = new PIDParameters(0.01, 0.001, -0.000, 1 / 100.0); // P =
+																												// .028
 		public static final double TURN_MARGIN = 3.0;
-		// TESTBED 2/10- on carpet for 45 and 30 deg, P = 0.019, I = 0, D = -0.0001, fresh battery 57 deg
-		// TESTBED 2/10- on carpet for -45 deg, P = 0.06, needs more tuning short by a few degrees
+		// TESTBED 2/10- on carpet for 45 and 30 deg, P = 0.019, I = 0, D = -0.0001,
+		// fresh battery 57 deg
+		// TESTBED 2/10- on carpet for -45 deg, P = 0.06, needs more tuning short by a
+		// few degrees
 		// TESTBED 2/10 on carpet for +/-90 deg, P = 0.0147, D = -0.003
 	}
 

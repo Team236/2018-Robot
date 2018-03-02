@@ -15,6 +15,6 @@ public class PreAuto extends CommandGroup {
 		addSequential(new Raise());
 		addSequential(new Wait(.5));
 		addSequential(new Lower(), 1);
-		addSequential(new Feed(), 1);		
+		addSequential(new Feed(), 1);
 	}
 }

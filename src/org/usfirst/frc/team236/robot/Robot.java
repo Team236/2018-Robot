@@ -53,10 +53,10 @@ public class Robot extends TimedRobot {
 
 	private static final boolean isDebug = true;
 	private static final boolean isPowerDebug = false;
-	
+
 	private static DigitalInput leftSide, rightSide;
 	private static DigitalInput sw1, sw2, sw3;
-	
+
 	@Override
 	public void robotInit() {
 		oi = new OI();
@@ -67,7 +67,7 @@ public class Robot extends TimedRobot {
 		if (isPowerDebug) {
 			pdp = new PowerDistributionPanel();
 		}
-		
+
 		// Create auto switches
 		leftSide = new DigitalInput(3);
 		rightSide = new DigitalInput(5);
@@ -119,7 +119,7 @@ public class Robot extends TimedRobot {
 		// autonomousCommand = new ScaleCrossLtoR();
 		// autonomousCommand = new LeftScale2Cube();
 		// autonomousCommand = new RightScale2Cube();
-		
+
 		autonomousCommand = getAutoFromSwitches();
 
 		// schedule the autonomous command (example)
@@ -176,7 +176,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage() * (110.0 / 2.75));
 
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
-		
+
 		if (isPowerDebug) {
 			SmartDashboard.putNumber("Battery Voltage", pdp.getVoltage());
 			SmartDashboard.putNumber("Battery Current", pdp.getTotalCurrent());
@@ -195,18 +195,18 @@ public class Robot extends TimedRobot {
 		String gameData;
 		try {
 			gameData = DriverStation.getInstance().getGameSpecificMessage();
-		
+
 			Alliance color = DriverStation.getInstance().getAlliance();
-	
+
 			// Set our boolean to correct alliance
 			if (color == Alliance.Blue) {
 				ourBool = true;
 			} else {
 				ourBool = false;
 			}
-			
+
 			ourBool = true;
-	
+
 			// Set near switch colors
 			if (gameData.charAt(0) == 'L') {
 				SmartDashboard.putBoolean("NSL", ourBool);
@@ -215,7 +215,7 @@ public class Robot extends TimedRobot {
 				SmartDashboard.putBoolean("NSL", !ourBool);
 				SmartDashboard.putBoolean("NSR", ourBool);
 			}
-	
+
 			// Set scale colors
 			if (gameData.charAt(1) == 'L') {
 				SmartDashboard.putBoolean("SL", ourBool);
@@ -224,7 +224,7 @@ public class Robot extends TimedRobot {
 				SmartDashboard.putBoolean("SL", !ourBool);
 				SmartDashboard.putBoolean("SR", ourBool);
 			}
-	
+
 			// Set far switch colors
 			if (gameData.charAt(2) == 'L') {
 				SmartDashboard.putBoolean("FSL", ourBool);
@@ -238,14 +238,16 @@ public class Robot extends TimedRobot {
 			System.out.println("String machine broke");
 		}
 	}
-	
+
 	public static Command getAutoFromSwitches() {
 		String gameData = DriverStation.getInstance().getGameSpecificMessage();
-	//Test bed is reading True when toggles switches are "off"
-	//Test bed 	3-way toggle reads "True" on both Left and Right when in the middle
-	//Test bed 3-way Left toggle reads "False" and Right reads "True", when switched to the left
-	//Test bed 3-way Right toggle reads "False" and Left reads "True", when switched to the right
-		if(leftSide.get() && rightSide.get()) {
+		// Test bed is reading True when toggles switches are "off"
+		// Test bed 3-way toggle reads "True" on both Left and Right when in the middle
+		// Test bed 3-way Left toggle reads "False" and Right reads "True", when
+		// switched to the left
+		// Test bed 3-way Right toggle reads "False" and Left reads "True", when
+		// switched to the right
+		if (leftSide.get() && rightSide.get()) {
 			// Toggle switch in center
 			if (gameData.charAt(0) == 'R') {
 				return new RightSwitch();
@@ -253,8 +255,7 @@ public class Robot extends TimedRobot {
 				return new LeftSwitchFromRight();
 			}
 		}
-		
-		
+
 		if (!leftSide.get()) {
 			if (gameData.charAt(1) == 'L') {
 				if (gameData.charAt(0) == 'L') {
@@ -266,7 +267,7 @@ public class Robot extends TimedRobot {
 				return new LeftSwitchOuter();
 			}
 		}
-		
+
 		if (!rightSide.get()) {
 			if (gameData.charAt(1) == 'R') {
 				if (gameData.charAt(0) == 'R') {

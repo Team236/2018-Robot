@@ -1,10 +1,8 @@
 package org.usfirst.frc.team236.robot.commands.climber;
 
 import org.usfirst.frc.team236.robot.Robot;
-import org.usfirst.frc.team236.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
-import lib.oi.LogitechF310;
 import lib.oi.LogitechF310.Axes;
 
 /**
