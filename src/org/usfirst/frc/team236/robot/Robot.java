@@ -245,15 +245,17 @@ public class Robot extends TimedRobot {
 	//Test bed 	3-way toggle reads "True" on both Left and Right when in the middle
 	//Test bed 3-way Left toggle reads "False" and Right reads "True", when switched to the left
 	//Test bed 3-way Right toggle reads "False" and Left reads "True", when switched to the right
-		if(!leftSide.get() && !rightSide.get()) {
+		if(leftSide.get() && rightSide.get()) {
+			// Toggle switch in center
 			if (gameData.charAt(0) == 'R') {
 				return new RightSwitch();
 			} else if (gameData.charAt(0) == 'L') {
 				return new LeftSwitchFromRight();
 			}
 		}
-
-		if (leftSide.get()) {
+		
+		
+		if (!leftSide.get()) {
 			if (gameData.charAt(1) == 'L') {
 				if (gameData.charAt(0) == 'L') {
 					return new LeftScaleAndSwitch();
@@ -265,7 +267,7 @@ public class Robot extends TimedRobot {
 			}
 		}
 		
-		if (rightSide.get()) {
+		if (!rightSide.get()) {
 			if (gameData.charAt(1) == 'R') {
 				if (gameData.charAt(0) == 'R') {
 					return new RightScaleAndSwitch();
