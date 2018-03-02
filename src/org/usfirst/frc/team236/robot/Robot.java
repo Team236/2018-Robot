@@ -57,7 +57,7 @@ public class Robot extends TimedRobot {
 	private static final boolean isPowerDebug = false;
 
 	private static DigitalInput leftSide, rightSide;
-	private static DigitalInput sw1, sw2, sw3;
+	private static DigitalInput noSwitch, noScale, sw3;
 
 	@Override
 	public void robotInit() {
@@ -73,8 +73,8 @@ public class Robot extends TimedRobot {
 		// Create auto switches
 		leftSide = new DigitalInput(3);
 		rightSide = new DigitalInput(5);
-		sw1 = new DigitalInput(0);
-		sw2 = new DigitalInput(1);
+		noSwitch= new DigitalInput(0);
+		noScale = new DigitalInput(1);
 		sw3 = new DigitalInput(2);
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
