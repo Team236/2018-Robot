@@ -1,5 +1,6 @@
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.auto.Cross;
 import org.usfirst.frc.team236.robot.commands.auto.LeftLongScale;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScaleAndSwitch;
@@ -263,32 +264,88 @@ public class Robot extends TimedRobot {
 
 		if (!leftSide.get()) {
 			// Starting on left side
+			if (!noScale.get() && !noSwitch.get()) {
+				return new Cross();
+			}
+
 			if (gameData.equals("RRR")) {
+				if (!noScale.get()) {
+					return new Cross(); // TODO long switch
+				}
+				if (!noSwitch.get()) {
+					return new LeftLongScale();
+				}
 				return new LeftLongScale();
 			}
 			if (gameData.equals("RLR")) {
+				if (!noScale.get()) {
+					return new Cross(); // TODO long switch
+				}
+				if (!noSwitch.get()) {
+					return new LeftScale2Cube();
+				}
 				return new LeftScale2Cube();
 			}
 			if (gameData.equals("LRL")) {
+				if (!noScale.get()) {
+					return new LeftSwitchOuter();
+				}
+				if (!noSwitch.get()) {
+					return new LeftLongScale();
+				}
 				return new LeftSwitchOuter();
 			}
 			if (gameData.equals("LLL")) {
+				if (!noScale.get()) {
+					return new LeftSwitchOuter();
+				}
+				if (!noSwitch.get()) {
+					return new LeftScale2Cube();
+				}
 				return new LeftScaleAndSwitch();
 			}
 		}
 
 		if (!rightSide.get()) {
-			// Starting on left side
+			// Starting on right side
+			if (!noScale.get() && !noSwitch.get()) {
+				return new Cross();
+			}
+
 			if (gameData.equals("RRR")) {
+				if (!noScale.get()) {
+					return new RightSwitchOuter();
+				}
+				if (!noSwitch.get()) {
+					return new RightScale2Cube();
+				}
 				return new RightScaleAndSwitch();
 			}
 			if (gameData.equals("RLR")) {
+				if (!noScale.get()) {
+					return new RightSwitchOuter();
+				}
+				if (!noSwitch.get()) {
+					return new RightLongScale();
+				}
 				return new RightSwitchOuter();
 			}
 			if (gameData.equals("LRL")) {
+				if (!noScale.get()) {
+					return new Cross(); // TODO long switch
+				}
+				if (!noSwitch.get()) {
+					return new RightScale2Cube();
+				}
 				return new RightScale2Cube();
 			}
 			if (gameData.equals("LLL")) {
+				if (!noScale.get()) {
+					return new Cross(); // TODO long switch
+				}
+				if (!noSwitch.get()) {
+					return new RightLongScale();
+				}
 				return new RightLongScale();
 			}
 		}
