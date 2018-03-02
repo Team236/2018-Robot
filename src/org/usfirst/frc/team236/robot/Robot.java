@@ -1,10 +1,12 @@
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.auto.LeftScale;
+import org.usfirst.frc.team236.robot.commands.auto.LeftLongScale;
+import org.usfirst.frc.team236.robot.commands.auto.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchFromRight;
 import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchOuter;
-import org.usfirst.frc.team236.robot.commands.auto.RightScale;
+import org.usfirst.frc.team236.robot.commands.auto.RightLongScale;
+import org.usfirst.frc.team236.robot.commands.auto.RightScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.RightScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.RightSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.RightSwitchOuter;
@@ -121,6 +123,7 @@ public class Robot extends TimedRobot {
 		// autonomousCommand = new RightScale2Cube();
 
 		autonomousCommand = getAutoFromSwitches();
+		SmartDashboard.putString("Auto", autonomousCommand.toString());
 
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null) {
@@ -241,44 +244,55 @@ public class Robot extends TimedRobot {
 
 	public static Command getAutoFromSwitches() {
 		String gameData = DriverStation.getInstance().getGameSpecificMessage();
+		//String gameData = gameData.substring(0, 3); // First two characters of game data
 		// Test bed is reading True when toggles switches are "off"
 		// Test bed 3-way toggle reads "True" on both Left and Right when in the middle
 		// Test bed 3-way Left toggle reads "False" and Right reads "True", when
 		// switched to the left
 		// Test bed 3-way Right toggle reads "False" and Left reads "True", when
 		// switched to the right
+
 		if (leftSide.get() && rightSide.get()) {
 			// Toggle switch in center
-			if (gameData.charAt(0) == 'R') {
+			if (gameData.equals("RRR") || gameData.equals("RLR")) {
 				return new RightSwitch();
-			} else if (gameData.charAt(0) == 'L') {
+			} else if (gameData.equals("LRL") || gameData.equals("LLL")) {
 				return new LeftSwitchFromRight();
 			}
 		}
 
 		if (!leftSide.get()) {
-			if (gameData.charAt(1) == 'L') {
-				if (gameData.charAt(0) == 'L') {
-					return new LeftScaleAndSwitch();
-				} else if (gameData.charAt(0) == 'R') {
-					return new LeftScale();
-				}
-			} else if (gameData.charAt(1) == 'R') {
+			// Starting on left side
+			if (gameData.equals("RRR")) {
+				return new LeftLongScale();
+			}
+			if (gameData.equals("RLR")) {
+				return new LeftScale2Cube();
+			}
+			if (gameData.equals("LRL")) {
 				return new LeftSwitchOuter();
+			}
+			if (gameData.equals("LLL")) {
+				return new LeftScaleAndSwitch();
 			}
 		}
 
 		if (!rightSide.get()) {
-			if (gameData.charAt(1) == 'R') {
-				if (gameData.charAt(0) == 'R') {
-					return new RightScaleAndSwitch();
-				} else if (gameData.charAt(0) == 'L') {
-					return new RightScale();
-				}
-			} else if (gameData.charAt(1) == 'L') {
+			// Starting on left side
+			if (gameData.equals("RRR")) {
+				return new RightScaleAndSwitch();
+			}
+			if (gameData.equals("RLR")) {
 				return new RightSwitchOuter();
 			}
+			if (gameData.equals("LRL")) {
+				return new RightScale2Cube();
+			}
+			if (gameData.equals("LLL")) {
+				return new RightLongScale();
+			}
 		}
+
 		return new DoNothing();
 	}
 }
