@@ -241,7 +241,10 @@ public class Robot extends TimedRobot {
 	
 	public static Command getAutoFromSwitches() {
 		String gameData = DriverStation.getInstance().getGameSpecificMessage();
-		
+	//Test bed is reading True when toggles switches are "off"
+	//Test bed 	3-way toggle reads "True" on both Left and Right when in the middle
+	//Test bed 3-way Left toggle reads "False" and Right reads "True", when switched to the left
+	//Test bed 3-way Right toggle reads "False" and Left reads "True", when switched to the right
 		if(!leftSide.get() && !rightSide.get()) {
 			if (gameData.charAt(0) == 'R') {
 				return new RightSwitch();
@@ -249,7 +252,7 @@ public class Robot extends TimedRobot {
 				return new LeftSwitchFromRight();
 			}
 		}
-		
+
 		if (leftSide.get()) {
 			if (gameData.charAt(1) == 'L') {
 				if (gameData.charAt(0) == 'L') {
