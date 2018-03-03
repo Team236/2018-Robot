@@ -2,8 +2,6 @@ package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
-import org.usfirst.frc.team236.robot.commands.intake.Feed;
-import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -17,11 +15,10 @@ public class RightLongScale extends CommandGroup {
 	 * the scale.
 	 */
 	public RightLongScale() {
-		addParallel(new Lower());
-		addParallel(new Feed(), .5);
-		addSequential(new MotionMagic(AutoMap.DIST_PLATFORM_ZONE, 3));
+		addParallel(new PreAuto());
+		addSequential(new MotionMagic(AutoMap.DIST_PLATFORM_ZONE, 6));
 
-		addSequential(new Turn(-90, 2, DriveMap.TURN_PARAMS_90));
+		addSequential(new Turn(-90, 5, DriveMap.TURN_PARAMS_90));
 
 		addSequential(new MotionMagic(AutoMap.DIST_CROSS_FIELD, AutoMap.MM_END_MARGIN));
 
