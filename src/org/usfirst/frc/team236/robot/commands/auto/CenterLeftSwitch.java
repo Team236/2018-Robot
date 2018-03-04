@@ -19,8 +19,7 @@ public class CenterLeftSwitch extends CommandGroup {
 	 * and drive forward while delivering cube to switch plate.
 	 */
 	public CenterLeftSwitch() {
-		addParallel(new Lower());
-		addParallel(new Feed(), .5);
+		addParallel(new PreAuto());
 		addSequential(new MotionMagic(AutoMap.SWITCH_CROSS1, AutoMap.MM_END_MARGIN));
 
 		addSequential(new Turn(-90, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
