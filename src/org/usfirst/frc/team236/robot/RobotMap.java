@@ -40,7 +40,7 @@ public class RobotMap {
 		// public static final PIDParameters TURN_PARAMS = new PIDParameters(P_TURN,
 		// I_TURN, D_TURN, 1 / 100.0);
 		public static final PIDParameters TURN_PARAMS_45 = new PIDParameters(0.06, 0.00, -0.003, 1 / 100.0);
-		public static final PIDParameters TURN_PARAMS_90 = new PIDParameters(0.01, 0.001, -0.000, 1 / 100.0); // P =
+		public static final PIDParameters TURN_PARAMS_90 = new PIDParameters(0.007, 0.001, -0.000, 1 / 100.0); // P =
 																												// .028
 		public static final double TURN_MARGIN = 3.0;
 		// TESTBED 2/10- on carpet for 45 and 30 deg, P = 0.019, I = 0, D = -0.0001,
