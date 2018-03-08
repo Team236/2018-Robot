@@ -17,7 +17,6 @@ public class Launcher extends Subsystem {
 	 * there's no way we're running through 5 inversions. Positive shoots.
 	 */
 	public SpeedController topRight, topLeft, bottomRight, bottomLeft;
-	public SpeedController spit;
 	public DoubleSolenoid shoot;
 
 	public Launcher() {
@@ -25,7 +24,6 @@ public class Launcher extends Subsystem {
 		topLeft = new VictorSP(RobotMap.LauncherMap.PWM_TOP_LEFT);
 		bottomRight = new VictorSP(RobotMap.LauncherMap.PWM_BOTTOM_RIGHT);
 		bottomLeft = new VictorSP(RobotMap.LauncherMap.PWM_BOTTOM_LEFT);
-		spit = new VictorSP(RobotMap.LauncherMap.PWM_SPITTER);
 		shoot = new DoubleSolenoid(RobotMap.LauncherMap.SOL_FWD, RobotMap.LauncherMap.SOL_REV);
 	}
 
@@ -44,16 +42,8 @@ public class Launcher extends Subsystem {
 		bottomLeft.set(speed);
 	}
 
-	public void setSpitSpeed(double speed) {
-		spit.set(speed);
-	}
-
 	public void stopLaunch() {
 		setLaunchSpeed(0);
-	}
-
-	public void stopSpit() {
-		setSpitSpeed(0);
 	}
 
 	public void initDefaultCommand() {
