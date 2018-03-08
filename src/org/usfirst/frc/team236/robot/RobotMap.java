@@ -5,6 +5,7 @@ import lib.pid.PIDParameters;
 public class RobotMap {
 
 	public static final int ANALOG_PRESSURE_SENSOR = 0;
+	public static final int PWM_FLAG = 6;
 
 	public static class DriveMap {
 		// Talon IDs

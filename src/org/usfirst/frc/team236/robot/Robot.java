@@ -1,15 +1,15 @@
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.auto.CenterLeftSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.CenterStraightSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.Cross;
 import org.usfirst.frc.team236.robot.commands.auto.LeftLongScale;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScaleAndSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.CenterLeftSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchOuter;
 import org.usfirst.frc.team236.robot.commands.auto.RightLongScale;
 import org.usfirst.frc.team236.robot.commands.auto.RightScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.RightScaleAndSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.CenterStraightSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.RightSwitchOuter;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
@@ -25,6 +25,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -50,6 +51,7 @@ public class Robot extends TimedRobot {
 	public PowerDistributionPanel pdp;
 	public AnalogInput pressureSensor;
 	public UsbCamera camera;
+	public Servo flag;
 
 	// Declare auto command
 	Command autoCommand;
@@ -79,6 +81,7 @@ public class Robot extends TimedRobot {
 		sw3 = new DigitalInput(2);
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
+		flag = new Servo(RobotMap.PWM_FLAG);
 
 		try {
 			camera = CameraServer.getInstance().startAutomaticCapture();
@@ -162,6 +165,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		
+		flag.set(oi.controller.getLeftX());
 
 		if (isDebug) {
 			SmartDashboard.putNumber("Left Distance", drive.getLeftDistance());
