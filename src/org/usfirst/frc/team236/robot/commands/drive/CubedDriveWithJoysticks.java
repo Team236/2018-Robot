@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveWithJoysticks extends Command {
+public class CubedDriveWithJoysticks extends Command {
 
-	public DriveWithJoysticks() {
+	public CubedDriveWithJoysticks() {
 		requires(Robot.drive);
 	}
 
@@ -17,8 +17,8 @@ public class DriveWithJoysticks extends Command {
 	}
 
 	protected void execute() {
-		Robot.drive.setLeftSpeed(-Robot.oi.leftStick.getY());
-		Robot.drive.setRightSpeed(-Robot.oi.rightStick.getY());
+		Robot.drive.setLeftSpeed(Math.pow(-Robot.oi.leftStick.getY(), 3));
+		Robot.drive.setRightSpeed(Math.pow(-Robot.oi.rightStick.getY(), 3));
 	}
 
 	protected boolean isFinished() {
