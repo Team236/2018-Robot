@@ -1,6 +1,9 @@
 
 package org.usfirst.frc.team236.robot;
 
+import jaci.pathfinder.Pathfinder;
+import jaci.pathfinder.Waypoint;
+
 public class AutoMap {
 	public static final double SWITCH_CROSS1 = -42; // 48
 	public static final double SWITCH_CROSS2 = -108; // 108
@@ -23,4 +26,10 @@ public class AutoMap {
 	public static final double DIST_SCALE_TO_CUBE = 66; // 70
 
 	public static final double MM_END_MARGIN = 10;
+	
+	public static final Waypoint[] CENTER_LEFT_SWITCH = new Waypoint[] {
+			new Waypoint(0, -6, 0),
+			new Waypoint(-50, -40, Pathfinder.d2r(90)),
+			new Waypoint(-108, 102, 0)
+	};
 }

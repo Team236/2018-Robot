@@ -20,6 +20,7 @@ public class RobotMap {
 		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
 		public static final double PULSE_PER_ROTATION = 512;
 		public static final double DISTANCE_PER_PULSE = CIRCUMFERENCE / PULSE_PER_ROTATION;
+		public static final double WHEEL_TRACK = 25; // inches
 		
 		// Voltage settings
 		public static final boolean IS_VOLTAGE_COMP = false;
