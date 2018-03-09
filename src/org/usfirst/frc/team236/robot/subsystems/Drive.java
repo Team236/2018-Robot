@@ -60,6 +60,11 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		rightFrontMaster.set(ControlMode.PercentOutput, speed);
 	}
 
+	public void stop() {
+		setLeftSpeed(0);
+		setRightSpeed(0);
+	}
+
 	public void initDefaultCommand() {
 		setDefaultCommand(new DriveWithJoysticks());
 	}
@@ -132,9 +137,8 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		return rightFrontMaster.getSelectedSensorVelocity(0);
 	}
 
-	public void stop() {
-		leftFrontMaster.set(ControlMode.PercentOutput, 0);
-		rightFrontMaster.set(ControlMode.PercentOutput, 0);
+	public double getLeftSpeed() {
+		return leftFrontMaster.getSelectedSensorVelocity(0);
 	}
 
 	public int getLeftEncoder() {
