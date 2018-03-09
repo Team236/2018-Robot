@@ -18,7 +18,7 @@ public class RobotMap {
 
 		public static final double DIAMETER = 3.96; // wheel diameter in inches
 		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
-		public static final double PULSE_PER_ROTATION = 512;
+		public static final int PULSE_PER_ROTATION = 512;
 		public static final double DISTANCE_PER_PULSE = CIRCUMFERENCE / PULSE_PER_ROTATION;
 		public static final double WHEEL_TRACK = 25; // inches
 		
@@ -43,6 +43,9 @@ public class RobotMap {
 		public static final double M_MAGIC_K_D = 0.0;
 		public static final double M_MAGIC_K_F_R = 1.2;
 		public static final double M_MAGIC_K_F_L = 1.2;
+
+		// Pathfinder gains
+		public static final double kTurn = 0.1;
 
 		// Turn PID parameters
 		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
