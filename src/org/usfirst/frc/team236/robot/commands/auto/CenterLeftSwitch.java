@@ -2,8 +2,6 @@ package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
-import org.usfirst.frc.team236.robot.commands.intake.Feed;
-import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;

@@ -20,6 +20,15 @@ public class RobotMap {
 		public static final double CIRCUMFERENCE = DIAMETER * Math.PI;
 		public static final double PULSE_PER_ROTATION = 512;
 		public static final double DISTANCE_PER_PULSE = CIRCUMFERENCE / PULSE_PER_ROTATION;
+		
+		// Voltage settings
+		public static final boolean IS_VOLTAGE_COMP = false;
+		public static final double VOLTAGE_SATURATION = 12.5;
+		
+		// Current limiting settings
+		public static final boolean IS_CURRENT_LIMIT = false;
+		public static final int PEAK_CURRENT = 45;
+		public static final int CONTINUOUS_CURRENT = 30;
 
 		// Default cruise velocity and acceleration
 		// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0

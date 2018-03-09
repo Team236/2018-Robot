@@ -33,18 +33,27 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		leftMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_LEFT_MIDDLE);
 		rightMiddleSlave = new TalonSRX(RobotMap.DriveMap.ID_RIGHT_MIDDLE);
 
-		// leftFrontMaster.configContinuousCurrentLimit(80, 10);
-		// leftFrontMaster.enableCurrentLimit(true);
-		// leftFrontMaster.configPeakCurrentLimit(0, 10);
-
-		// rightFrontMaster.configContinuousCurrentLimit(80, 10);
-		// rightFrontMaster.enableCurrentLimit(true);
-		// rightFrontMaster.configPeakCurrentLimit(0, 10);
-
+		// Set talons in follower mode
 		leftRearSlave.set(ControlMode.Follower, leftFrontMaster.getDeviceID());
 		rightRearSlave.set(ControlMode.Follower, rightFrontMaster.getDeviceID());
 		leftMiddleSlave.set(ControlMode.Follower, leftFrontMaster.getDeviceID());
 		rightMiddleSlave.set(ControlMode.Follower, rightFrontMaster.getDeviceID());
+
+		// Set up current limits
+		leftFrontMaster.enableCurrentLimit(RobotMap.DriveMap.IS_CURRENT_LIMIT);
+		leftFrontMaster.configContinuousCurrentLimit(RobotMap.DriveMap.CONTINUOUS_CURRENT, 0);
+		leftFrontMaster.configPeakCurrentLimit(RobotMap.DriveMap.PEAK_CURRENT, 10);
+
+		rightFrontMaster.enableCurrentLimit(RobotMap.DriveMap.IS_CURRENT_LIMIT);
+		rightFrontMaster.configContinuousCurrentLimit(RobotMap.DriveMap.CONTINUOUS_CURRENT, 0);
+		rightFrontMaster.configPeakCurrentLimit(RobotMap.DriveMap.PEAK_CURRENT, 10);
+
+		// Set voltage compensation settings
+		leftFrontMaster.enableVoltageCompensation(RobotMap.DriveMap.IS_VOLTAGE_COMP);
+		leftFrontMaster.configVoltageCompSaturation(RobotMap.DriveMap.VOLTAGE_SATURATION, 0);
+
+		rightFrontMaster.enableVoltageCompensation(RobotMap.DriveMap.IS_VOLTAGE_COMP);
+		rightFrontMaster.configVoltageCompSaturation(RobotMap.DriveMap.VOLTAGE_SATURATION, 0);
 
 		// set "true" if needed to make encoder reading positive when TalonSRX blinks
 		// green
@@ -79,7 +88,7 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		leftFrontMaster.setSelectedSensorPosition(0, 0, 0);
 		rightFrontMaster.setSelectedSensorPosition(0, 0, 0);
 	}
-	
+
 	public void setMotionParams(double _kP, double _kI, double _kD, double _kF_L, double _kF_R) {
 		setkP(_kP);
 		setkI(_kI);
