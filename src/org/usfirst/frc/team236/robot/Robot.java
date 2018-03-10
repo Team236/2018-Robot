@@ -268,7 +268,7 @@ public class Robot extends TimedRobot {
 			}
 		}
 
-		if (!leftSide.get()) {
+		if (leftSide.get()) {
 			// Starting on left side
 			if (!noScale.get() && !noSwitch.get()) {
 				return new Cross();
@@ -312,7 +312,7 @@ public class Robot extends TimedRobot {
 			}
 		}
 
-		if (!rightSide.get()) {
+		if (rightSide.get()) {
 			// Starting on right side
 			if (!noScale.get() && !noSwitch.get()) {
 				return new Cross();
