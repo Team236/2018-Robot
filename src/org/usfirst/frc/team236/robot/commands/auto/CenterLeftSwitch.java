@@ -21,7 +21,7 @@ public class CenterLeftSwitch extends CommandGroup {
 		addParallel(new PreAuto());
 		addSequential(new MotionMagic(AutoMap.SWITCH_CROSS1, AutoMap.MM_END_MARGIN));
 
-		addSequential(new Turn(-90, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
+		addSequential(new Turn(-90, 5, DriveMap.TURN_PARAMS_90));
 
 		addSequential(new MotionMagic(AutoMap.SWITCH_CROSS2, AutoMap.MM_END_MARGIN));
 
