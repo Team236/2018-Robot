@@ -9,8 +9,8 @@ import lib.commands.WaitCommand;
 public class SpinUpAndShoot extends CommandGroup {
 
     public SpinUpAndShoot() {
-    	addParallel(new WaitCommand(.75, new Shoot(), 1));
+    	addParallel(new WaitCommand(.50, new Shoot(), .5));
     	
-    	addSequential(new SpinUp(), 1.75);
+    	addSequential(new SpinUp(), 1.00);
     }
 }
