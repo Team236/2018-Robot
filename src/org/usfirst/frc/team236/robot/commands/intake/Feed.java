@@ -24,13 +24,12 @@ public class Feed extends Command {
 		Robot.intake.leftIntake.set(RobotMap.IntakeMap.FEED_SPEED);
 		Robot.intake.rightIntake.set(RobotMap.IntakeMap.FEED_SPEED);
 		
-		Robot.launcher.setLaunchSpeed(-0.25);
+		Robot.launcher.setLaunchSpeed(RobotMap.LauncherMap.FEED_SPEED);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 		return false;
-		//return Robot.intake.feedSensor.get();
 	}
 
 	// Called once after isFinished returns true
