@@ -2,6 +2,7 @@ package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
+import org.usfirst.frc.team236.robot.commands.drive.StraightDrive;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -30,6 +31,7 @@ public class CenterLeftSwitch extends CommandGroup {
 		// those many seconds at most
 		addSequential(new MotionMagic(AutoMap.SWITCH_CROSS3, AutoMap.MM_END_MARGIN), 3);
 
+		addParallel(new StraightDrive(-.20),1);
 		addSequential(new SpitUpAndShoot());
 	}
 

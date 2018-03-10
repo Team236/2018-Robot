@@ -1,6 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.commands.drive.StraightDrive;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -21,6 +22,7 @@ public class CenterStraightSwitch extends CommandGroup {
 		addParallel(new PreAuto());
 		addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN, 100, 100), 4);
 
+		addParallel(new StraightDrive(-.20),1);
 		addSequential(new SpitUpAndShoot());
 	}
 
