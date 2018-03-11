@@ -90,7 +90,6 @@ public class RobotMap {
 		public static final double FEED_SPEED = 0.75;
 		public static final boolean INV_LEFT = true;
 		public static final boolean INV_RIGHT = false;
-
 	}
 
 	public static class LauncherMap {
@@ -102,9 +101,9 @@ public class RobotMap {
 		public static final int PWM_BOTTOM_RIGHT = 3;
 		public static final int PWM_BOTTOM_LEFT = 5;
 
-		public static final double LAUNCH_SPEED = 0.95;
+		public static final double LAUNCH_SPEED = 1.00;
 		public static final double SPIT_SPEED = 0.5;
-		public static final double FEED_SPEED = -0.75;
+		public static final double FEED_SPEED = -0.4;
 	}
 
 	public static class ClimberMap {
