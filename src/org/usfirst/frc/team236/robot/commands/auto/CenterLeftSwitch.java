@@ -31,7 +31,7 @@ public class CenterLeftSwitch extends CommandGroup {
 		// those many seconds at most
 		addSequential(new MotionMagic(AutoMap.SWITCH_CROSS3, AutoMap.MM_END_MARGIN), 3);
 
-		addParallel(new StraightDrive(-.20),1);
+		addParallel(new StraightDrive(-.40),1);
 		addSequential(new SpitUpAndShoot());
 	}
 

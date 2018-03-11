@@ -22,7 +22,7 @@ public class CenterStraightSwitch extends CommandGroup {
 		addParallel(new PreAuto());
 		addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN, 100, 100), 4);
 
-		addParallel(new StraightDrive(-.20),1);
+		addParallel(new StraightDrive(-.40),1);
 		addSequential(new SpitUpAndShoot());
 	}
 
