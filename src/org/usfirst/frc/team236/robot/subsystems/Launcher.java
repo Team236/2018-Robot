@@ -34,12 +34,20 @@ public class Launcher extends Subsystem {
 	public void retract() {
 		shoot.set(Value.kForward);
 	}
+	
+	public void setStage1Speed(double speed) {
+		bottomLeft.set(speed);
+		bottomRight.set(speed);
+	}
+	
+	public void setStage2Speed(double speed) {
+		topLeft.set(speed);
+		topRight.set(speed);
+	}
 
 	public void setLaunchSpeed(double speed) {
-		topRight.set(speed);
-		topLeft.set(speed);
-		bottomRight.set(speed);
-		bottomLeft.set(speed);
+		this.setStage1Speed(speed);
+		this.setStage2Speed(speed);
 	}
 
 	public void stopLaunch() {
