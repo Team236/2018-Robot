@@ -81,7 +81,7 @@ public class OI {
 		controller.b.whileHeld(new RaiseAndLower());
 
 		// SHOOTER
-		rightStick.trigger.whileHeld(new SpinUpAndShoot());
+		rightStick.trigger.whenPressed(new SpinUpAndShoot());
 		leftStick.trigger.whileHeld(new Eject());
 
 		controller.lb.whileHeld(new SpitUp());
