@@ -25,7 +25,7 @@ public class CenterLeftSwitch extends CommandGroup {
 
 		addSequential(new MotionMagic(AutoMap.SWITCH_CROSS2, AutoMap.MM_END_MARGIN));
 
-		addSequential(new Turn(90, 5, DriveMap.TURN_PARAMS_90));
+		addSequential(new Turn(90, 10, DriveMap.TURN_PARAMS_90));
 
 		// "3" below is a timeout for this command - it means the command will end after
 		// those many seconds at most
