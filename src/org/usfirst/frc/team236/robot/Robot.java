@@ -281,7 +281,7 @@ public class Robot extends TimedRobot {
 				if (!noSwitch.get()) {
 					return new LeftLongScale();
 				}
-				return new LeftLongScale();
+				return new Cross();
 			}
 			if (gameData.equals("RLR")) {
 				if (!noScale.get()) {
@@ -352,7 +352,7 @@ public class Robot extends TimedRobot {
 				if (!noSwitch.get()) {
 					return new RightLongScale();
 				}
-				return new RightLongScale();
+				return new Cross();
 			}
 		}
 
