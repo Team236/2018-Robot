@@ -1,11 +1,12 @@
+
 package org.usfirst.frc.team236.robot;
 
 public class AutoMap {
 	public static final double SWITCH_CROSS1 = -42; // 48
 	public static final double SWITCH_CROSS2 = -108; // 108
-	public static final double SWITCH_CROSS3 = -36; // 24+
+	public static final double SWITCH_CROSS3 = -67; // 24+
 
-	public static final double DIST_FENCE = -98; // 102
+	public static final double DIST_FENCE = -110; // 102
 	public static final double DIST_FENCE_ALIGNMENT = -30;
 	public static final double DIST_PAST_SWITCH = -140; // 168
 	public static final double DIST_SIDE_FENCE = -30; // 21+
