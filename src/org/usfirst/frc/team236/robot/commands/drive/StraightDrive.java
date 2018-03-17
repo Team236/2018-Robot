@@ -8,37 +8,42 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class StraightDrive extends Command {
-	
-	public double speed;
 
-    public StraightDrive(double _speed) {
-        requires(Robot.drive);
-        this.speed = _speed;
-    }
+	public double leftSpeed, rightSpeed;
 
-    // Called just before this Command runs the first time
-    protected void initialize() {
-    }
+	public StraightDrive(double _speed) {
+		this(_speed, _speed);
+	}
 
-    // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	Robot.drive.setLeftSpeed(speed);
-    	Robot.drive.setRightSpeed(speed);
-    }
+	public StraightDrive(double _leftSpeed, double _rightSpeed) {
+		requires(Robot.drive);
+		this.leftSpeed = _leftSpeed;
+		this.rightSpeed = _rightSpeed;
+	}
 
-    // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+	// Called just before this Command runs the first time
+	protected void initialize() {
+	}
 
-    // Called once after isFinished returns true
-    protected void end() {
-    	Robot.drive.stop();
-    }
+	// Called repeatedly when this Command is scheduled to run
+	protected void execute() {
+		Robot.drive.setLeftSpeed(leftSpeed);
+		Robot.drive.setRightSpeed(rightSpeed);
+	}
 
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    	end();
-    }
+	// Make this return true when this Command no longer needs to run execute()
+	protected boolean isFinished() {
+		return false;
+	}
+
+	// Called once after isFinished returns true
+	protected void end() {
+		Robot.drive.stop();
+	}
+
+	// Called when another command which requires one or more of the same
+	// subsystems is scheduled to run
+	protected void interrupted() {
+		end();
+	}
 }
