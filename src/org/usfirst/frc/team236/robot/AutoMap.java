@@ -21,6 +21,9 @@ public class AutoMap {
 	public static final double DIST_CROSS_FIELD = -240; // 186 with bump, try 210
 	public static final double DIST_PLATFORM_ZONE_TO_NULL_TERRITORY = -54; // 37
 
+	public static final double DIST_PLATFORM_ZONE_DIRECT = -190; // -196, -220
+	public static final double DIST_CROSS_FIELD_DIRECT = 303; //-240, 186 with bump, try 210
+
 	public static final double DIST_AUTO_LINE = -150;
 
 	public static final double DIST_SCALE_TO_CUBE = 66; // 70
