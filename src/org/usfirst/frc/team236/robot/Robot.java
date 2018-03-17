@@ -146,6 +146,8 @@ public class Robot extends TimedRobot {
 
 			SmartDashboard.putNumber("Left Speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
 			SmartDashboard.putNumber("Right Speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
+			
+			SmartDashboard.putNumber("Angle", drive.navx.getAngle());
 		}
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 	}
