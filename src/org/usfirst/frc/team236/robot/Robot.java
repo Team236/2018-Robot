@@ -30,6 +30,10 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import jaci.pathfinder.Pathfinder;
+import jaci.pathfinder.Trajectory;
+import jaci.pathfinder.followers.EncoderFollower;
+import jaci.pathfinder.modifiers.TankModifier;
 import lib.commands.DoNothing;
 
 public class Robot extends TimedRobot {
@@ -52,6 +56,8 @@ public class Robot extends TimedRobot {
 	public AnalogInput pressureSensor;
 	public UsbCamera camera;
 	public Servo flag;
+	
+	public Trajectory leftLongScale, rightLongScale, centerLeftSwitch;
 
 	// Declare auto command
 	Command autoCommand;
@@ -92,6 +98,13 @@ public class Robot extends TimedRobot {
 
 			SmartDashboard.putString("Camera capture failed", "failed");
 		}
+		
+		System.out.println("Generating paths");
+		Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, .02, 12, 120, 300);
+		Trajectory centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH, config);
+		Trajectory leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE, config);
+		Trajectory rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE, config);
+		System.out.println("Finished generating paths");
 	}
 
 	@Override

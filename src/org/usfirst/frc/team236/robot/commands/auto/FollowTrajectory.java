@@ -1,6 +1,5 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
-import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.Robot;
 import org.usfirst.frc.team236.robot.RobotMap;
 
@@ -13,22 +12,20 @@ import jaci.pathfinder.modifiers.TankModifier;
 /**
  *
  */
-public class CenterLeftSwitchPathfinder extends Command {
+public class FollowTrajectory extends Command {
 
 	Trajectory.Config config;
 	Trajectory center, left, right;
 	TankModifier modifier;
 	EncoderFollower leftFollower, rightFollower;
 	
-	int i;
 	
-	public CenterLeftSwitchPathfinder() {
+	public FollowTrajectory(Trajectory _traj) {
 		requires(Robot.drive);
-		System.out.println("Started gen");
 		
-		config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, .02, 12, 120, 300);
-		center = Pathfinder.generate(AutoMap.CENTER_LEFT_SWITCH, config);
-		modifier = new TankModifier(center);
+		center = _traj;
+		
+		TankModifier modifier = new TankModifier(center);
 		modifier.modify(RobotMap.DriveMap.WHEEL_TRACK);
 		
 		left = modifier.getLeftTrajectory();
@@ -41,9 +38,9 @@ public class CenterLeftSwitchPathfinder extends Command {
 		rightFollower.configureEncoder(0, RobotMap.DriveMap.PULSE_PER_ROTATION, RobotMap.DriveMap.DIAMETER);
 		
 		// PID constants
-		leftFollower.configurePIDVA(.01, 0, 0, .001, .001);
-		rightFollower.configurePIDVA(.01, 0, 0, .001, .001);
-		System.out.println("Generated");
+		leftFollower.configurePIDVA(org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kP, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kI, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kD, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kV, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kA);
+		rightFollower.configurePIDVA(org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kP, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kI, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kD, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kV, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kA);
+		
 	}
 
 	protected void initialize() {
@@ -51,19 +48,16 @@ public class CenterLeftSwitchPathfinder extends Command {
 		Robot.drive.resetEncoders();
 		Robot.drive.navx.reset();
 
-		i = 0;
 	}
 
 	protected void execute() {
-		i++;
 		double leftSpeed = leftFollower.calculate(Robot.drive.getLeftEncoder());
 		double rightSpeed = rightFollower.calculate(Robot.drive.getRightEncoder());
 		
 		double heading = Robot.drive.navx.getAngle();
 		double setHeading = Pathfinder.r2d(leftFollower.getHeading());
 		double dAngle = Pathfinder.boundHalfDegrees(setHeading - heading);
-		double turnAdjustment = RobotMap.DriveMap.kTurn * dAngle;
-		//turnAdjustment = 0;
+		double turnAdjustment = org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kTurn * dAngle;
 		
 		Robot.drive.setLeftSpeed(leftSpeed + turnAdjustment);
 		Robot.drive.setRightSpeed(rightSpeed - turnAdjustment);

@@ -45,8 +45,16 @@ public class RobotMap {
 		public static final double M_MAGIC_K_F_L = 1.2;
 
 		// Pathfinder gains
-		public static final double kTurn = 0.01;
+		public static class Pathfinder {
+			public static final double DT = 1/50.0;
+			public static final double kP = 0.01;
+			public static final double kI = 0.0;
+			public static final double kD = 0.0;
+			public static final double kV = 0.001;
+			public static final double kA = 0.001;
 
+			public static final double kTurn = 0.01;
+		}
 		// Turn PID parameters
 		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
 		// public static final double I_TURN = SmartDashboard.getNumber("I", 0);
