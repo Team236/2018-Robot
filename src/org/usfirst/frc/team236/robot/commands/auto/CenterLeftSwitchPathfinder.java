@@ -24,8 +24,9 @@ public class CenterLeftSwitchPathfinder extends Command {
 	
 	public CenterLeftSwitchPathfinder() {
 		requires(Robot.drive);
+		System.out.println("Started gen");
 		
-		config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, .02, 50, 100, 500);
+		config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, .02, 12, 120, 300);
 		center = Pathfinder.generate(AutoMap.CENTER_LEFT_SWITCH, config);
 		modifier = new TankModifier(center);
 		modifier.modify(RobotMap.DriveMap.WHEEL_TRACK);
@@ -40,8 +41,9 @@ public class CenterLeftSwitchPathfinder extends Command {
 		rightFollower.configureEncoder(0, RobotMap.DriveMap.PULSE_PER_ROTATION, RobotMap.DriveMap.DIAMETER);
 		
 		// PID constants
-		//leftFollower.configurePIDVA(kp, ki, kd, kv, ka);
-		//rightFollower.configurePIDVA(kp, ki, kd, kv, ka);
+		leftFollower.configurePIDVA(.01, 0, 0, .001, .001);
+		rightFollower.configurePIDVA(.01, 0, 0, .001, .001);
+		System.out.println("Generated");
 	}
 
 	protected void initialize() {
@@ -61,6 +63,7 @@ public class CenterLeftSwitchPathfinder extends Command {
 		double setHeading = Pathfinder.r2d(leftFollower.getHeading());
 		double dAngle = Pathfinder.boundHalfDegrees(setHeading - heading);
 		double turnAdjustment = RobotMap.DriveMap.kTurn * dAngle;
+		//turnAdjustment = 0;
 		
 		Robot.drive.setLeftSpeed(leftSpeed + turnAdjustment);
 		Robot.drive.setRightSpeed(rightSpeed - turnAdjustment);
