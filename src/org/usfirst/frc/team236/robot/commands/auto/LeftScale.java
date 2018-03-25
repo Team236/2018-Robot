@@ -13,13 +13,14 @@ public class LeftScale extends CommandGroup {
 	/**
 	 * Start all the way to the left portal.
 	 * 
+	 * 
 	 * Drive straight forward to null territory, turn 45 degrees right, and deliver
 	 * cube onto left scale plate.
 	 */
 
 	public LeftScale() {
 		addParallel(new PreAuto());
-		addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN));
+		addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN, 350, 800));
 
 		addSequential(new Turn(60, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_45)); // could angle robot and turn 60
 

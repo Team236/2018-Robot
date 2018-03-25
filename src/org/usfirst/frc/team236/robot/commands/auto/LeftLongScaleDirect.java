@@ -17,7 +17,7 @@ public class LeftLongScaleDirect extends CommandGroup {
 	 */
 	public LeftLongScaleDirect() {
 		addParallel(new PreAuto());
-		addSequential(new MotionMagic(AutoMap.DIST_PLATFORM_ZONE_DIRECT, 6, 350, 1000));
+		addSequential(new MotionMagic(AutoMap.DIST_PLATFORM_ZONE_DIRECT, 6, 450, 1000));
 
 		addSequential(new Turn(-113.5, 5, DriveMap.TURN_PARAMS_90));
 
