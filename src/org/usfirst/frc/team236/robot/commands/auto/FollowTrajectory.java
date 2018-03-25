@@ -19,10 +19,25 @@ public class FollowTrajectory extends Command {
 	TankModifier modifier;
 	EncoderFollower leftFollower, rightFollower;
 
+	boolean isReverse;
+	int reverseMultiplier = 1;
+
+	double heading, setHeading, dAngle, turnAdjustment;
+	double leftSpeed, rightSpeed;
+	
 	public FollowTrajectory(Trajectory _traj) {
+		this(_traj, false);
+	}
+
+	public FollowTrajectory(Trajectory _traj, boolean _isReverse) {
 		requires(Robot.drive);
 
 		center = _traj;
+		isReverse = _isReverse;
+
+		if (isReverse) {
+			reverseMultiplier = -1;
+		}
 
 		TankModifier modifier = new TankModifier(center);
 		modifier.modify(RobotMap.DriveMap.WHEEL_TRACK);
@@ -63,13 +78,18 @@ public class FollowTrajectory extends Command {
 	}
 
 	protected void execute() {
-		double leftSpeed = leftFollower.calculate(Robot.drive.getLeftEncoder());
-		double rightSpeed = rightFollower.calculate(Robot.drive.getRightEncoder());
+		if (isReverse) {
+			rightSpeed = leftFollower.calculate(-Robot.drive.getLeftEncoder());
+			leftSpeed = rightFollower.calculate(-Robot.drive.getRightEncoder());
+		} else {
+			leftSpeed = leftFollower.calculate(Robot.drive.getLeftEncoder());
+			rightSpeed = rightFollower.calculate(Robot.drive.getRightEncoder());
+		}
 
-		double heading = Robot.drive.navx.getAngle();
-		double setHeading = Pathfinder.r2d(leftFollower.getHeading());
-		double dAngle = Pathfinder.boundHalfDegrees(setHeading - heading);
-		double turnAdjustment = RobotMap.DriveMap.Pathfinder.kTurn * dAngle;
+		heading = Robot.drive.navx.getAngle();
+		setHeading = Pathfinder.r2d(leftFollower.getHeading());
+		dAngle = Pathfinder.boundHalfDegrees(setHeading - heading);
+		turnAdjustment = RobotMap.DriveMap.Pathfinder.kTurn * dAngle;
 
 		Robot.drive.setLeftSpeed(leftSpeed + turnAdjustment);
 		Robot.drive.setRightSpeed(rightSpeed - turnAdjustment);
