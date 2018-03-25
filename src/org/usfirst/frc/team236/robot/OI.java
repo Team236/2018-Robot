@@ -1,12 +1,10 @@
 
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.climber.LowerWinch;
-import org.usfirst.frc.team236.robot.commands.climber.RaiseWinch;
-import org.usfirst.frc.team236.robot.commands.climber.ScissorsWithThumbstick;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
+import org.usfirst.frc.team236.robot.commands.intake.IntakeWithTrigger;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
 import org.usfirst.frc.team236.robot.commands.intake.RaiseAndLower;
@@ -75,7 +73,7 @@ public class OI {
 		rightStick.middle.whileHeld(new Intake());
 		leftStick.middle.whileHeld(new Eject());
 		
-		controller.a.whileHeld(new Intake());
+		controller.a.whileHeld(new IntakeWithTrigger());
 		controller.y.whileHeld(new Eject());
 		controller.x.whileHeld(new Feed());
 		controller.b.whileHeld(new RaiseAndLower());
