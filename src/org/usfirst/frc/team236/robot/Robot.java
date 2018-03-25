@@ -1,13 +1,13 @@
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.auto.CenterLeftSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.CenterLeftSwitchPathfinder;
 import org.usfirst.frc.team236.robot.commands.auto.CenterStraightSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.Cross;
-import org.usfirst.frc.team236.robot.commands.auto.LeftLongScale;
+import org.usfirst.frc.team236.robot.commands.auto.LeftLongScalePathfinder;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.LeftScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchOuter;
-import org.usfirst.frc.team236.robot.commands.auto.RightLongScale;
+import org.usfirst.frc.team236.robot.commands.auto.RightLongScalePathfinder;
 import org.usfirst.frc.team236.robot.commands.auto.RightScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.RightScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.RightSwitchOuter;
@@ -32,8 +32,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
-import jaci.pathfinder.followers.EncoderFollower;
-import jaci.pathfinder.modifiers.TankModifier;
 import lib.commands.DoNothing;
 
 public class Robot extends TimedRobot {
@@ -286,7 +284,7 @@ public class Robot extends TimedRobot {
 			if (gameData.equals("RRR") || gameData.equals("RLR")) {
 				return new CenterStraightSwitch();
 			} else if (gameData.equals("LRL") || gameData.equals("LLL")) {
-				return new CenterLeftSwitch();
+				return new CenterLeftSwitchPathfinder();
 			}
 		}
 
@@ -301,7 +299,7 @@ public class Robot extends TimedRobot {
 					return new Cross(); // TODO long switch
 				}
 				if (!noSwitch.get()) {
-					return new LeftLongScale();
+					return new LeftLongScalePathfinder();
 				}
 				return new Cross();
 			}
@@ -319,7 +317,7 @@ public class Robot extends TimedRobot {
 					return new LeftSwitchOuter();
 				}
 				if (!noSwitch.get()) {
-					return new LeftLongScale();
+					return new LeftLongScalePathfinder();
 				}
 				return new LeftSwitchOuter();
 			}
@@ -354,7 +352,7 @@ public class Robot extends TimedRobot {
 					return new RightSwitchOuter();
 				}
 				if (!noSwitch.get()) {
-					return new RightLongScale();
+					return new RightLongScalePathfinder();
 				}
 				return new RightSwitchOuter();
 			}
@@ -372,7 +370,7 @@ public class Robot extends TimedRobot {
 					return new Cross(); // TODO long switch
 				}
 				if (!noSwitch.get()) {
-					return new RightLongScale();
+					return new RightLongScalePathfinder();
 				}
 				return new Cross();
 			}
