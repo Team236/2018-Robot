@@ -106,9 +106,9 @@ public class Robot extends TimedRobot {
 				12, 120, 300
 		);
 
-		centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH, config);
-		leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE, config);
-		rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE, config);
+		centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH.waypoints, config);
+		leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE.waypoints, config);
+		rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE.waypoints, config);
 		System.out.println("Finished generating paths");
 	}
 
@@ -128,21 +128,6 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		drive.resetEncoders();
 		drive.navx.reset();
-
-		// autonomousCommand = new AutoMotnMagic(RobotMap.AutoMap.STRAIGHT_DISTANCE1,
-		// RobotMap.AutoMap.MM_END_MARGIN1);
-		// autonomousCommand = new Turn(-45, AutoMap.TURN_MARGIN,
-		// AutoMap.TURN_PARAMS_90);
-		// autonomousCommand = new LeftSwitchFromRight();
-		// autonomousCommand = new RightSwitch();
-		// autonomousCommand = new LeftSwitchInner();
-		// autonomousCommand = new LeftSwitchOuter();
-		// autonomousCommand = new RightScale();
-		// autonomousCommand = new LeftScale();
-		// autonomousCommand = new Cross();
-		// autonomousCommand = new ScaleCrossLtoR();
-		// autonomousCommand = new LeftScale2Cube();
-		// autonomousCommand = new RightScale2Cube();
 
 		autonomousCommand = getAutoFromSwitches();
 		SmartDashboard.putString("Auto", autonomousCommand.toString());
@@ -203,8 +188,6 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 
 		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage() * (110.0 / 2.75));
-
-		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 
 		if (isPowerDebug) {
 			SmartDashboard.putNumber("Battery Voltage", pdp.getVoltage());
