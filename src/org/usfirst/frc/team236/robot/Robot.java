@@ -57,7 +57,7 @@ public class Robot extends TimedRobot {
 	public UsbCamera camera;
 	public Servo flag;
 	
-	public Trajectory leftLongScale, rightLongScale, centerLeftSwitch;
+	public static Trajectory leftLongScale, rightLongScale, centerLeftSwitch;
 
 	// Declare auto command
 	Command autoCommand;
@@ -101,9 +101,9 @@ public class Robot extends TimedRobot {
 		
 		System.out.println("Generating paths");
 		Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, .02, 12, 120, 300);
-		Trajectory centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH, config);
-		Trajectory leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE, config);
-		Trajectory rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE, config);
+		centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH, config);
+		leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE, config);
+		rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE, config);
 		System.out.println("Finished generating paths");
 	}
 
