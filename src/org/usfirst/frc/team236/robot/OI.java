@@ -8,8 +8,8 @@ import org.usfirst.frc.team236.robot.commands.intake.IntakeWithTrigger;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
 import org.usfirst.frc.team236.robot.commands.intake.RaiseAndLower;
+import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
-import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUp;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -79,7 +79,7 @@ public class OI {
 		controller.b.whileHeld(new RaiseAndLower());
 
 		// SHOOTER
-		rightStick.trigger.whenPressed(new SpinUpAndShoot());
+		rightStick.trigger.whileHeld(new Shoot());
 		leftStick.trigger.whileHeld(new Eject());
 
 		controller.lb.whileHeld(new SpitUp());
