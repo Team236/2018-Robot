@@ -84,7 +84,6 @@ public class RobotMap {
 		public static final int INTAKE_CUBE = 3;
 		public static final int EJECT_CUBE = 2;
 		public static final int FEED_CUBE = 6;
-
 	}
 
 	public static class IntakeMap {

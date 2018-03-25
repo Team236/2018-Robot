@@ -100,7 +100,14 @@ public class Robot extends TimedRobot {
 		}
 		
 		System.out.println("Generating paths");
-		Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, .02, 12, 120, 300);
+
+		Trajectory.Config config = new Trajectory.Config(
+				Trajectory.FitMethod.HERMITE_CUBIC, 
+				Trajectory.Config.SAMPLES_HIGH, 
+				RobotMap.DriveMap.Pathfinder.DT, 
+				12, 120, 300
+		);
+
 		centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH, config);
 		leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE, config);
 		rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE, config);

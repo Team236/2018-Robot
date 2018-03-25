@@ -18,29 +18,41 @@ public class FollowTrajectory extends Command {
 	Trajectory center, left, right;
 	TankModifier modifier;
 	EncoderFollower leftFollower, rightFollower;
-	
-	
+
 	public FollowTrajectory(Trajectory _traj) {
 		requires(Robot.drive);
-		
+
 		center = _traj;
-		
+
 		TankModifier modifier = new TankModifier(center);
 		modifier.modify(RobotMap.DriveMap.WHEEL_TRACK);
-		
+
 		left = modifier.getLeftTrajectory();
 		right = modifier.getRightTrajectory();
-		
+
 		leftFollower = new EncoderFollower(left);
 		rightFollower = new EncoderFollower(right);
-		
+
 		leftFollower.configureEncoder(0, RobotMap.DriveMap.PULSE_PER_ROTATION, RobotMap.DriveMap.DIAMETER);
 		rightFollower.configureEncoder(0, RobotMap.DriveMap.PULSE_PER_ROTATION, RobotMap.DriveMap.DIAMETER);
-		
+
 		// PID constants
-		leftFollower.configurePIDVA(org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kP, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kI, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kD, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kV, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kA);
-		rightFollower.configurePIDVA(org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kP, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kI, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kD, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kV, org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kA);
-		
+		//@formatter:off
+		leftFollower.configurePIDVA(
+				RobotMap.DriveMap.Pathfinder.kP, 
+				RobotMap.DriveMap.Pathfinder.kI, 
+				RobotMap.DriveMap.Pathfinder.kD, 
+				RobotMap.DriveMap.Pathfinder.kV, 
+				RobotMap.DriveMap.Pathfinder.kA
+		);
+		rightFollower.configurePIDVA(
+				RobotMap.DriveMap.Pathfinder.kP, 
+				RobotMap.DriveMap.Pathfinder.kI, 
+				RobotMap.DriveMap.Pathfinder.kD, 
+				RobotMap.DriveMap.Pathfinder.kV, 
+				RobotMap.DriveMap.Pathfinder.kA
+		);
+		//@formatter:on
 	}
 
 	protected void initialize() {
@@ -53,12 +65,12 @@ public class FollowTrajectory extends Command {
 	protected void execute() {
 		double leftSpeed = leftFollower.calculate(Robot.drive.getLeftEncoder());
 		double rightSpeed = rightFollower.calculate(Robot.drive.getRightEncoder());
-		
+
 		double heading = Robot.drive.navx.getAngle();
 		double setHeading = Pathfinder.r2d(leftFollower.getHeading());
 		double dAngle = Pathfinder.boundHalfDegrees(setHeading - heading);
-		double turnAdjustment = org.usfirst.frc.team236.robot.RobotMap.DriveMap.Pathfinder.kTurn * dAngle;
-		
+		double turnAdjustment = RobotMap.DriveMap.Pathfinder.kTurn * dAngle;
+
 		Robot.drive.setLeftSpeed(leftSpeed + turnAdjustment);
 		Robot.drive.setRightSpeed(rightSpeed - turnAdjustment);
 	}
