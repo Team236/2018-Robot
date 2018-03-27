@@ -1,5 +1,6 @@
 package org.usfirst.frc.team236.robot;
 
+import lib.motionProfile.DriveParameters;
 import lib.pid.PIDParameters;
 
 public class RobotMap {
@@ -55,6 +56,9 @@ public class RobotMap {
 
 			public static final double kTurn = 0.01;
 		}
+		
+		public static final DriveParameters DRIVE_PARAMS = new DriveParameters(0.00, Pathfinder.kV, Pathfinder.kA);
+
 		// Turn PID parameters
 		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
 		// public static final double I_TURN = SmartDashboard.getNumber("I", 0);
