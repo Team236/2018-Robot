@@ -1,7 +1,10 @@
-package org.usfirst.frc.team236.robot.commands.auto;
+package org.usfirst.frc.team236.robot.commands.auto.right;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
+import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
+import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
+import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;

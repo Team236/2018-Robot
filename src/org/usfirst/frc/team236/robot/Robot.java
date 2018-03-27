@@ -1,16 +1,16 @@
 package org.usfirst.frc.team236.robot;
 
-import org.usfirst.frc.team236.robot.commands.auto.CenterLeftSwitchPathfinder;
-import org.usfirst.frc.team236.robot.commands.auto.CenterStraightSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.Cross;
-import org.usfirst.frc.team236.robot.commands.auto.LeftLongScalePathfinder;
-import org.usfirst.frc.team236.robot.commands.auto.LeftScale2Cube;
-import org.usfirst.frc.team236.robot.commands.auto.LeftScaleAndSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.LeftSwitchOuter;
-import org.usfirst.frc.team236.robot.commands.auto.RightLongScalePathfinder;
-import org.usfirst.frc.team236.robot.commands.auto.RightScale2Cube;
-import org.usfirst.frc.team236.robot.commands.auto.RightScaleAndSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.RightSwitchOuter;
+import org.usfirst.frc.team236.robot.commands.auto.center.CenterLeftSwitchPathfinder;
+import org.usfirst.frc.team236.robot.commands.auto.center.CenterStraightSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.left.LeftLongScalePathfinder;
+import org.usfirst.frc.team236.robot.commands.auto.left.LeftScale2Cube;
+import org.usfirst.frc.team236.robot.commands.auto.left.LeftScaleAndSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.left.LeftSwitchOuter;
+import org.usfirst.frc.team236.robot.commands.auto.right.RightLongScalePathfinder;
+import org.usfirst.frc.team236.robot.commands.auto.right.RightScale2Cube;
+import org.usfirst.frc.team236.robot.commands.auto.right.RightScaleAndSwitch;
+import org.usfirst.frc.team236.robot.commands.auto.right.RightSwitchOuter;
 import org.usfirst.frc.team236.robot.subsystems.Climber;
 import org.usfirst.frc.team236.robot.subsystems.Drive;
 import org.usfirst.frc.team236.robot.subsystems.Intake;

@@ -1,6 +1,8 @@
-package org.usfirst.frc.team236.robot.commands.auto;
+package org.usfirst.frc.team236.robot.commands.auto.center;
 
 import org.usfirst.frc.team236.robot.Robot;
+import org.usfirst.frc.team236.robot.commands.auto.FollowTrajectory;
+import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
 import org.usfirst.frc.team236.robot.commands.drive.StraightDrive;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 

@@ -1,7 +1,9 @@
-package org.usfirst.frc.team236.robot.commands.auto;
+package org.usfirst.frc.team236.robot.commands.auto.left;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
+import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
+import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
