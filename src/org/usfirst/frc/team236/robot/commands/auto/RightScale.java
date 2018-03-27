@@ -20,7 +20,7 @@ public class RightScale extends CommandGroup {
 		addParallel(new PreAuto());
 		addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN));
 
-		addSequential(new Turn(-45, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_45));
+		addSequential(new Turn(-60, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_45));
 
 		addSequential(new SpinUpAndShoot());
 	}
