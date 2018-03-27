@@ -5,6 +5,7 @@ import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import lib.commands.Wait;
 
 /**
  *

@@ -4,10 +4,10 @@ import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
 import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
-import org.usfirst.frc.team236.robot.commands.auto.Wait;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
+import lib.commands.Wait;
 
 /**
  *
