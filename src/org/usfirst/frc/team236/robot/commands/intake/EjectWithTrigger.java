@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class EjectWithTrigger extends Command {
+	
+	double speed;
 
 	public EjectWithTrigger() {
 		requires(Robot.intake);
@@ -20,10 +22,14 @@ public class EjectWithTrigger extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		double rightTrigger = Robot.oi.controller.getRightTrigger();
+		speed = Robot.oi.controller.getRightTrigger();
+		
+		if (speed < .01) {
+			speed = RobotMap.IntakeMap.EJECT_SPEED;
+		}
 
-		Robot.intake.leftIntake.set(RobotMap.IntakeMap.EJECT_SPEED - rightTrigger);
-		Robot.intake.rightIntake.set(RobotMap.IntakeMap.EJECT_SPEED - rightTrigger);
+		Robot.intake.leftIntake.set(speed);
+		Robot.intake.rightIntake.set(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

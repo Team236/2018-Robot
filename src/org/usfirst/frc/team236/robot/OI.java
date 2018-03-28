@@ -2,6 +2,7 @@
 package org.usfirst.frc.team236.robot;
 
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
+import org.usfirst.frc.team236.robot.commands.intake.EjectWithTrigger;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
 import org.usfirst.frc.team236.robot.commands.intake.IntakeWithTrigger;
@@ -74,7 +75,7 @@ public class OI {
 		leftStick.middle.whileHeld(new Eject());
 		
 		controller.a.whileHeld(new IntakeWithTrigger());
-		controller.y.whileHeld(new Eject());
+		controller.y.whileHeld(new EjectWithTrigger());
 		controller.x.whileHeld(new Feed());
 		controller.b.whileHeld(new RaiseAndLower());
 
