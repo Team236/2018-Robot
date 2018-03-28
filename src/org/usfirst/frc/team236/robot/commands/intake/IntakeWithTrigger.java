@@ -25,7 +25,7 @@ public class IntakeWithTrigger extends Command {
 	protected void execute() {
 		speed = Robot.oi.controller.getRightTrigger();
 		
-		if (speed < .05) {
+		if (speed < .01) {
 			speed = RobotMap.IntakeMap.INTAKE_SPEED;
 		}
 		
