@@ -22,9 +22,9 @@ public class EjectWithTrigger extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		speed = Robot.oi.controller.getRightTrigger();
+		speed = -Robot.oi.controller.getRightTrigger();
 		
-		if (speed < .01) {
+		if (speed > -.01) {
 			speed = RobotMap.IntakeMap.EJECT_SPEED;
 		}
 
