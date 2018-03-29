@@ -1,5 +1,7 @@
 package org.usfirst.frc.team236.robot;
 
+import java.io.FileNotFoundException;
+
 import org.usfirst.frc.team236.robot.commands.auto.Cross;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterLeftSwitchPathfinder;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterStraightSwitch;
@@ -62,6 +64,9 @@ public class Robot extends TimedRobot {
 
 	private static final boolean isDebug = true;
 	private static final boolean isPowerDebug = false;
+	private static boolean isDrivetrainChar = false;
+	
+	public static Characterizer characterizer;
 
 	private static DigitalInput leftSide, rightSide;
 	private static DigitalInput noSwitch, noScale, sw3;
@@ -86,6 +91,10 @@ public class Robot extends TimedRobot {
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
 		flag = new Servo(RobotMap.PWM_FLAG);
+		
+		if (isDrivetrainChar) {
+			characterizer = new Characterizer();
+		}
 
 		try {
 			camera = CameraServer.getInstance().startAutomaticCapture();
@@ -162,6 +171,15 @@ public class Robot extends TimedRobot {
 		if (autoCommand != null) {
 			autoCommand.cancel();
 		}
+		
+		if (isDrivetrainChar) {
+			try {
+				characterizer.init();
+			} catch (FileNotFoundException e) {
+				isDrivetrainChar = false;
+				System.out.println("Characterization file could not be created");
+			}
+		}
 
 		drive.resetEncoders();
 		drive.navx.reset();
@@ -183,6 +201,10 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putNumber("Right Speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
 
 			SmartDashboard.putNumber("Gyro Angle", drive.navx.getAngle());
+		}
+		
+		if (isDrivetrainChar) {
+			characterizer.update();
 		}
 
 		SmartDashboard.putBoolean("Intake cube", intake.isCube());
