@@ -11,3 +11,4 @@ sysProps.xml.orig
 *.class
 *.jar
 
+*.csv
