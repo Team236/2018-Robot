@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import lib.motionProfile.DriveParameters;
 import lib.motionProfile.Element;
+import lib.motionProfile.ProfileParameters;
 import lib.motionProfile.TrapProfile;
 
 /**
@@ -32,6 +33,10 @@ public class FollowProfile extends Command {
 		if (reverse) {
 			this.reverseMultiplier = -1;
 		}
+	}
+
+	public FollowProfile(ProfileParameters _params, DriveParameters _driveParams, boolean _rev) {
+		this(new TrapProfile(_params), _driveParams, _rev);
 	}
 
 	protected void initialize() {
