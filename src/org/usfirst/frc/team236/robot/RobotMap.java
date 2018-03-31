@@ -57,7 +57,7 @@ public class RobotMap {
 			public static final double kTurn = 0.01;
 		}
 		
-		public static final DriveParameters DRIVE_PARAMS = new DriveParameters(0.00, Pathfinder.kV, Pathfinder.kA);
+		public static final DriveParameters DRIVE_PARAMS = new DriveParameters(0.0074, 0.0079, 0.002, -0.01);
 
 		// Turn PID parameters
 		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
