@@ -73,6 +73,7 @@ public class Robot extends TimedRobot {
 	private static DigitalInput noSwitch, noScale, sw3;
 	
 	public static TrapProfile scale;
+	public static TrapProfile straightSwitch;
 
 	@Override
 	public void robotInit() {
@@ -113,6 +114,7 @@ public class Robot extends TimedRobot {
 		
 		// Generate trapezoidal profiles
 		scale = new TrapProfile(AutoMap.TO_NULL);
+		straightSwitch = new TrapProfile(AutoMap.STRAIGHT_SWITCH);
 
 		Trajectory.Config config = new Trajectory.Config(
 				Trajectory.FitMethod.HERMITE_CUBIC, 
