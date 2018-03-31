@@ -27,7 +27,7 @@ public class LeftScale extends CommandGroup {
 	public LeftScale() {
 		addParallel(new PreAuto());
 		//addSequential(new MotionMagic(AutoMap.DIST_NULL_TERRITORY, AutoMap.MM_END_MARGIN, 350, 800));
-		addSequential(new FollowProfile(Robot.scale, RobotMap.DriveMap.DRIVE_PARAMS, true, 3));
+		addSequential(new FollowProfile(Robot.scale, RobotMap.DriveMap.DRIVE_PARAMS, true));
 		
 		addSequential(new Turn(60, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_45)); // could angle robot and turn 60
 

@@ -3,6 +3,7 @@ package org.usfirst.frc.team236.robot;
 
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Waypoint;
+import lib.motionProfile.ProfileParameters;
 
 public class AutoMap {
 	public static final double SWITCH_CROSS1 = -42; // 48
@@ -29,6 +30,8 @@ public class AutoMap {
 	public static final double DIST_SCALE_TO_CUBE = 66; // 70
 
 	public static final double MM_END_MARGIN = 10;
+	
+	public static final ProfileParameters TO_NULL = new ProfileParameters(DIST_NULL_TERRITORY, 100, 100, 0, 3);
 	
 	public static class Paths {
 		

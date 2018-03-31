@@ -20,13 +20,13 @@ public class FollowProfile extends Command {
 	double endPos, margin, leftDistToEnd, rightDistToEnd;
 	int i = 0;
 
-	public FollowProfile(TrapProfile _p, DriveParameters _params, boolean _rev, double _margin) {
+	public FollowProfile(TrapProfile _p, DriveParameters _params, boolean _rev) {
 		requires(Robot.drive);
 
 		this.profile = _p;
 		this.params = _params;
 		this.reverse = _rev;
-		this.margin = _margin;
+		this.margin = profile.margin;
 		this.endPos = profile.getLast().position;
 
 		if (reverse) {

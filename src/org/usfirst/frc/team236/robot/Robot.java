@@ -111,7 +111,8 @@ public class Robot extends TimedRobot {
 		
 		System.out.println("Generating paths");
 		
-		scale = new TrapProfile(AutoMap.DIST_NULL_TERRITORY, 100, 100, 1/50.0);
+		// Generate trapezoidal profiles
+		scale = new TrapProfile(AutoMap.TO_NULL);
 
 		Trajectory.Config config = new Trajectory.Config(
 				Trajectory.FitMethod.HERMITE_CUBIC, 
