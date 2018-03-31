@@ -143,11 +143,11 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 	}
 
 	public double getRightSpeed() {
-		return (rightFrontMaster.getSelectedSensorVelocity(0) / RobotMap.DriveMap.PULSE_PER_ROTATION) * RobotMap.DriveMap.CIRCUMFERENCE;
+		return 10 * rightFrontMaster.getSelectedSensorVelocity(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE;
 	}
 
 	public double getLeftSpeed() {
-		return (leftFrontMaster.getSelectedSensorVelocity(0) / RobotMap.DriveMap.PULSE_PER_ROTATION) * RobotMap.DriveMap.CIRCUMFERENCE;
+		return 10 * leftFrontMaster.getSelectedSensorVelocity(0) * RobotMap.DriveMap.DISTANCE_PER_PULSE;
 	}
 
 	public int getLeftEncoder() {

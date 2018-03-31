@@ -149,8 +149,8 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putNumber("Left Distance", drive.getLeftDistance());
 			SmartDashboard.putNumber("Right Distance", drive.getRightDistance());
 
-			SmartDashboard.putNumber("Left Speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
-			SmartDashboard.putNumber("Right Speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
+			SmartDashboard.putNumber("Left Speed", drive.getLeftSpeed());
+			SmartDashboard.putNumber("Right Speed", drive.getRightSpeed());
 			
 			SmartDashboard.putNumber("Angle", drive.navx.getAngle());
 		}
@@ -179,8 +179,8 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putNumber("Left Distance", drive.getLeftDistance());
 			SmartDashboard.putNumber("Right Distance", drive.getRightDistance());
 
-			SmartDashboard.putNumber("Left Speed", drive.leftFrontMaster.getSelectedSensorVelocity(0));
-			SmartDashboard.putNumber("Right Speed", drive.rightFrontMaster.getSelectedSensorVelocity(0));
+			SmartDashboard.putNumber("Left Speed", drive.getLeftSpeed());
+			SmartDashboard.putNumber("Right Speed", drive.getRightSpeed());
 
 			SmartDashboard.putNumber("Gyro Angle", drive.navx.getAngle());
 		}
