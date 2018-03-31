@@ -1,16 +1,17 @@
 package org.usfirst.frc.team236.robot.commands.climber;
 
 import org.usfirst.frc.team236.robot.Robot;
-import org.usfirst.frc.team236.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class RaiseWinch extends Command {
+public class ClimberWithThumbstick extends Command {
 
-	public RaiseWinch() {
+	public static final double SCALE_FACTOR = 1.0;
+
+	public ClimberWithThumbstick() {
 		requires(Robot.climber);
 	}
 
@@ -18,9 +19,22 @@ public class RaiseWinch extends Command {
 	protected void initialize() {
 	}
 
-	// Called repeatedly when this Command is scheduled to run
+	// LEFT IS NEGATIVE
+	// RIGHT IS POSITIVE
 	protected void execute() {
-		Robot.climber.setWinchSpeed(RobotMap.ClimberMap.WINCH_SPEED);
+		double speed = Robot.oi.controller.getRightY() * SCALE_FACTOR;
+		/*
+		boolean isLeft = Robot.climber.isLeftLimit();
+		boolean isRight = Robot.climber.isRightLimit();
+		// Trim out illegal inputs based on limit switches
+		if (isLeft && speed < 0) {
+			speed = 0;
+		} else if (isRight && speed > 0) {
+			speed = 0;
+		}
+		*/
+
+		Robot.climber.setSpeed(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -30,7 +44,7 @@ public class RaiseWinch extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.climber.stopWinch();
+		Robot.climber.stop();
 	}
 
 	// Called when another command which requires one or more of the same

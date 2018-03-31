@@ -133,8 +133,8 @@ public class RobotMap {
 		public static final boolean INV_WINCH_RIGHT = false; // Positive pulls strap in
 		public static final boolean INV_SCISSORS = false; // Positive is to the right
 
-		public static final int DIO_LEFT = 6;
-		public static final int DIO_RIGHT = 7;
+		public static final int DIO_LIMIT_TOP = 6;
+		public static final int DIO_LIMIT_BOTTOM = 7;
 
 		public static final double WINCH_SPEED = 0.5;
 	}

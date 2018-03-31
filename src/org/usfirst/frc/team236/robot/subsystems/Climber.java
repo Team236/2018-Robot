@@ -24,49 +24,32 @@ public class Climber extends Subsystem {
 	 * is positive. This is because of how the thumbstick operates - left is
 	 * negative, and right is positive.
 	 */
-	public SpeedController leftWinch, rightWinch, scissors;
-	public DigitalInput leftLimit, rightLimit;
+	public SpeedController motor;
+	public DigitalInput topLimit, bottomLimit;
 
 	public Climber() {
-		// May remove one - these can be run off a y-cable
-		leftWinch = new VictorSP(RobotMap.ClimberMap.PWM_LEFT);
-		rightWinch = new VictorSP(RobotMap.ClimberMap.PWM_RIGHT);
+		motor = new VictorSP(RobotMap.ClimberMap.PWM_SCISSORS);
 
-		scissors = new VictorSP(RobotMap.ClimberMap.PWM_SCISSORS);
+		topLimit = new DigitalInput(RobotMap.ClimberMap.DIO_LIMIT_TOP);
+		bottomLimit = new DigitalInput(RobotMap.ClimberMap.DIO_LIMIT_BOTTOM);
 
-		leftLimit = new DigitalInput(RobotMap.ClimberMap.DIO_LEFT);
-		rightLimit = new DigitalInput(RobotMap.ClimberMap.DIO_RIGHT);
-
-		leftWinch.setInverted(RobotMap.ClimberMap.INV_WINCH_LEFT);
-		rightWinch.setInverted(RobotMap.ClimberMap.INV_WINCH_RIGHT);
-		scissors.setInverted(RobotMap.ClimberMap.INV_SCISSORS);
+		motor.setInverted(RobotMap.ClimberMap.INV_SCISSORS);
 	}
 
-	public void setWinchSpeed(double speed) {
-		if (speed >= 0) {
-			leftWinch.set(speed);
-			rightWinch.set(speed);
-		}
+	public void setSpeed(double speed) {
+		motor.set(speed);
 	}
 
-	public void stopWinch() {
-		setWinchSpeed(0);
+	public void stop() {
+		setSpeed(0);
 	}
 
-	public void setScissorSpeed(double speed) {
-		scissors.set(speed);
+	public boolean isTopLimit() {
+		return topLimit.get();
 	}
 
-	public void stopScissors() {
-		setScissorSpeed(0);
-	}
-
-	public boolean isLeftLimit() {
-		return false;
-	}
-
-	public boolean isRightLimit() {
-		return false;
+	public boolean isBottomLimit() {
+		return bottomLimit.get();
 	}
 
 	public void initDefaultCommand() {
