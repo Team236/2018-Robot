@@ -1,10 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.auto.center;
 
-import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.Robot;
-import org.usfirst.frc.team236.robot.RobotMap;
 import org.usfirst.frc.team236.robot.commands.auto.FollowProfile;
-import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
 import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
 import org.usfirst.frc.team236.robot.commands.drive.StraightDrive;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
@@ -26,7 +23,7 @@ public class CenterStraightSwitch extends CommandGroup {
 		// those many seconds at most
 		addParallel(new PreAuto());
 		//addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN, 100, 100), 4);
-		addSequential(new FollowProfile(Robot.straightSwitch, RobotMap.DriveMap.DRIVE_PARAMS, true));
+		addSequential(new FollowProfile(Robot.straightSwitch, true));
 
 		addParallel(new StraightDrive(-.40),1);
 		addSequential(new SpitUpAndShoot());

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
 import org.usfirst.frc.team236.robot.Robot;
+import org.usfirst.frc.team236.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -33,6 +34,14 @@ public class FollowProfile extends Command {
 		if (reverse) {
 			this.reverseMultiplier = -1;
 		}
+	}
+	
+	public FollowProfile(TrapProfile _p) {
+		this(_p, RobotMap.DriveMap.DRIVE_PARAMS, false);
+	}
+	
+	public FollowProfile(TrapProfile _p, boolean _rev) {
+		this(_p, RobotMap.DriveMap.DRIVE_PARAMS, _rev);
 	}
 
 	public FollowProfile(ProfileParameters _params, DriveParameters _driveParams, boolean _rev) {
