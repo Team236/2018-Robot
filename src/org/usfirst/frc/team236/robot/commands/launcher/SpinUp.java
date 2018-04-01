@@ -9,32 +9,33 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class SpinUp extends Command {
+	
+	public double speed = RobotMap.LauncherMap.LAUNCH_SPEED;
 
 	public SpinUp() {
 		requires(Robot.launcher);
 	}
+	
+	public SpinUp(double _speed) {
+		this();
+		this.speed = _speed;
+	}
 
-	// Called just before this Command runs the first time
 	protected void initialize() {
 	}
 
-	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		Robot.launcher.setLaunchSpeed(RobotMap.LauncherMap.LAUNCH_SPEED);
 	}
 
-	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 		return false;
 	}
 
-	// Called once after isFinished returns true
 	protected void end() {
 		Robot.launcher.stopLaunch();
 	}
 
-	// Called when another command which requires one or more of the same
-	// subsystems is scheduled to run
 	protected void interrupted() {
 		end();
 	}
