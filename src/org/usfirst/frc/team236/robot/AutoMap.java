@@ -31,11 +31,11 @@ public class AutoMap {
 
 	public static final double MM_END_MARGIN = 10;
 	
-	public static final ProfileParameters TO_NULL = new ProfileParameters(DIST_NULL_TERRITORY, 100, 100, 0, 3);
-	public static final ProfileParameters STRAIGHT_SWITCH = new ProfileParameters(DIST_FENCE, 80, 160, 0, 4);
+	public static final ProfileParameters TO_NULL = new ProfileParameters(-DIST_NULL_TERRITORY, 100, 100, 0, 3);
+	public static final ProfileParameters STRAIGHT_SWITCH = new ProfileParameters(-DIST_FENCE, 80, 160, 0, 4);
 	
-	public static final ProfileParameters CROSS_SWITCH_1 = new ProfileParameters(SWITCH_CROSS1, 48, 100, 0, 3);
-	public static final ProfileParameters CROSS_SWITCH_2 = new ProfileParameters(SWITCH_CROSS2, 48, 100, 0, 3);
+	public static final ProfileParameters CROSS_SWITCH_1 = new ProfileParameters(-SWITCH_CROSS1, 48, 100, 0, 3);
+	public static final ProfileParameters CROSS_SWITCH_2 = new ProfileParameters(-SWITCH_CROSS2, 48, 100, 0, 3);
 	
 	public static class Paths {
 		
