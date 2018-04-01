@@ -74,6 +74,8 @@ public class Robot extends TimedRobot {
 	
 	public static TrapProfile scale;
 	public static TrapProfile straightSwitch;
+	
+	public static TrapProfile crossSwitch1, crossSwitch2; 
 
 	@Override
 	public void robotInit() {
@@ -115,6 +117,9 @@ public class Robot extends TimedRobot {
 		// Generate trapezoidal profiles
 		scale = new TrapProfile(AutoMap.TO_NULL);
 		straightSwitch = new TrapProfile(AutoMap.STRAIGHT_SWITCH);
+
+		crossSwitch1 = new TrapProfile(AutoMap.CROSS_SWITCH_1);
+		crossSwitch2 = new TrapProfile(AutoMap.CROSS_SWITCH_2);
 
 		Trajectory.Config config = new Trajectory.Config(
 				Trajectory.FitMethod.HERMITE_CUBIC, 
