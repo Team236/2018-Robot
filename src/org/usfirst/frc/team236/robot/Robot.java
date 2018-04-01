@@ -57,7 +57,7 @@ public class Robot extends TimedRobot {
 	public AnalogInput pressureSensor;
 	public UsbCamera camera;
 	public Servo flag;
-	
+
 	public static Trajectory leftLongScale, rightLongScale, centerLeftSwitch;
 
 	// Declare auto command
@@ -66,16 +66,16 @@ public class Robot extends TimedRobot {
 	private static final boolean isDebug = true;
 	private static final boolean isPowerDebug = false;
 	private static boolean isDrivetrainChar = false;
-	
+
 	public static Characterizer characterizer;
 
 	private static DigitalInput leftSide, rightSide;
 	private static DigitalInput noSwitch, noScale, sw3;
-	
+
 	public static TrapProfile scale;
 	public static TrapProfile straightSwitch;
-	
-	public static TrapProfile crossSwitch1, crossSwitch2; 
+
+	public static TrapProfile crossSwitch1, crossSwitch2;
 
 	@Override
 	public void robotInit() {
@@ -97,7 +97,7 @@ public class Robot extends TimedRobot {
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
 		flag = new Servo(RobotMap.PWM_FLAG);
-		
+
 		if (isDrivetrainChar) {
 			characterizer = new Characterizer();
 		}
@@ -111,9 +111,9 @@ public class Robot extends TimedRobot {
 
 			SmartDashboard.putString("Camera capture failed", "failed");
 		}
-		
+
 		System.out.println("Generating paths");
-		
+
 		// Generate trapezoidal profiles
 		scale = new TrapProfile(AutoMap.TO_NULL);
 		straightSwitch = new TrapProfile(AutoMap.STRAIGHT_SWITCH);
@@ -121,12 +121,15 @@ public class Robot extends TimedRobot {
 		crossSwitch1 = new TrapProfile(AutoMap.CROSS_SWITCH_1);
 		crossSwitch2 = new TrapProfile(AutoMap.CROSS_SWITCH_2);
 
+		// Generate pathfinder profiles
+		//@formatter:off
 		Trajectory.Config config = new Trajectory.Config(
 				Trajectory.FitMethod.HERMITE_CUBIC, 
 				Trajectory.Config.SAMPLES_HIGH, 
 				RobotMap.DriveMap.Pathfinder.DT, 
 				12, 120, 300
 		);
+		//@formatter:on
 
 		centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH.waypoints, config);
 		leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE.waypoints, config);
@@ -173,7 +176,7 @@ public class Robot extends TimedRobot {
 
 			SmartDashboard.putNumber("Left Speed", drive.getLeftSpeed());
 			SmartDashboard.putNumber("Right Speed", drive.getRightSpeed());
-			
+
 			SmartDashboard.putNumber("Angle", drive.navx.getAngle());
 		}
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
@@ -184,7 +187,7 @@ public class Robot extends TimedRobot {
 		if (autoCommand != null) {
 			autoCommand.cancel();
 		}
-		
+
 		if (isDrivetrainChar) {
 			try {
 				characterizer.init();
@@ -203,7 +206,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		
+
 		flag.set(oi.controller.getLeftX());
 
 		if (isDebug) {
@@ -215,7 +218,7 @@ public class Robot extends TimedRobot {
 
 			SmartDashboard.putNumber("Gyro Angle", drive.navx.getAngle());
 		}
-		
+
 		if (isDrivetrainChar) {
 			characterizer.update();
 		}

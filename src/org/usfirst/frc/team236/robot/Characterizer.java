@@ -8,16 +8,16 @@ public class Characterizer {
 
 	private static PrintWriter writer;
 	private static StringBuilder builder;
-	
+
 	private String filename = "char.csv";
-	
+
 	public Characterizer(String _filename) {
 		this.filename = _filename;
 	}
-	
+
 	public Characterizer() {
 	}
-	
+
 	public void init() throws FileNotFoundException {
 		writer = new PrintWriter(new File(filename));
 		builder = new StringBuilder();
@@ -32,7 +32,7 @@ public class Characterizer {
 		builder.append("Right output");
 		builder.append('\n');
 	}
-	
+
 	public void update() {
 		builder.append(Robot.oi.leftStick.getY());
 		builder.append(',');

@@ -17,12 +17,14 @@ public class LeftScaleAndSwitch extends CommandGroup {
 
 	public LeftScaleAndSwitch() {
 		addSequential(new LeftScale());
+
 		addSequential(new Turn(-AutoMap.TURN_NULL_TO_CUBE, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
 
 		addParallel(new MotionMagic(AutoMap.DIST_SCALE_TO_CUBE, 3));
 		addSequential(new Intake());
 
 		addSequential(new Raise(), 1);
+
 		addSequential(new Eject(), .5);
 	}
 

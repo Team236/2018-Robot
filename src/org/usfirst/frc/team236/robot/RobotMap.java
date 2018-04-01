@@ -22,11 +22,11 @@ public class RobotMap {
 		public static final int PULSE_PER_ROTATION = 512;
 		public static final double DISTANCE_PER_PULSE = CIRCUMFERENCE / PULSE_PER_ROTATION;
 		public static final double WHEEL_TRACK = 25; // inches
-		
+
 		// Voltage settings
 		public static final boolean IS_VOLTAGE_COMP = false;
 		public static final double VOLTAGE_SATURATION = 12.5;
-		
+
 		// Current limiting settings
 		public static final boolean IS_CURRENT_LIMIT = false;
 		public static final int PEAK_CURRENT = 45;
@@ -47,7 +47,7 @@ public class RobotMap {
 
 		// Pathfinder gains
 		public static class Pathfinder {
-			public static final double DT = 1/50.0;
+			public static final double DT = 1 / 50.0;
 			public static final double kP = 0.01;
 			public static final double kI = 0.0;
 			public static final double kD = 0.0;
@@ -56,7 +56,7 @@ public class RobotMap {
 
 			public static final double kTurn = 0.01;
 		}
-		
+
 		public static final DriveParameters DRIVE_PARAMS = new DriveParameters(0.0074, 0.0079, 0.002, -0.01);
 
 		// Turn PID parameters
@@ -119,7 +119,7 @@ public class RobotMap {
 		public static final double LAUNCH_SPEED = 1.00;
 		public static final double SPIT_SPEED = 0.5;
 		public static final double FEED_SPEED = -0.4;
-		
+
 		public static final double SPINUP_TIME = .40;
 		public static final double SHOOT_TIME = .50;
 	}
