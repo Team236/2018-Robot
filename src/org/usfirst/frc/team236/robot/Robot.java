@@ -74,6 +74,9 @@ public class Robot extends TimedRobot {
 
 	public static TrapProfile scale;
 	public static TrapProfile straightSwitch;
+	public static TrapProfile toCube;
+
+	public static TrapProfile outer;
 
 	public static TrapProfile crossSwitch1, crossSwitch2;
 
@@ -112,14 +115,18 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putString("Camera capture failed", "failed");
 		}
 
-		System.out.println("Generating paths");
 
 		// Generate trapezoidal profiles
+		System.out.println("Generating profiles");
 		scale = new TrapProfile(AutoMap.TO_NULL);
 		straightSwitch = new TrapProfile(AutoMap.STRAIGHT_SWITCH);
+		toCube = new TrapProfile(AutoMap.TO_CUBE1);
+
+		outer = new TrapProfile(AutoMap.OUTER);
 
 		crossSwitch1 = new TrapProfile(AutoMap.CROSS_SWITCH_1);
 		crossSwitch2 = new TrapProfile(AutoMap.CROSS_SWITCH_2);
+		System.out.println("Finished generating profiles");
 
 		// Generate pathfinder profiles
 		//@formatter:off

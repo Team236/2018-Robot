@@ -33,6 +33,9 @@ public class AutoMap {
 
 	public static final ProfileParameters TO_NULL = new ProfileParameters(-DIST_NULL_TERRITORY, 100, 100, 0, 3);
 	public static final ProfileParameters STRAIGHT_SWITCH = new ProfileParameters(-DIST_FENCE, 80, 160, 0, 4);
+	public static final ProfileParameters TO_CUBE1 = new ProfileParameters(-DIST_SCALE_TO_CUBE, 50, 100, 0, 4);
+
+	public static final ProfileParameters OUTER = new ProfileParameters(-DIST_PAST_SWITCH, 150, 300, 0, 8, 1 / 100.0);
 
 	public static final ProfileParameters CROSS_SWITCH_1 = new ProfileParameters(-SWITCH_CROSS1, 48, 100, 0, 3);
 	public static final ProfileParameters CROSS_SWITCH_2 = new ProfileParameters(-SWITCH_CROSS2, 48, 100, 0, 3);

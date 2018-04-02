@@ -1,11 +1,17 @@
 package org.usfirst.frc.team236.robot.commands.auto.left;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.Robot;
+import org.usfirst.frc.team236.robot.RobotMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
+import org.usfirst.frc.team236.robot.commands.auto.FollowProfile;
+import org.usfirst.frc.team236.robot.commands.auto.GyroDrive;
 import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
 import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
-import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
+import org.usfirst.frc.team236.robot.commands.launcher.Shoot;
+import org.usfirst.frc.team236.robot.commands.launcher.SpinDown;
+import org.usfirst.frc.team236.robot.commands.launcher.SpinUpNoStop;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -20,17 +26,24 @@ public class LeftSwitchOuter extends CommandGroup {
 	 */
 	public LeftSwitchOuter() {
 		addParallel(new PreAuto());
-		addSequential(new MotionMagic(AutoMap.DIST_PAST_SWITCH, AutoMap.MM_END_MARGIN));
+		//addSequential(new MotionMagic(AutoMap.DIST_PAST_SWITCH, AutoMap.MM_END_MARGIN));
+		addSequential(new FollowProfile(Robot.outer, true));
 
 		addSequential(new Turn(90, 15, DriveMap.TURN_PARAMS_90));
 
 		// "4" below is a timeout for this command - it means the command will end after
 		// those many seconds at most
-		addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
+		//addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
 
-		addSequential(new SpitUpAndShoot());
+		addParallel(new SpinUpNoStop(RobotMap.LauncherMap.SPIT_SPEED));
+		addSequential(new GyroDrive(AutoMap.DIST_SIDE_FENCE));
 
-		addSequential(new MotionMagic(-AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
+		addSequential(new Shoot(), 0.5);
+		
+		addSequential(new SpinDown());
+
+		//addSequential(new MotionMagic(-AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
+		addSequential(new GyroDrive(-AutoMap.DIST_SIDE_FENCE));
 
 		addSequential(new Turn(-90, 20, DriveMap.TURN_PARAMS_90));
 
