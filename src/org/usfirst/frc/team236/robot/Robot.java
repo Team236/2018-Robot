@@ -157,8 +157,8 @@ public class Robot extends TimedRobot {
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
 		postFieldLayout();
-		autonomousCommand = getAutoFromSwitches();
-		SmartDashboard.putString("Auto", autonomousCommand.toString());
+		//autonomousCommand = getAutoFromSwitches();
+		//SmartDashboard.putString("Auto", autonomousCommand.toString());
 	}
 
 	@Override
