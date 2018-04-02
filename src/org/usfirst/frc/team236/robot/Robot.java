@@ -138,9 +138,12 @@ public class Robot extends TimedRobot {
 		);
 		//@formatter:on
 
-		centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH.waypoints, config);
-		leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE.waypoints, config);
-		rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE.waypoints, config);
+		//centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH.waypoints, config);
+		System.out.println("CL Sw done");
+		//leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE.waypoints, config);
+		System.out.println("LL Sc done");
+		//rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE.waypoints, config);
+		System.out.println("RL Sc done");
 		System.out.println("Finished generating paths");
 	}
 
