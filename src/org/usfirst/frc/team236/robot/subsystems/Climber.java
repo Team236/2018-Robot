@@ -28,12 +28,12 @@ public class Climber extends Subsystem {
 	public DigitalInput topLimit, bottomLimit;
 
 	public Climber() {
-		motor = new VictorSP(RobotMap.ClimberMap.PWM_SCISSORS);
+		motor = new VictorSP(RobotMap.ClimberMap.PWM_LOWER);
 
 		topLimit = new DigitalInput(RobotMap.ClimberMap.DIO_LIMIT_TOP);
 		bottomLimit = new DigitalInput(RobotMap.ClimberMap.DIO_LIMIT_BOTTOM);
 
-		motor.setInverted(RobotMap.ClimberMap.INV_SCISSORS);
+		lowerMotor.setInverted(RobotMap.ClimberMap.INV_LOWER);
 	}
 
 	public void setSpeed(double speed) {
