@@ -125,11 +125,11 @@ public class RobotMap {
 	}
 
 	public static class ClimberMap {
-		public static final int PWM_LEFT = 7; // port number for winch motor
-		public static final int PWM_RIGHT = 8; // port number for winch motor
 		public static final int PWM_LOWER = 7; // port number for climber motor
+		public static final int PWM_UPPER = 8;
 
 		public static final boolean INV_LOWER = false; // Positive extends
+		public static final boolean INV_UPPER = false;
 
 		public static final int DIO_LIMIT_TOP = 6;
 		public static final int DIO_LIMIT_BOTTOM = 7;

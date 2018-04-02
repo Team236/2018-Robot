@@ -24,11 +24,12 @@ public class Climber extends Subsystem {
 	 * is positive. This is because of how the thumbstick operates - left is
 	 * negative, and right is positive.
 	 */
-	public SpeedController motor;
+	public SpeedController lowerMotor, upperMotor;
 	public DigitalInput topLimit, bottomLimit;
 
 	public Climber() {
-		motor = new VictorSP(RobotMap.ClimberMap.PWM_LOWER);
+		lowerMotor = new VictorSP(RobotMap.ClimberMap.PWM_LOWER);
+		upperMotor = new VictorSP(RobotMap.ClimberMap.PWM_UPPER);
 
 		topLimit = new DigitalInput(RobotMap.ClimberMap.DIO_LIMIT_TOP);
 		bottomLimit = new DigitalInput(RobotMap.ClimberMap.DIO_LIMIT_BOTTOM);
@@ -37,7 +38,13 @@ public class Climber extends Subsystem {
 	}
 
 	public void setSpeed(double speed) {
-		motor.set(speed);
+		if (isTopLimit() && speed > 0) {
+			speed = 0;
+		} else if (isBottomLimit() && speed < 0) {
+			speed = 0;
+		}
+		lowerMotor.set(speed);
+		upperMotor.set(speed);
 	}
 
 	public void stop() {
