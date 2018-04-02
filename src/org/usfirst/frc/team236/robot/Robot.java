@@ -31,6 +31,7 @@ import edu.wpi.first.wpilibj.Servo;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
@@ -88,7 +89,8 @@ public class Robot extends TimedRobot {
 		compressor.start();
 
 		if (isPowerDebug) {
-			pdp = new PowerDistributionPanel();
+			pdp = new PowerDistributionPanel(0);
+			LiveWindow.disableTelemetry(pdp);
 		}
 
 		// Create auto switches
