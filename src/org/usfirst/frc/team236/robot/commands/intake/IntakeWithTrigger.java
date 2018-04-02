@@ -34,6 +34,8 @@ public class IntakeWithTrigger extends Command {
 		if (!Robot.intake.intakeSensor.get()) {
 			Robot.intake.leftIntake.set(speed);
 			Robot.intake.rightIntake.set(speed);
+		} else {
+			Robot.intake.stop();
 		}
 
 	}
