@@ -57,7 +57,7 @@ public class RobotMap {
 			public static final double kTurn = 0.01;
 		}
 
-		public static final DriveParameters DRIVE_PARAMS = new DriveParameters(0.006, 0.007, 0.000, -0.000);
+		public static final DriveParameters DRIVE_PARAMS = new DriveParameters(0.0058, 0.0064, 0.003, 0.003, -0.08);
 
 		// Turn PID parameters
 		// public static final double P_TURN = SmartDashboard.getNumber("P", 0);
