@@ -43,6 +43,7 @@ public class Climber extends Subsystem {
 		} else if (isBottomLimit() && speed < 0) {
 			speed = 0;
 		}
+
 		lowerMotor.set(speed);
 		upperMotor.set(speed);
 	}
@@ -52,11 +53,11 @@ public class Climber extends Subsystem {
 	}
 
 	public boolean isTopLimit() {
-		return topLimit.get();
+		return !topLimit.get();
 	}
 
 	public boolean isBottomLimit() {
-		return bottomLimit.get();
+		return !bottomLimit.get();
 	}
 
 	public void initDefaultCommand() {
