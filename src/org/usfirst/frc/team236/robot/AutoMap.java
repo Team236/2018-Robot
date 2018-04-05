@@ -31,7 +31,7 @@ public class AutoMap {
 
 	public static final double MM_END_MARGIN = 10;
 
-	public static final ProfileParameters TO_NULL = new ProfileParameters(-DIST_NULL_TERRITORY, 100, 100, 0, 3);
+	public static final ProfileParameters TO_NULL = new ProfileParameters(-DIST_NULL_TERRITORY, 100, 200, 0, 3);
 	public static final ProfileParameters STRAIGHT_SWITCH = new ProfileParameters(-DIST_FENCE, 80, 160, 0, 4);
 	public static final ProfileParameters TO_CUBE1 = new ProfileParameters(-DIST_SCALE_TO_CUBE, 50, 100, 0, 4);
 
