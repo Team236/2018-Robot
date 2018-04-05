@@ -19,20 +19,8 @@ public class ClimberWithThumbstick extends Command {
 	protected void initialize() {
 	}
 
-	// LEFT IS NEGATIVE
-	// RIGHT IS POSITIVE
 	protected void execute() {
-		double speed = Robot.oi.controller.getRightY() * SCALE_FACTOR;
-		/*
-		boolean isLeft = Robot.climber.isLeftLimit();
-		boolean isRight = Robot.climber.isRightLimit();
-		// Trim out illegal inputs based on limit switches
-		if (isLeft && speed < 0) {
-			speed = 0;
-		} else if (isRight && speed > 0) {
-			speed = 0;
-		}
-		*/
+		double speed = -Robot.oi.controller.getRightY() * SCALE_FACTOR;
 
 		Robot.climber.setSpeed(speed);
 	}
