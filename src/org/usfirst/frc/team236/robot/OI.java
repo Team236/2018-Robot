@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team236.robot;
 
+import org.usfirst.frc.team236.robot.commands.climber.ClimberWithThumbstick;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.EjectWithTrigger;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
@@ -87,12 +88,7 @@ public class OI {
 		controller.rb.whileHeld(new SpinUp());
 
 		// CLIMBER
-		/*
-		controller.start.whileHeld(new RaiseWinch());
-		controller.back.whileHeld(new LowerWinch());
-		controller.rightPress.whileHeld(new ScissorsWithThumbstick());
-		*/
-
+		controller.rightPress.whileHeld(new ClimberWithThumbstick());
 	}
 
 }
