@@ -4,6 +4,7 @@ import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
 import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
+import org.usfirst.frc.team236.robot.commands.drive.StraightDrive;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.Intake;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
@@ -24,6 +25,8 @@ public class LeftScaleAndSwitch extends CommandGroup {
 		addSequential(new Intake());
 
 		addSequential(new Raise(), 1);
+		
+		addSequential(new StraightDrive(.3), 1);
 
 		addSequential(new Eject(), .5);
 	}
