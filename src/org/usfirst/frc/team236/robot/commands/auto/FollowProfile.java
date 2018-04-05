@@ -67,7 +67,7 @@ public class FollowProfile extends Command {
 
 		// Calculate feedforwards
 		double l_v = params.kV_l * e.speed;
-		double l_a = params.kA * e.acceleration;
+		double l_a = params.kA_l * e.acceleration;
 		// Calculate corrections
 		double l_error = (reverseMultiplier * e.position - Robot.drive.getLeftDistance());
 		double l_p = params.kP * l_error;
@@ -76,7 +76,7 @@ public class FollowProfile extends Command {
 		// Repeat for right side
 		// Calculate feedforwards
 		double r_v = params.kV_r * e.speed;
-		double r_a = params.kA * e.acceleration;
+		double r_a = params.kA_r * e.acceleration;
 		// Calculate corrections
 		double r_error = (reverseMultiplier * e.position - Robot.drive.getRightDistance());
 		double r_p = params.kP * r_error;
