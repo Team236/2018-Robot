@@ -1,7 +1,9 @@
 package org.usfirst.frc.team236.robot.commands.auto.left;
 
 import org.usfirst.frc.team236.robot.AutoMap;
+import org.usfirst.frc.team236.robot.Robot;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
+import org.usfirst.frc.team236.robot.commands.auto.FollowProfile;
 import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
 import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
@@ -20,13 +22,15 @@ public class LeftLongScaleDirect extends CommandGroup {
 	 */
 	public LeftLongScaleDirect() {
 		addParallel(new PreAuto());
-		addSequential(new MotionMagic(AutoMap.DIST_PLATFORM_ZONE_DIRECT, 6, 450, 1000));
+		//addSequential(new MotionMagic(AutoMap.DIST_PLATFORM_ZONE_DIRECT, 6, 450, 500));
+		addSequential(new FollowProfile(Robot.toPlatform, true));
 
-		addSequential(new Turn(-113.5, 5, DriveMap.TURN_PARAMS_90));
+		addSequential(new Turn(-100, 5, DriveMap.TURN_PARAMS_90));
 
 		addSequential(new MotionMagic(AutoMap.DIST_CROSS_FIELD_DIRECT, AutoMap.MM_END_MARGIN), 7);
+		//addSequential(new FollowProfile(Robot.crossField));
 		
-		addSequential(new StraightDrive(0, -0.5), 0.3);
+		addSequential(new StraightDrive(-.25, -0.5), 0.4);
 
 		addSequential(new SpinUpAndShoot());
 	}

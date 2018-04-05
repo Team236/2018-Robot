@@ -80,6 +80,9 @@ public class Robot extends TimedRobot {
 	public static TrapProfile outer;
 
 	public static TrapProfile crossSwitch1, crossSwitch2;
+	
+	public static TrapProfile toPlatform;
+	public static TrapProfile crossField;
 
 	@Override
 	public void robotInit() {
@@ -128,6 +131,9 @@ public class Robot extends TimedRobot {
 
 		crossSwitch1 = new TrapProfile(AutoMap.CROSS_SWITCH_1);
 		crossSwitch2 = new TrapProfile(AutoMap.CROSS_SWITCH_2);
+		
+		toPlatform = new TrapProfile(AutoMap.TO_PLATFORM_ZONE);
+		crossField = new TrapProfile(AutoMap.CROSS_FIELD);
 		System.out.println("Finished generating profiles");
 
 		// Generate pathfinder profiles

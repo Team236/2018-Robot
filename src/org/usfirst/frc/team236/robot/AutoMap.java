@@ -22,7 +22,7 @@ public class AutoMap {
 	public static final double DIST_CROSS_FIELD = -240; // 186 with bump, try 210
 	public static final double DIST_PLATFORM_ZONE_TO_NULL_TERRITORY = -54; // 37
 
-	public static final double DIST_PLATFORM_ZONE_DIRECT = -190; // -196, -220
+	public static final double DIST_PLATFORM_ZONE_DIRECT = -220;
 	public static final double DIST_CROSS_FIELD_DIRECT = 303; // -240, 186 with bump, try 210
 
 	public static final double DIST_AUTO_LINE = -150;
@@ -39,6 +39,9 @@ public class AutoMap {
 
 	public static final ProfileParameters CROSS_SWITCH_1 = new ProfileParameters(-SWITCH_CROSS1, 48, 100, 0, 3);
 	public static final ProfileParameters CROSS_SWITCH_2 = new ProfileParameters(-SWITCH_CROSS2, 48, 100, 0, 3);
+
+	public static final ProfileParameters TO_PLATFORM_ZONE = new ProfileParameters(-DIST_PLATFORM_ZONE_DIRECT, 75, 150, 0, 5);
+	public static final ProfileParameters CROSS_FIELD = new ProfileParameters(-DIST_CROSS_FIELD_DIRECT, 75, 150, 0, 10);
 
 	public static class Paths {
 		
