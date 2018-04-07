@@ -39,8 +39,6 @@ import lib.commands.DoNothing;
 import lib.motionProfile.TrapProfile;
 
 public class Robot extends TimedRobot {
-	Command autonomousCommand;
-
 	// Declare OI
 	public static OI oi;
 
@@ -62,7 +60,7 @@ public class Robot extends TimedRobot {
 	public static Trajectory leftLongScale, rightLongScale, centerLeftSwitch;
 
 	// Declare auto command
-	Command autoCommand;
+	Command autonomousCommand;
 
 	private static final boolean isDebug = true;
 	private static final boolean isPowerDebug = false;
@@ -202,8 +200,8 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		if (autoCommand != null) {
-			autoCommand.cancel();
+		if (autonomousCommand != null) {
+			autonomousCommand.cancel();
 		}
 
 		if (isDrivetrainChar) {
