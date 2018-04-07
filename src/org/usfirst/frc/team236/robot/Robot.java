@@ -3,13 +3,14 @@ package org.usfirst.frc.team236.robot;
 import java.io.FileNotFoundException;
 
 import org.usfirst.frc.team236.robot.commands.auto.Cross;
-import org.usfirst.frc.team236.robot.commands.auto.center.CenterLeftSwitchPathfinder;
+import org.usfirst.frc.team236.robot.commands.auto.center.CenterLeftSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterStraightSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.left.LeftLongScalePathfinder;
+import org.usfirst.frc.team236.robot.commands.auto.left.LeftLongScale;
+import org.usfirst.frc.team236.robot.commands.auto.left.LeftLongScaleDirect;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftSwitchOuter;
-import org.usfirst.frc.team236.robot.commands.auto.right.RightLongScalePathfinder;
+import org.usfirst.frc.team236.robot.commands.auto.right.RightLongScale;
 import org.usfirst.frc.team236.robot.commands.auto.right.RightScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.right.RightScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.right.RightSwitchOuter;
@@ -33,7 +34,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Trajectory;
 import lib.commands.DoNothing;
 import lib.motionProfile.TrapProfile;
@@ -323,7 +323,7 @@ public class Robot extends TimedRobot {
 			if (gameData.equals("RRR") || gameData.equals("RLR")) {
 				return new CenterStraightSwitch();
 			} else if (gameData.equals("LRL") || gameData.equals("LLL")) {
-				return new CenterLeftSwitchPathfinder();
+				return new CenterLeftSwitch();
 			}
 		}
 
@@ -338,7 +338,7 @@ public class Robot extends TimedRobot {
 					return new Cross(); // TODO long switch
 				}
 				if (!noSwitch.get()) {
-					return new LeftLongScalePathfinder();
+					return new LeftLongScale();
 				}
 				return new Cross();
 			}
@@ -356,7 +356,7 @@ public class Robot extends TimedRobot {
 					return new LeftSwitchOuter();
 				}
 				if (!noSwitch.get()) {
-					return new LeftLongScalePathfinder();
+					return new LeftLongScale();
 				}
 				return new LeftSwitchOuter();
 			}
@@ -391,7 +391,7 @@ public class Robot extends TimedRobot {
 					return new RightSwitchOuter();
 				}
 				if (!noSwitch.get()) {
-					return new RightLongScalePathfinder();
+					return new RightLongScale();
 				}
 				return new RightSwitchOuter();
 			}
@@ -409,7 +409,7 @@ public class Robot extends TimedRobot {
 					return new Cross(); // TODO long switch
 				}
 				if (!noSwitch.get()) {
-					return new RightLongScalePathfinder();
+					return new RightLongScale();
 				}
 				return new Cross();
 			}
