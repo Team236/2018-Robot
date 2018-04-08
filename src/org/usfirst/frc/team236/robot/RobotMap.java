@@ -14,7 +14,7 @@ public class RobotMap {
 		public static final int ID_LEFT_MIDDLE = 4; // 4, testbed: 11
 		public static final int ID_LEFT_REAR = 10; // 10, testbed: 5
 
-		public static final int ID_RIGHT_FRONT = 1; // 1, testbed: 7
+		public static final int ID_RIGHT_FRONT = 14; // 1, testbed: 7
 		public static final int ID_RIGHT_MIDDLE = 3; // 3, testbed: 12
 		public static final int ID_RIGHT_REAR = 9; // 9, testbed: 6
 
