@@ -25,7 +25,7 @@ public class SpinUp extends Command {
 	}
 
 	protected void execute() {
-		Robot.launcher.setLaunchSpeed(RobotMap.LauncherMap.LAUNCH_SPEED);
+		Robot.launcher.setStage2Speed(speed);
 	}
 
 	protected boolean isFinished() {
