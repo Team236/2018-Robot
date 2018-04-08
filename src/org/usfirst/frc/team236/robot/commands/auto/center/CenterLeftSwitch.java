@@ -47,6 +47,6 @@ public class CenterLeftSwitch extends CommandGroup {
 
 	@Override
 	public String toString() {
-		return "Right to left switch";
+		return "Center to left switch";
 	}
 }
