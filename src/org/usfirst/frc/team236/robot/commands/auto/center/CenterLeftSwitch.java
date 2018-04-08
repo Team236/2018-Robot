@@ -39,7 +39,7 @@ public class CenterLeftSwitch extends CommandGroup {
 		// "3" below is a timeout for this command - it means the command will end after
 		// those many seconds at most
 		//addSequential(new MotionMagic(AutoMap.SWITCH_CROSS3, AutoMap.MM_END_MARGIN), 3);
-		addSequential(new StraightDrive(-.3), 1);
+		addSequential(new StraightDrive(-.6), 1);
 
 		//addParallel(new StraightDrive(-.40),1);
 		addSequential(new SpitUpAndShoot());
