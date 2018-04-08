@@ -22,7 +22,7 @@ public class SpinUpNoStop extends Command {
 	}
 
 	protected void initialize() {
-		Robot.launcher.setLaunchSpeed(RobotMap.LauncherMap.LAUNCH_SPEED);
+		Robot.launcher.setLaunchSpeed(speed);
 	}
 
 	protected void execute() {
