@@ -113,8 +113,8 @@ public class RobotMap {
 		public static final int SOL_REV = 3;
 
 		public static final int PWM_TOP_RIGHT = 2;
-		public static final int PWM_TOP_LEFT = 4;
-		public static final int PWM_BOTTOM_RIGHT = 3;
+		public static final int PWM_TOP_LEFT = 3;
+		public static final int PWM_BOTTOM_RIGHT = 4;
 		public static final int PWM_BOTTOM_LEFT = 5;
 
 		public static final double LAUNCH_SPEED = 1.00;
