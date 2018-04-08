@@ -89,6 +89,7 @@ public class OI {
 
 		// CLIMBER
 		controller.rightPress.whileHeld(new ClimberWithThumbstick());
+		controller.back.whileHeld(new ClimberWithThumbstick());
 	}
 
 }
