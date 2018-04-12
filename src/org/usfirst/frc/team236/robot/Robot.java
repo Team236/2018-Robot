@@ -5,12 +5,13 @@ import java.io.FileNotFoundException;
 import org.usfirst.frc.team236.robot.commands.auto.Cross;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterLeftSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterStraightSwitch;
-import org.usfirst.frc.team236.robot.commands.auto.left.LeftLongScale;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftLongScaleDirect;
+import org.usfirst.frc.team236.robot.commands.auto.left.LeftScale;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftSwitchOuter;
 import org.usfirst.frc.team236.robot.commands.auto.right.RightLongScale;
+import org.usfirst.frc.team236.robot.commands.auto.right.RightScale;
 import org.usfirst.frc.team236.robot.commands.auto.right.RightScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.right.RightScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.right.RightSwitchOuter;
@@ -69,7 +70,7 @@ public class Robot extends TimedRobot {
 	public static Characterizer characterizer;
 
 	private static DigitalInput leftSide, rightSide;
-	private static DigitalInput noSwitch, noScale, sw3;
+	private static DigitalInput noSwitch, noScale, noCross;
 
 	public static TrapProfile scale;
 	public static TrapProfile straightSwitch;
@@ -99,7 +100,7 @@ public class Robot extends TimedRobot {
 		rightSide = new DigitalInput(5);
 		noSwitch = new DigitalInput(0);
 		noScale = new DigitalInput(1);
-		sw3 = new DigitalInput(2);
+		noCross = new DigitalInput(2);
 
 		pressureSensor = new AnalogInput(RobotMap.ANALOG_PRESSURE_SENSOR);
 		flag = new Servo(RobotMap.PWM_FLAG);
@@ -341,9 +342,12 @@ public class Robot extends TimedRobot {
 					return new Cross(); // TODO long switch
 				}
 				if (!noSwitch.get()) {
-					return new LeftLongScale();
+					return new LeftLongScaleDirect();
 				}
-				return new Cross();
+				if (!noCross.get()) {
+					return new Cross();
+				}
+				return new LeftLongScaleDirect();
 			}
 			if (gameData.equals("RLR")) {
 				if (!noScale.get()) {
@@ -352,6 +356,9 @@ public class Robot extends TimedRobot {
 				if (!noSwitch.get()) {
 					return new LeftScale2Cube();
 				}
+				if (!noCross.get()) {
+					return new LeftScale();
+				}
 				return new LeftScale2Cube();
 			}
 			if (gameData.equals("LRL")) {
@@ -359,9 +366,12 @@ public class Robot extends TimedRobot {
 					return new LeftSwitchOuter();
 				}
 				if (!noSwitch.get()) {
-					return new LeftLongScale();
+					return new LeftLongScaleDirect();
 				}
-				return new LeftSwitchOuter();
+				if (!noCross.get()) {
+					return new LeftSwitchOuter();
+				}
+				return new LeftLongScaleDirect();
 			}
 			if (gameData.equals("LLL")) {
 				if (!noScale.get()) {
@@ -369,6 +379,9 @@ public class Robot extends TimedRobot {
 				}
 				if (!noSwitch.get()) {
 					return new LeftScale2Cube();
+				}
+				if (!noCross.get()) {
+					return new LeftSwitchOuter();
 				}
 				return new LeftScaleAndSwitch();
 			}
@@ -387,6 +400,9 @@ public class Robot extends TimedRobot {
 				if (!noSwitch.get()) {
 					return new RightScale2Cube();
 				}
+				if (!noCross.get()) {
+					return new RightScale();
+				}
 				return new RightScaleAndSwitch();
 			}
 			if (gameData.equals("RLR")) {
@@ -395,6 +411,9 @@ public class Robot extends TimedRobot {
 				}
 				if (!noSwitch.get()) {
 					return new RightLongScale();
+				}
+				if (!noCross.get()) {
+					return new RightSwitchOuter();
 				}
 				return new RightSwitchOuter();
 			}
@@ -405,6 +424,9 @@ public class Robot extends TimedRobot {
 				if (!noSwitch.get()) {
 					return new RightScale2Cube();
 				}
+				if (!noCross.get()) {
+					return new RightScale();
+				}
 				return new RightScale2Cube();
 			}
 			if (gameData.equals("LLL")) {
@@ -414,7 +436,10 @@ public class Robot extends TimedRobot {
 				if (!noSwitch.get()) {
 					return new RightLongScale();
 				}
-				return new Cross();
+				if (!noSwitch.get()) {
+					return new Cross();
+				}
+				return new RightLongScale();
 			}
 		}
 
