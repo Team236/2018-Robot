@@ -30,7 +30,7 @@ public class LeftScale2Cube extends CommandGroup {
 		addParallel(new SpinUpNoStop2(0.95));
 		addSequential(new Turn(90, DriveMap.TURN_MARGIN, DriveMap.TURN_PARAMS_90));
 		
-		addSequential(new SpinUpAndShoot(0.95));
+		//addSequential(new SpinUpAndShoot(0.95));
 		
 		addSequential(new SpinDown());
 	}
