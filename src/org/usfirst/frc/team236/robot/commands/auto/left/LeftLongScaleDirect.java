@@ -26,7 +26,7 @@ public class LeftLongScaleDirect extends CommandGroup {
 		//addSequential(new MotionMagic(AutoMap.DIST_PLATFORM_ZONE_DIRECT, 6, 450, 500));
 		addSequential(new FollowProfile(Robot.toPlatform, true));
 
-		addSequential(new Turn(-100, 5, DriveMap.TURN_PARAMS_90));
+		addSequential(new Turn(-97, 5, DriveMap.TURN_PARAMS_90));
 
 		addSequential(new MotionMagic(AutoMap.DIST_CROSS_FIELD_DIRECT, AutoMap.MM_END_MARGIN), 7);
 		//addSequential(new FollowProfile(Robot.crossField));
