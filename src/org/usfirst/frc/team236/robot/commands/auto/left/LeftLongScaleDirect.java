@@ -9,6 +9,7 @@ import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.commands.drive.StraightDrive;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
+import org.usfirst.frc.team236.robot.commands.launcher.SpinUpNoStop2;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -30,14 +31,15 @@ public class LeftLongScaleDirect extends CommandGroup {
 		addSequential(new MotionMagic(AutoMap.DIST_CROSS_FIELD_DIRECT, AutoMap.MM_END_MARGIN), 7);
 		//addSequential(new FollowProfile(Robot.crossField));
 		
-		addSequential(new StraightDrive(-.25, -0.5), 0.4);
 		addSequential(new SpinUpNoStop2());
+		
+		addSequential(new StraightDrive(0, -0.65), 0.35);
 
 		addSequential(new SpinUpAndShoot());
 	}
 
 	@Override
 	public String toString() {
-		return "Left long scale direct";
+		return "Left long scale: direct";
 	}
 }
