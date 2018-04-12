@@ -31,6 +31,7 @@ public class LeftLongScaleDirect extends CommandGroup {
 		//addSequential(new FollowProfile(Robot.crossField));
 		
 		addSequential(new StraightDrive(-.25, -0.5), 0.4);
+		addSequential(new SpinUpNoStop2());
 
 		addSequential(new SpinUpAndShoot());
 	}

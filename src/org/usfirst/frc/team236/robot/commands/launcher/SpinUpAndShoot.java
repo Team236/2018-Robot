@@ -17,11 +17,17 @@ public class SpinUpAndShoot extends CommandGroup {
 
 		addSequential(new SpinUp(speed), RobotMap.LauncherMap.SPINUP_TIME + RobotMap.LauncherMap.SHOOT_TIME);
 		*/
-		addSequential(new SpinUpNoStop(speed));
-		addSequential(new Wait(RobotMap.LauncherMap.SPINUP_TIME));
+		addSequential(new ShootUp());
 		
-		addSequential(new Shoot(), RobotMap.LauncherMap.SHOOT_TIME);
+		addSequential(new Wait(.05));
+		
+		addSequential(new SpinUpNoStop(speed));
+		
+		addSequential(new Wait(0.5));
+		
 		addSequential(new SpinDown());
+
+		addSequential(new ShootDown());
 	}
 	
 	public SpinUpAndShoot() {
