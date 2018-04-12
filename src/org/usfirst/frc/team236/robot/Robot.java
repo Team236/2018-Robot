@@ -244,6 +244,9 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
 
 		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage() * (110.0 / 2.75));
+		
+		SmartDashboard.putBoolean("Top", climber.isTopLimit());
+		SmartDashboard.putBoolean("Bottom", climber.isBottomLimit());
 
 		if (isPowerDebug) {
 			SmartDashboard.putNumber("Battery Voltage", pdp.getVoltage());
