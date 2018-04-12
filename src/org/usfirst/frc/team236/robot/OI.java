@@ -90,7 +90,7 @@ public class OI {
 		controller.rb.toggleWhenPressed(new SpinUp());
 
 		// CLIMBER
-		controller.rightPress.whileHeld(new ClimberWithThumbstick());
+		//controller.rightPress.whileHeld(new ClimberWithThumbstick());
 		controller.back.whileHeld(new ClimberWithThumbstick());
 	}
 
