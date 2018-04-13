@@ -31,7 +31,7 @@ public class GyroDrive extends Command {
 	}
 
 	public GyroDrive(double _dist) {
-		this(-0.10, _dist, -0.4); // Construct with default values
+		this(-0.05, _dist, -0.4); // Construct with default values
 	}
 
 	@Override
@@ -50,8 +50,8 @@ public class GyroDrive extends Command {
 		double leftSpeed = speed;
 		double rightSpeed = speed;
 
-		leftSpeed += ang * kP;
-		rightSpeed -= ang * kP;
+		leftSpeed -= ang * kP;
+		rightSpeed += ang * kP;
 
 		Robot.drive.setLeftSpeed(leftSpeed);
 		Robot.drive.setRightSpeed(rightSpeed);
@@ -60,8 +60,8 @@ public class GyroDrive extends Command {
 	@Override
 	protected boolean isFinished() {
 		// Stop command if both encoders have gone the distance
-		boolean isLeftFinished = Math.abs(Robot.drive.getLeftDistance() - dist) < 1;
-		boolean isRightFinished = Math.abs(Robot.drive.getRightDistance() - dist) < 1;
+		boolean isLeftFinished = Math.abs(Robot.drive.getLeftDistance() - dist) < 2;
+		boolean isRightFinished = Math.abs(Robot.drive.getRightDistance() - dist) < 2;
 
 		return isLeftFinished && isRightFinished;
 	}
