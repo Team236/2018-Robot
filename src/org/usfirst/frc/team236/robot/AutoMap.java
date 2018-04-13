@@ -7,7 +7,7 @@ import lib.motionProfile.ProfileParameters;
 
 public class AutoMap {
 	public static final double SWITCH_CROSS1 = -42; // 48
-	public static final double SWITCH_CROSS2 = -108; // 108
+	public static final double SWITCH_CROSS2 = -102; // 108
 	public static final double SWITCH_CROSS3 = -67; // 24+
 
 	public static final double DIST_FENCE = -102; // 102
