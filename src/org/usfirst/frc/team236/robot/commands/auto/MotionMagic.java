@@ -1,5 +1,6 @@
 package org.usfirst.frc.team236.robot.commands.auto;
 
+import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.Robot;
 import org.usfirst.frc.team236.robot.RobotMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
@@ -40,13 +41,12 @@ public class MotionMagic extends Command {
 
 		Robot.drive.setMotnCV(cv);
 		Robot.drive.setMotnAccel(accel);
-		/*
-		Robot.drive.setkPMM(AutoMap.M_MAGIC_K_P);
-		Robot.drive.setkIMM(AutoMap.M_MAGIC_K_I);
-		Robot.drive.setkDMM(AutoMap.M_MAGIC_K_D);
-		Robot.drive.setkFMM_L(AutoMap.M_MAGIC_K_F_L);
-		Robot.drive.setkFMM_R(AutoMap.M_MAGIC_K_F_R);
-		*/
+
+		Robot.drive.setkP(AutoMap.M_MAGIC_K_P);
+		Robot.drive.setkI(AutoMap.M_MAGIC_K_I);
+		Robot.drive.setkD(AutoMap.M_MAGIC_K_D);
+		Robot.drive.setkF(AutoMap.M_MAGIC_K_F_L, AutoMap.M_MAGIC_K_F_R);
+
 		System.out.print("Initializing Motion Magic");
 
 		Robot.drive.setRightDistMotion(distance / RobotMap.DriveMap.DISTANCE_PER_PULSE);
