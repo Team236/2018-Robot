@@ -6,6 +6,7 @@ import org.usfirst.frc.team236.robot.RobotMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
 import org.usfirst.frc.team236.robot.commands.auto.EncoderDrive;
 import org.usfirst.frc.team236.robot.commands.auto.FollowProfile;
+import org.usfirst.frc.team236.robot.commands.auto.GyroDrive;
 import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
 import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
@@ -34,12 +35,13 @@ public class CenterLeftSwitch extends CommandGroup {
 		//addSequential(new MotionMagic(AutoMap.SWITCH_CROSS2, AutoMap.MM_END_MARGIN));
 		addSequential(new FollowProfile(Robot.crossSwitch2, RobotMap.DriveMap.DRIVE_PARAMS, true));
 
-		addSequential(new Turn(90, 10, DriveMap.TURN_PARAMS_90));
+		addSequential(new Turn(90, 5, DriveMap.TURN_PARAMS_90));
 
 		// "3" below is a timeout for this command - it means the command will end after
 		// those many seconds at most
 		//addSequential(new MotionMagic(AutoMap.SWITCH_CROSS3, AutoMap.MM_END_MARGIN), 3);
-		addSequential(new StraightDrive(-.6), 1);
+		//addSequential(new StraightDrive(-.4), 1.4);
+		addSequential(new GyroDrive(.05, 32, -.4), 1.5);
 
 		//addParallel(new StraightDrive(-.40),1);
 		addSequential(new SpitUpAndShoot());
