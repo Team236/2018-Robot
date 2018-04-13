@@ -357,7 +357,7 @@ public class Robot extends TimedRobot {
 					return new LeftScale2Cube();
 				}
 				if (!noCross.get()) {
-					return new LeftScale();
+					return new LeftScale2Cube();
 				}
 				return new LeftScale2Cube();
 			}
@@ -381,7 +381,7 @@ public class Robot extends TimedRobot {
 					return new LeftScale2Cube();
 				}
 				if (!noCross.get()) {
-					return new LeftSwitchOuter();
+					return new LeftScaleAndSwitch();
 				}
 				return new LeftScaleAndSwitch();
 			}
