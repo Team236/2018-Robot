@@ -84,9 +84,9 @@ public class OI {
 
 		// SHOOTER
 		rightStick.trigger.whenPressed(new SpinUpAndShoot());
-		leftStick.trigger.whileHeld(new Eject());
+		leftStick.trigger.whenPressed(new FullShoot());
 
-		controller.lb.whileHeld(new SpitUp());
+		controller.lb.toggleWhenPressed(new SpitUp());
 		controller.rb.toggleWhenPressed(new SpinUp());
 
 		// CLIMBER
