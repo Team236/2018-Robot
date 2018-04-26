@@ -11,10 +11,10 @@ import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
 import org.usfirst.frc.team236.robot.commands.intake.RaiseAndLower;
 import org.usfirst.frc.team236.robot.commands.launcher.FullShoot;
+import org.usfirst.frc.team236.robot.commands.launcher.SpinDown;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUp;
-import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import lib.oi.LogitechF310;
@@ -88,6 +88,8 @@ public class OI {
 
 		controller.lb.toggleWhenPressed(new SpitUp());
 		controller.rb.toggleWhenPressed(new SpinUp());
+		
+		controller.start.whenPressed(new SpinDown());
 
 		// CLIMBER
 		//controller.rightPress.whileHeld(new ClimberWithThumbstick());
