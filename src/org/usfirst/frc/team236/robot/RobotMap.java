@@ -32,6 +32,7 @@ public class RobotMap {
 		public static final boolean IS_CURRENT_LIMIT = false;
 		public static final int PEAK_CURRENT = 45;
 		public static final int CONTINUOUS_CURRENT = 30;
+		public static final int PEAK_CURRENT_DURATION = 200; // ms
 
 		// Default cruise velocity and acceleration
 		// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
