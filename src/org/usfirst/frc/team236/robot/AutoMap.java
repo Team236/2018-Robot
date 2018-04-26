@@ -7,7 +7,7 @@ import lib.motionProfile.ProfileParameters;
 
 public class AutoMap {	
 	public static final double SWITCH_CROSS1 = -42; // 48
-	public static final double SWITCH_CROSS2 = -102; // 108
+	public static final double SWITCH_CROSS2 = -108; // 108
 	public static final double SWITCH_CROSS3 = -67; // 24+
 
 	public static final double DIST_FENCE = -102; // 102
@@ -38,8 +38,8 @@ public class AutoMap {
 	//public static final ProfileParameters OUTER = new ProfileParameters(-DIST_PAST_SWITCH, 150, 300, 0, 8, 1 / 100.0);
 	public static final ProfileParameters OUTER = new ProfileParameters(-DIST_PAST_SWITCH, 100, 200, 0, 8);
 
-	public static final ProfileParameters CROSS_SWITCH_1 = new ProfileParameters(-SWITCH_CROSS1, 48, 100, 0, 3);
-	public static final ProfileParameters CROSS_SWITCH_2 = new ProfileParameters(-SWITCH_CROSS2, 48, 100, 0, 3);
+	public static final ProfileParameters CROSS_SWITCH_1 = new ProfileParameters(-SWITCH_CROSS1, 50, 100, 0, 3);
+	public static final ProfileParameters CROSS_SWITCH_2 = new ProfileParameters(-SWITCH_CROSS2, 100, 200, 0, 5);
 
 	public static final ProfileParameters TO_PLATFORM_ZONE = new ProfileParameters(-DIST_PLATFORM_ZONE_DIRECT, 75, 150, 0, 5);
 	public static final ProfileParameters CROSS_FIELD = new ProfileParameters(-DIST_CROSS_FIELD_DIRECT, 75, 150, 0, 10);
