@@ -9,8 +9,8 @@ import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
 import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinDown;
-import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpNoStop2;
+import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -35,9 +35,9 @@ public class LeftSwitchOuter extends CommandGroup {
 		//addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
 
 		addParallel(new SpinUpNoStop2());
-		addSequential(new GyroDrive(AutoMap.DIST_SIDE_FENCE));
+		addSequential(new GyroDrive(.04, AutoMap.DIST_SIDE_FENCE, -0.5), 2);
 
-		addSequential(new SpinUpAndShoot());
+		addSequential(new SpitUpAndShoot());
 		
 		addSequential(new SpinDown());
 
