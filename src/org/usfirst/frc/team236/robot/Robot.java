@@ -6,7 +6,6 @@ import org.usfirst.frc.team236.robot.commands.auto.Cross;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterLeftSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterStraightSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftLongScaleDirect;
-import org.usfirst.frc.team236.robot.commands.auto.left.LeftScale;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftSwitchOuter;
@@ -204,6 +203,8 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
+		
+		Robot.launcher.retract();
 
 		if (isDrivetrainChar) {
 			try {
