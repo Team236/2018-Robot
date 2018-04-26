@@ -40,7 +40,7 @@ public class AutoMap {
 	public static final double MM_END_MARGIN = 10;
 
 	public static final ProfileParameters TO_NULL = new ProfileParameters(-DIST_NULL_TERRITORY, 100, 100, 0, 3);
-	public static final ProfileParameters STRAIGHT_SWITCH = new ProfileParameters(-DIST_FENCE, 50, 50, 0, 4);
+	public static final ProfileParameters STRAIGHT_SWITCH = new ProfileParameters(-DIST_FENCE, 50, 50, 0, 5);
 	public static final ProfileParameters TO_CUBE1 = new ProfileParameters(-DIST_SCALE_TO_CUBE, 50, 100, 0, 4);
 
 	public static final ProfileParameters OUTER = new ProfileParameters(-DIST_PAST_SWITCH, 150, 300, 0, 8, 1 / 100.0);
