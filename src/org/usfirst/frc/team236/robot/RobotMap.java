@@ -40,11 +40,11 @@ public class RobotMap {
 		public static final int M_MAGIC_ACCL = 1000;
 
 		// Linear motion magic parameters
-		public static final double M_MAGIC_K_P = 0.3;
+		public static final double M_MAGIC_K_P = 0.6; //.3
 		public static final double M_MAGIC_K_I = 0.0;
 		public static final double M_MAGIC_K_D = 0.0;
-		public static final double M_MAGIC_K_F_R = 1.2;
-		public static final double M_MAGIC_K_F_L = 1.2;
+		public static final double M_MAGIC_K_F_R = 1.9; // 1.2
+		public static final double M_MAGIC_K_F_L = 1.8; // 1.2
 
 		// Pathfinder gains
 		public static class Pathfinder {

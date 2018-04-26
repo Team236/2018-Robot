@@ -5,15 +5,7 @@ import jaci.pathfinder.Pathfinder;
 import jaci.pathfinder.Waypoint;
 import lib.motionProfile.ProfileParameters;
 
-public class AutoMap {
-	public static final double M_MAGIC_K_P = 0.6;
-	public static final double M_MAGIC_K_I = 0;
-	public static final double M_MAGIC_K_D = 0;
-	public static final double M_MAGIC_K_F_L = 1.8;
-	public static final double M_MAGIC_K_F_R = 1.9;
-	//public static final double M_MAGIC_K_F_L = 1.7;
-	//public static final double M_MAGIC_K_F_R = 1.7;
-	
+public class AutoMap {	
 	public static final double SWITCH_CROSS1 = -42; // 48
 	public static final double SWITCH_CROSS2 = -102; // 108
 	public static final double SWITCH_CROSS3 = -67; // 24+
