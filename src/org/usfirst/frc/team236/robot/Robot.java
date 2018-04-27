@@ -196,6 +196,7 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putNumber("Angle", drive.navx.getAngle());
 		}
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
+		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage() * (110.0 / 2.75));
 	}
 
 	@Override
