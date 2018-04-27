@@ -2,6 +2,7 @@ package org.usfirst.frc.team236.robot.commands.auto.left;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.Robot;
+import org.usfirst.frc.team236.robot.RobotMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
 import org.usfirst.frc.team236.robot.commands.auto.FollowProfile;
 import org.usfirst.frc.team236.robot.commands.auto.GyroDrive;
@@ -26,7 +27,7 @@ public class LeftSwitchOuter extends CommandGroup {
 	public LeftSwitchOuter() {
 		addParallel(new PreAuto());
 		//addSequential(new MotionMagic(AutoMap.DIST_PAST_SWITCH, AutoMap.MM_END_MARGIN));
-		addSequential(new FollowProfile(Robot.outer, true));
+		addSequential(new FollowProfile(Robot.outer, RobotMap.DriveMap.DRIVE_PARAMS, true));
 
 		addSequential(new Turn(90, 15, DriveMap.TURN_PARAMS_90));
 
