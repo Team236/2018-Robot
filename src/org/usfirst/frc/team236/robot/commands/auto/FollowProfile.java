@@ -20,6 +20,7 @@ public class FollowProfile extends Command {
 	boolean reverse;
 	int reverseMultiplier = 1;
 	double endPos, margin, leftDistToEnd, rightDistToEnd;
+	public static boolean isDebug = true;
 	int i = 0;
 
 	public FollowProfile(TrapProfile _p, DriveParameters _params, boolean _rev) {
@@ -85,10 +86,22 @@ public class FollowProfile extends Command {
 		Robot.drive.setLeftSpeed(reverseMultiplier * (l_v + l_a + l_p));
 		Robot.drive.setRightSpeed(reverseMultiplier * (r_v + r_a + r_p));
 
-		SmartDashboard.putNumber("Right profile error", r_error);
-		SmartDashboard.putNumber("Left profile error", l_error);
 
 		i++;
+		
+		if (isDebug) {
+			SmartDashboard.putNumber("Left v", l_v);
+			SmartDashboard.putNumber("Right v", r_v);
+
+			SmartDashboard.putNumber("Left a", l_a);
+			SmartDashboard.putNumber("Right a", r_a);
+
+			SmartDashboard.putNumber("Right profile error", r_error);
+			SmartDashboard.putNumber("Left profile error", l_error);
+
+			SmartDashboard.putNumber("Left p", l_p);
+			SmartDashboard.putNumber("Right p", r_p);
+		}
 	}
 
 	protected boolean isFinished() {
