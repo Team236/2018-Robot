@@ -174,7 +174,7 @@ public class Robot extends TimedRobot {
 
 		autonomousCommand = getAutoFromSwitches();
 		SmartDashboard.putString("Auto", autonomousCommand.toString());
-
+		
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
@@ -376,6 +376,9 @@ public class Robot extends TimedRobot {
 				return new LeftLongScaleDirect();
 			}
 			if (gameData.equals("LLL")) {
+				if (!noCross.get() && !noSwitch.get()) {
+					return new LeftScale2Cube();
+				}
 				if (!noScale.get()) {
 					return new LeftSwitchOuter();
 				}
@@ -438,7 +441,7 @@ public class Robot extends TimedRobot {
 				if (!noSwitch.get()) {
 					return new RightLongScale();
 				}
-				if (!noSwitch.get()) {
+				if (!noCross.get()) {
 					return new Cross();
 				}
 				return new RightLongScale();
