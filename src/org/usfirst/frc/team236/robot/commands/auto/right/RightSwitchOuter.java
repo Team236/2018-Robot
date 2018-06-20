@@ -35,14 +35,14 @@ public class RightSwitchOuter extends CommandGroup {
 		//addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
 
 		addParallel(new SpinUpNoStop2());
-		addSequential(new GyroDrive(AutoMap.DIST_SIDE_FENCE));
+		addSequential(new GyroDrive(.04, AutoMap.DIST_SIDE_FENCE, -0.5),2);
 
 		addSequential(new SpitUpAndShoot());
 		
 		addSequential(new SpinDown());
 
 		//addSequential(new MotionMagic(-AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
-		addSequential(new GyroDrive(-AutoMap.DIST_SIDE_FENCE));
+		addSequential(new GyroDrive(.04, -AutoMap.DIST_SIDE_FENCE, .5), 2);
 
 		addSequential(new Turn(90, 20, DriveMap.TURN_PARAMS_90));
 

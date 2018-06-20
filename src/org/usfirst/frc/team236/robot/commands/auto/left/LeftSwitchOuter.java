@@ -28,6 +28,7 @@ public class LeftSwitchOuter extends CommandGroup {
 		addParallel(new PreAuto());
 		//addSequential(new MotionMagic(AutoMap.DIST_PAST_SWITCH, AutoMap.MM_END_MARGIN));
 		addSequential(new FollowProfile(Robot.outer, RobotMap.DriveMap.DRIVE_PARAMS, true));
+		//addSequential(new GyroDrive(.04, AutoMap.DIST_PAST_SWITCH, -0.5));
 
 		addSequential(new Turn(90, 15, DriveMap.TURN_PARAMS_90));
 

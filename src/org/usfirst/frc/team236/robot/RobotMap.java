@@ -103,7 +103,7 @@ public class RobotMap {
 		public static final int PWM_LEFT_INTAKE = 0;
 		public static final int PWM_RIGHT_INTAKE = 1;
 
-		public static final double INTAKE_SPEED = .60;
+		public static final double INTAKE_SPEED = .40;
 		public static final double EJECT_SPEED = -.75;
 		public static final double FEED_SPEED = 0.5;
 		public static final boolean INV_LEFT = true;

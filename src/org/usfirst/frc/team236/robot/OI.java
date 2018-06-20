@@ -2,6 +2,7 @@
 package org.usfirst.frc.team236.robot;
 
 import org.usfirst.frc.team236.robot.commands.climber.ClimberWithThumbstick;
+import org.usfirst.frc.team236.robot.commands.drive.TurnWithJoysticks;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.EjectWithTrigger;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
@@ -11,6 +12,7 @@ import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
 import org.usfirst.frc.team236.robot.commands.intake.RaiseAndLower;
 import org.usfirst.frc.team236.robot.commands.launcher.FullShoot;
+import org.usfirst.frc.team236.robot.commands.launcher.ShootAndSpinDown;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinDown;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
@@ -84,7 +86,7 @@ public class OI {
 
 		// SHOOTER
 		rightStick.trigger.whenPressed(new SpinUpAndShoot());
-		leftStick.trigger.whenPressed(new FullShoot());
+		leftStick.trigger.whenPressed(new ShootAndSpinDown());
 
 		controller.lb.toggleWhenPressed(new SpitUp());
 		controller.rb.toggleWhenPressed(new SpinUp());
@@ -94,6 +96,7 @@ public class OI {
 		// CLIMBER
 		//controller.rightPress.whileHeld(new ClimberWithThumbstick());
 		controller.back.whileHeld(new ClimberWithThumbstick());
+		rightStick.left.whileHeld(new TurnWithJoysticks());
 	}
 
 }
