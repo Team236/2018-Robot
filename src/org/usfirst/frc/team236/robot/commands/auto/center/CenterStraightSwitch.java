@@ -23,7 +23,7 @@ public class CenterStraightSwitch extends CommandGroup {
 		// those many seconds at most
 		addParallel(new PreAuto());
 		//addSequential(new MotionMagic(AutoMap.DIST_FENCE, AutoMap.MM_END_MARGIN, 100, 100), 4);
-		addSequential(new FollowProfile(Robot.straightSwitch, true));
+		addSequential(new FollowProfile(Robot.straightSwitch, true), 6);
 
 		addParallel(new StraightDrive(-.40),1);
 		addSequential(new SpitUpAndShoot());

@@ -43,10 +43,12 @@ public class Drive extends Subsystem implements PIDSource, PIDOutput {
 		leftFrontMaster.enableCurrentLimit(RobotMap.DriveMap.IS_CURRENT_LIMIT);
 		leftFrontMaster.configContinuousCurrentLimit(RobotMap.DriveMap.CONTINUOUS_CURRENT, 0);
 		leftFrontMaster.configPeakCurrentLimit(RobotMap.DriveMap.PEAK_CURRENT, 10);
+		leftFrontMaster.configPeakCurrentDuration(RobotMap.DriveMap.PEAK_CURRENT_DURATION, 10);
 
 		rightFrontMaster.enableCurrentLimit(RobotMap.DriveMap.IS_CURRENT_LIMIT);
 		rightFrontMaster.configContinuousCurrentLimit(RobotMap.DriveMap.CONTINUOUS_CURRENT, 0);
 		rightFrontMaster.configPeakCurrentLimit(RobotMap.DriveMap.PEAK_CURRENT, 10);
+		rightFrontMaster.configPeakCurrentDuration(RobotMap.DriveMap.PEAK_CURRENT_DURATION, 10);
 
 		// Set voltage compensation settings
 		leftFrontMaster.enableVoltageCompensation(RobotMap.DriveMap.IS_VOLTAGE_COMP);

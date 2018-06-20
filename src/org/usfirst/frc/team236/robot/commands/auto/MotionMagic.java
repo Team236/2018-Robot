@@ -42,10 +42,10 @@ public class MotionMagic extends Command {
 		Robot.drive.setMotnCV(cv);
 		Robot.drive.setMotnAccel(accel);
 
-		Robot.drive.setkP(AutoMap.M_MAGIC_K_P);
-		Robot.drive.setkI(AutoMap.M_MAGIC_K_I);
-		Robot.drive.setkD(AutoMap.M_MAGIC_K_D);
-		Robot.drive.setkF(AutoMap.M_MAGIC_K_F_L, AutoMap.M_MAGIC_K_F_R);
+		Robot.drive.setkP(RobotMap.DriveMap.M_MAGIC_K_P);
+		Robot.drive.setkI(RobotMap.DriveMap.M_MAGIC_K_I);
+		Robot.drive.setkD(RobotMap.DriveMap.M_MAGIC_K_D);
+		Robot.drive.setkF(RobotMap.DriveMap.M_MAGIC_K_F_L, RobotMap.DriveMap.M_MAGIC_K_F_R);
 
 		System.out.print("Initializing Motion Magic");
 

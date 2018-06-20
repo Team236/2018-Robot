@@ -2,6 +2,7 @@
 package org.usfirst.frc.team236.robot;
 
 import org.usfirst.frc.team236.robot.commands.climber.ClimberWithThumbstick;
+import org.usfirst.frc.team236.robot.commands.drive.TurnWithJoysticks;
 import org.usfirst.frc.team236.robot.commands.intake.Eject;
 import org.usfirst.frc.team236.robot.commands.intake.EjectWithTrigger;
 import org.usfirst.frc.team236.robot.commands.intake.Feed;
@@ -11,10 +12,11 @@ import org.usfirst.frc.team236.robot.commands.intake.Lower;
 import org.usfirst.frc.team236.robot.commands.intake.Raise;
 import org.usfirst.frc.team236.robot.commands.intake.RaiseAndLower;
 import org.usfirst.frc.team236.robot.commands.launcher.FullShoot;
+import org.usfirst.frc.team236.robot.commands.launcher.ShootAndSpinDown;
+import org.usfirst.frc.team236.robot.commands.launcher.SpinDown;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUp;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpitUp;
-import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import lib.oi.LogitechF310;
@@ -84,14 +86,17 @@ public class OI {
 
 		// SHOOTER
 		rightStick.trigger.whenPressed(new SpinUpAndShoot());
-		leftStick.trigger.whileHeld(new Eject());
+		leftStick.trigger.whenPressed(new ShootAndSpinDown());
 
-		controller.lb.whileHeld(new SpitUp());
+		controller.lb.toggleWhenPressed(new SpitUp());
 		controller.rb.toggleWhenPressed(new SpinUp());
+		
+		controller.start.whenPressed(new SpinDown());
 
 		// CLIMBER
 		//controller.rightPress.whileHeld(new ClimberWithThumbstick());
 		controller.back.whileHeld(new ClimberWithThumbstick());
+		rightStick.left.whileHeld(new TurnWithJoysticks());
 	}
 
 }

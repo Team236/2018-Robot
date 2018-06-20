@@ -6,7 +6,6 @@ import org.usfirst.frc.team236.robot.commands.auto.Cross;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterLeftSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.center.CenterStraightSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftLongScaleDirect;
-import org.usfirst.frc.team236.robot.commands.auto.left.LeftScale;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftScale2Cube;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftScaleAndSwitch;
 import org.usfirst.frc.team236.robot.commands.auto.left.LeftSwitchOuter;
@@ -175,7 +174,7 @@ public class Robot extends TimedRobot {
 
 		autonomousCommand = getAutoFromSwitches();
 		SmartDashboard.putString("Auto", autonomousCommand.toString());
-
+		
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
@@ -197,6 +196,7 @@ public class Robot extends TimedRobot {
 			SmartDashboard.putNumber("Angle", drive.navx.getAngle());
 		}
 		SmartDashboard.putNumber("Match Time", DriverStation.getInstance().getMatchTime());
+		SmartDashboard.putNumber("Pressure", pressureSensor.getAverageVoltage() * (110.0 / 2.75));
 	}
 
 	@Override
@@ -204,6 +204,8 @@ public class Robot extends TimedRobot {
 		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
 		}
+		
+		Robot.launcher.retract();
 
 		if (isDrivetrainChar) {
 			try {
@@ -374,6 +376,9 @@ public class Robot extends TimedRobot {
 				return new LeftLongScaleDirect();
 			}
 			if (gameData.equals("LLL")) {
+				if (!noCross.get() && !noSwitch.get()) {
+					return new LeftScale2Cube();
+				}
 				if (!noScale.get()) {
 					return new LeftSwitchOuter();
 				}
@@ -436,7 +441,7 @@ public class Robot extends TimedRobot {
 				if (!noSwitch.get()) {
 					return new RightLongScale();
 				}
-				if (!noSwitch.get()) {
+				if (!noCross.get()) {
 					return new Cross();
 				}
 				return new RightLongScale();

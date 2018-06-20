@@ -2,6 +2,7 @@ package org.usfirst.frc.team236.robot.commands.auto.left;
 
 import org.usfirst.frc.team236.robot.AutoMap;
 import org.usfirst.frc.team236.robot.Robot;
+import org.usfirst.frc.team236.robot.RobotMap;
 import org.usfirst.frc.team236.robot.RobotMap.DriveMap;
 import org.usfirst.frc.team236.robot.commands.auto.FollowProfile;
 import org.usfirst.frc.team236.robot.commands.auto.GyroDrive;
@@ -9,8 +10,8 @@ import org.usfirst.frc.team236.robot.commands.auto.MotionMagic;
 import org.usfirst.frc.team236.robot.commands.auto.PreAuto;
 import org.usfirst.frc.team236.robot.commands.auto.Turn;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinDown;
-import org.usfirst.frc.team236.robot.commands.launcher.SpinUpAndShoot;
 import org.usfirst.frc.team236.robot.commands.launcher.SpinUpNoStop2;
+import org.usfirst.frc.team236.robot.commands.launcher.SpitUpAndShoot;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
@@ -26,7 +27,8 @@ public class LeftSwitchOuter extends CommandGroup {
 	public LeftSwitchOuter() {
 		addParallel(new PreAuto());
 		//addSequential(new MotionMagic(AutoMap.DIST_PAST_SWITCH, AutoMap.MM_END_MARGIN));
-		addSequential(new FollowProfile(Robot.outer, true));
+		addSequential(new FollowProfile(Robot.outer, RobotMap.DriveMap.DRIVE_PARAMS, true));
+		//addSequential(new GyroDrive(.04, AutoMap.DIST_PAST_SWITCH, -0.5));
 
 		addSequential(new Turn(90, 15, DriveMap.TURN_PARAMS_90));
 
@@ -35,9 +37,9 @@ public class LeftSwitchOuter extends CommandGroup {
 		//addSequential(new MotionMagic(AutoMap.DIST_SIDE_FENCE, AutoMap.MM_END_MARGIN), 2);
 
 		addParallel(new SpinUpNoStop2());
-		addSequential(new GyroDrive(AutoMap.DIST_SIDE_FENCE));
+		addSequential(new GyroDrive(.04, AutoMap.DIST_SIDE_FENCE, -0.5), 2);
 
-		addSequential(new SpinUpAndShoot());
+		addSequential(new SpitUpAndShoot());
 		
 		addSequential(new SpinDown());
 

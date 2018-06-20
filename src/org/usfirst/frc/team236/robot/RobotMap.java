@@ -32,6 +32,7 @@ public class RobotMap {
 		public static final boolean IS_CURRENT_LIMIT = false;
 		public static final int PEAK_CURRENT = 45;
 		public static final int CONTINUOUS_CURRENT = 30;
+		public static final int PEAK_CURRENT_DURATION = 200; // ms
 
 		// Default cruise velocity and acceleration
 		// TESTBED 2/10- on carpet for 252 and 101, F = 1.5, P = 0.01, I = 0, D = 0
@@ -40,11 +41,11 @@ public class RobotMap {
 		public static final int M_MAGIC_ACCL = 1000;
 
 		// Linear motion magic parameters
-		public static final double M_MAGIC_K_P = 0.3;
+		public static final double M_MAGIC_K_P = 0.6; //.3
 		public static final double M_MAGIC_K_I = 0.0;
 		public static final double M_MAGIC_K_D = 0.0;
-		public static final double M_MAGIC_K_F_R = 1.2;
-		public static final double M_MAGIC_K_F_L = 1.2;
+		public static final double M_MAGIC_K_F_R = 1.9; // 1.2
+		public static final double M_MAGIC_K_F_L = 1.8; // 1.2
 
 		// Pathfinder gains
 		public static class Pathfinder {
@@ -119,7 +120,7 @@ public class RobotMap {
 		public static final int PWM_BOTTOM_LEFT = 5;
 
 		public static final double LAUNCH_SPEED = 1.00;
-		public static final double SPIT_SPEED = 0.5;
+		public static final double SPIT_SPEED = 0.65;
 		public static final double FEED_SPEED = -0.4;
 
 		public static final double SPINUP_TIME = .3;

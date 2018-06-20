@@ -37,6 +37,6 @@ public class SpinUp extends Command {
 	}
 
 	protected void interrupted() {
-		end();
+		//end();
 	}
 }

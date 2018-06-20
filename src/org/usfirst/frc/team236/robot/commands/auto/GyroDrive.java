@@ -31,7 +31,11 @@ public class GyroDrive extends Command {
 	}
 
 	public GyroDrive(double _dist) {
-		this(-0.05, _dist, -0.4); // Construct with default values
+		this(-0.04, _dist, -0.4); // Construct with default values
+	}
+	
+	public GyroDrive(double _dist, double _speed) {
+		this(-0.04, _dist, _speed);
 	}
 
 	@Override
