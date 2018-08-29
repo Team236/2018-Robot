@@ -34,7 +34,6 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import jaci.pathfinder.Trajectory;
 import lib.commands.DoNothing;
 import lib.motionProfile.TrapProfile;
 
@@ -56,8 +55,6 @@ public class Robot extends TimedRobot {
 	public AnalogInput pressureSensor;
 	public UsbCamera camera;
 	public Servo flag;
-
-	public static Trajectory leftLongScale, rightLongScale, centerLeftSwitch;
 
 	// Declare auto command
 	Command autonomousCommand;
@@ -133,24 +130,6 @@ public class Robot extends TimedRobot {
 		toPlatform = new TrapProfile(AutoMap.TO_PLATFORM_ZONE);
 		crossField = new TrapProfile(AutoMap.CROSS_FIELD);
 		System.out.println("Finished generating profiles");
-
-		// Generate pathfinder profiles
-		//@formatter:off
-		Trajectory.Config config = new Trajectory.Config(
-				Trajectory.FitMethod.HERMITE_CUBIC, 
-				Trajectory.Config.SAMPLES_HIGH, 
-				RobotMap.DriveMap.Pathfinder.DT, 
-				12, 120, 300
-		);
-		//@formatter:on
-
-		//centerLeftSwitch = Pathfinder.generate(AutoMap.Paths.CENTER_LEFT_SWITCH.waypoints, config);
-		System.out.println("CL Sw done");
-		//leftLongScale = Pathfinder.generate(AutoMap.Paths.LEFT_LONG_SCALE.waypoints, config);
-		System.out.println("LL Sc done");
-		//rightLongScale = Pathfinder.generate(AutoMap.Paths.RIGHT_LONG_SCALE.waypoints, config);
-		System.out.println("RL Sc done");
-		System.out.println("Finished generating paths");
 	}
 
 	@Override

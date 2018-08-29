@@ -1,8 +1,6 @@
 
 package org.usfirst.frc.team236.robot;
 
-import jaci.pathfinder.Pathfinder;
-import jaci.pathfinder.Waypoint;
 import lib.motionProfile.ProfileParameters;
 
 public class AutoMap {	
@@ -43,33 +41,4 @@ public class AutoMap {
 
 	public static final ProfileParameters TO_PLATFORM_ZONE = new ProfileParameters(-DIST_PLATFORM_ZONE_DIRECT, 75, 150, 0, 5);
 	public static final ProfileParameters CROSS_FIELD = new ProfileParameters(-DIST_CROSS_FIELD_DIRECT, 75, 150, 0, 10);
-
-	public static class Paths {
-		
-		private static final Waypoint[] CENTER_LEFT_SWITCH_POINTS = new Waypoint[] {
-				new Waypoint(1.5*12, 18*12, 0),
-				//new Waypoint(5*12, 13*12, Pathfinder.d2r(110)),
-				new Waypoint(10.5*12, 9*12, 0)
-		};
-
-		private static final Waypoint[] LEFT_LONG_SCALE_POINTS = new Waypoint[] {
-				new Waypoint(1.5*12, 23*12, 0),
-				new Waypoint(14*12, 23*12, 0),
-				new Waypoint(20*12, 17*12, Pathfinder.d2r(90)),
-				new Waypoint(20*12, 10*12, Pathfinder.d2r(90)),
-				new Waypoint(24*12, 2.5*12, Pathfinder.d2r(155))
-		};
-
-		private static final Waypoint[] RIGHT_LONG_SCALE_POINTS = new Waypoint[] {
-				new Waypoint(1.5*12, 4*12, 0),
-				new Waypoint(14*12, 4*12, 0),
-				new Waypoint(20*12, 10*12, Pathfinder.d2r(90)),
-				new Waypoint(20*12, 17*12, Pathfinder.d2r(90)),
-				new Waypoint(24*12, 24.5*12, Pathfinder.d2r(25))
-		};
-		
-		public static final ProfileSettings CENTER_LEFT_SWITCH = new ProfileSettings(CENTER_LEFT_SWITCH_POINTS, "Center left sw", 12, 120, 1000);
-		public static final ProfileSettings LEFT_LONG_SCALE = new ProfileSettings(LEFT_LONG_SCALE_POINTS, "Left long sc", 12, 120, 1000);
-		public static final ProfileSettings RIGHT_LONG_SCALE = new ProfileSettings(RIGHT_LONG_SCALE_POINTS, "Right long sc", 12, 120, 1000);
-	}
 }
